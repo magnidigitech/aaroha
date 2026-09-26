@@ -13,6 +13,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/about",
     "/careers",
     "/contact",
+    "/register",
+    "/training/register",
   ].map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: new Date().toISOString(),

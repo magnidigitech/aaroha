@@ -39,3 +39,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# untracked docs
+Sanction_Letter.pdf.pdf
+

@@ -400,13 +400,13 @@ export const Header: React.FC = () => {
 
           {/* Header Action Buttons */}
           <div className="hidden lg:flex items-center space-x-3">
-            <a
-              href={`tel:${COMPANY_INFO.phones[0].raw}`}
-              className="inline-flex items-center space-x-2 px-3.5 py-2 rounded-lg border border-white/20 text-white hover:border-white text-sm font-medium transition-colors"
+            <Link
+              href="/register"
+              className="inline-flex items-center space-x-2 px-3.5 py-2 rounded-lg bg-teal-500 hover:bg-teal-400 text-white text-sm font-bold transition-all shadow-md shadow-teal-500/20"
             >
-              <Phone className="w-4 h-4 text-blue-400" />
-              <span>Call Us</span>
-            </a>
+              <GraduationCap className="w-4 h-4" />
+              <span>Register Now</span>
+            </Link>
             <Link
               href="/contact"
               className="inline-flex items-center space-x-2 px-4 py-2.5 rounded-lg bg-blue-600 hover:bg-blue-500 text-white text-sm font-semibold transition-transform hover:-translate-y-0.5 shadow-md shadow-blue-600/30"
@@ -475,6 +475,12 @@ export const Header: React.FC = () => {
           </Link>
 
           <div className="pt-4 border-t border-white/10 flex flex-col space-y-2">
+            <Link
+              href="/register"
+              className="w-full text-center py-2.5 rounded-lg bg-teal-500 text-white font-bold text-sm"
+            >
+              Training & Career Registration
+            </Link>
             <Link
               href="/contact"
               className="w-full text-center py-2.5 rounded-lg bg-blue-600 text-white font-semibold text-sm"
