@@ -43,3 +43,9 @@ next-env.d.ts
 # untracked docs
 Sanction_Letter.pdf.pdf
 
+# raw dump / archive folder (ignored by git)
+/_raw_files/
+/raw_files/
+/_raw_dump/
+/raw_dump/
+
