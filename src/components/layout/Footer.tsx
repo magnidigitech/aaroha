@@ -15,9 +15,9 @@ export const Footer: React.FC = () => {
               <Image
                 src="/assets/aaroha-logo-dark.png"
                 alt="AAROHA Technologies"
-                width={200}
-                height={60}
-                className="h-12 w-auto object-contain"
+                width={240}
+                height={55}
+                className="h-10 sm:h-12 w-auto object-contain"
               />
             </Link>
             <p className="text-slate-400 text-sm max-w-sm leading-relaxed">

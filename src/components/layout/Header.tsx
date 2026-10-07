@@ -80,9 +80,9 @@ export const Header: React.FC = () => {
             <Image
               src="/assets/aaroha-logo-dark.png"
               alt="AAROHA Technologies — Powered by J2D"
-              width={200}
-              height={60}
-              className="h-11 sm:h-13 w-auto object-contain transition-transform group-hover:scale-[1.02]"
+              width={240}
+              height={55}
+              className="h-10 sm:h-12 w-auto object-contain transition-transform group-hover:scale-[1.02]"
               priority
             />
           </Link>
