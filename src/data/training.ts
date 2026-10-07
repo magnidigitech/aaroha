@@ -1,7 +1,8 @@
 export interface TrainingCourse {
   slug: string;
   title: string;
-  category: "Cloud & Data Engineering" | "Software Engineering" | "AI & Analytics" | "SAP Practices";
+  category: "Cloud & Data Engineering" | "Software Engineering" | "AI & Analytics" | "SAP Practices" | "Emerging & Security";
+  isUpcoming?: boolean;
   duration: string;
   weeklyHours: string;
   format: string;
@@ -2137,5 +2138,895 @@ export const TRAINING_COURSES: TrainingCourse[] = [
       "cloud-data-engineering",
       "azure-data-engineer"
     ]
+  }
+,
+  {
+      "slug": "data-science",
+      "title": "Data Science & Machine Learning",
+      "category": "AI & Analytics",
+      "isUpcoming": true,
+      "duration": "3 Months",
+      "weeklyHours": "8-10 Hours/Week",
+      "format": "Live Online + Recorded Sessions",
+      "level": "Beginner to Advanced",
+      "gradientBg": "from-cyan-950 via-blue-900 to-slate-900",
+      "tags": [
+          "Data Science",
+          "Machine Learning",
+          "Python",
+          "Deep Learning",
+          "NLP",
+          "Pandas",
+          "Scikit-Learn"
+      ],
+      "summary": "Master end-to-end Data Science, Statistical Modeling, Machine Learning pipelines, and Deep Learning using Python, Scikit-Learn, and TensorFlow with industry capstones.",
+      "overview": "This comprehensive Data Science program prepares you for high-impact roles in Data Science, Machine Learning Engineering, and Predictive Analytics. You will master data wrangling with Pandas and NumPy, exploratory data analysis, statistical modeling, supervised/unsupervised machine learning algorithms, deep neural networks, and model deployment via REST APIs.",
+      "intendedLearners": [
+          "Aspiring Data Scientists, ML Engineers, and Data Analysts",
+          "Software developers seeking to transition into AI and Data Science",
+          "Fresh graduates and STEM professionals with analytical aptitude"
+      ],
+      "prerequisites": [
+          "Basic understanding of high school mathematics (Linear Algebra, Calculus, Statistics basics)",
+          "Basic programming curiosity (Python fundamentals taught from scratch in Module 1)",
+          "Laptop/desktop with internet access for Jupyter/Colab notebooks"
+      ],
+      "quickFacts": {
+          "batchDetails": "Upcoming Weekend & Evening Cohorts",
+          "language": "English",
+          "commitment": "8-10 Hours/Week (4 hrs Live Class + 5 hrs Hands-on Projects)",
+          "prerequisiteSummary": "No prior ML experience required; Python covered in Week 1"
+      },
+      "whatYouWillLearn": [
+          "Master Python for Data Science: NumPy, Pandas, Matplotlib, and Seaborn",
+          "Build regression, classification, clustering, and ensemble models with Scikit-Learn",
+          "Implement Deep Learning neural networks with TensorFlow and Keras",
+          "Perform Natural Language Processing (NLP) with HuggingFace and spaCy",
+          "Deploy trained ML models to production using FastAPI and Docker on Cloud"
+      ],
+      "curriculum": [
+          {
+              "module": "Module 1: Python & Exploratory Data Analysis",
+              "objective": "Build strong foundations in Python programming, scientific computing with NumPy, and data manipulation with Pandas.",
+              "topics": [
+                  "Python Data Structures & OOP",
+                  "NumPy Vectorized Arrays",
+                  "Pandas DataFrames & Cleaning",
+                  "Visualizations with Matplotlib/Seaborn",
+                  "Feature Engineering"
+              ],
+              "exercise": "Clean and analyze a messy 500,000-record real-world retail transactions dataset."
+          },
+          {
+              "module": "Module 2: Applied Statistics & Classical Machine Learning",
+              "objective": "Master statistical hypothesis testing, feature selection, and classical supervised/unsupervised algorithms.",
+              "topics": [
+                  "Probability & Hypothesis Testing",
+                  "Linear & Logistic Regression",
+                  "Decision Trees & Random Forests",
+                  "Gradient Boosting (XGBoost/LightGBM)",
+                  "K-Means Clustering & PCA"
+              ],
+              "exercise": "Train and optimize a customer churn prediction model achieving 92%+ precision."
+          },
+          {
+              "module": "Module 3: Deep Learning & NLP Fundamentals",
+              "objective": "Understand Artificial Neural Networks (ANNs), Convolutional Networks (CNNs), and Natural Language Processing.",
+              "topics": [
+                  "Neural Network Architectures",
+                  "Backpropagation & Optimizers",
+                  "TensorFlow & Keras Implementation",
+                  "Text Preprocessing & Embeddings",
+                  "Transformers & LLM Basics"
+              ],
+              "exercise": "Build a sentiment analysis and multi-class ticket classification system."
+          },
+          {
+              "module": "Module 4: Model Deployment & MLOps Production",
+              "objective": "Package machine learning models into production-ready containerized APIs and deploy on cloud.",
+              "topics": [
+                  "Model Serialization & Versioning",
+                  "FastAPI Inference Endpoints",
+                  "Docker Containerization",
+                  "Cloud Deployment on Azure/AWS",
+                  "Monitoring Drift & Retraining"
+              ],
+              "exercise": "Deploy a real-time fraud detection API with Docker and Swagger documentation."
+          }
+      ],
+      "projects": [
+          {
+              "title": "Practice Project: Predictive Real Estate Valuation Engine",
+              "type": "Practice Project",
+              "problem": "Predict housing market prices using multi-feature geospatial and economic datasets.",
+              "whatYouBuild": "Feature engineering pipeline + tuned Random Forest & Ridge Regression models with cross-validation.",
+              "tools": [
+                  "Python",
+                  "Pandas",
+                  "Scikit-Learn",
+                  "Seaborn"
+              ],
+              "deliverables": [
+                  "Jupyter notebook analysis",
+                  "Evaluated ML model pipeline",
+                  "Feature importance chart"
+              ],
+              "reviewProcess": "Mentor code review on feature selection and evaluation metrics (RMSE, R2)."
+          },
+          {
+              "title": "Simulated Business Project: Enterprise Credit Risk Assessment Platform",
+              "type": "Simulated Business Project",
+              "problem": "Financial institutions need automated loan default prediction to minimize non-performing assets.",
+              "whatYouBuild": "End-to-end credit scoring pipeline with imbalanced data handling (SMOTE), XGBoost, and FastAPI deployment.",
+              "tools": [
+                  "Python",
+                  "XGBoost",
+                  "FastAPI",
+                  "Docker",
+                  "Azure"
+              ],
+              "deliverables": [
+                  "Production REST API",
+                  "Model drift report",
+                  "Docker container image"
+              ],
+              "reviewProcess": "1-on-1 technical evaluation and deployment code review."
+          }
+      ],
+      "classExperience": {
+          "liveSessions": "Live instructor-led interactive weekend/evening sessions with instant doubt resolution.",
+          "recordings": "Full 1080p HD recordings uploaded within 2 hours of class completion.",
+          "assignments": "Hands-on coding notebooks and dataset challenges with automated grading.",
+          "doubtSupport": "Dedicated Slack support channel and weekly mentor 1-on-1 office hours."
+      },
+      "trainer": {
+          "name": "Senior Staff Data Scientist",
+          "title": "AI/ML Lead Architect & Analytics Specialist",
+          "experience": "11+ Years in Enterprise Data Science & Predictive Systems",
+          "role": "Lead Instructor & Project Evaluator"
+      },
+      "scheduleFees": {
+          "nextBatchDate": "Upcoming Cohort \u2014 Pre-Registration Open",
+          "timings": "Weekends: 7:00 PM \u2013 9:00 PM IST | Weekdays: 8:00 AM \u2013 9:30 AM IST",
+          "feeStructure": "Early Bird Scholarship Available (Pay in 2 Easy Installments)",
+          "paymentTerms": "Pre-register now to reserve your seat with zero upfront commitment."
+      },
+      "careerSupportDetails": {
+          "resumePreparation": "Custom ATS-optimized data science resume highlighting real-world predictive models and code repos.",
+          "mockInterviews": "2 Technical mock interviews covering Python algorithms, statistics, and ML system design.",
+          "technicalPreparation": "Repository of 250+ top Data Science interview questions and coding challenges.",
+          "jobReferrals": "Direct profile sharing with top tech startups, GCCs, and enterprise analytics hiring teams.",
+          "supportDuration": "6 Months dedicated career counseling and placement assistance.",
+          "studentResponsibilities": [
+              "Complete all lab assignments",
+              "Submit and present capstone project",
+              "Attend mock evaluations"
+          ]
+      },
+      "faqs": [
+          {
+              "question": "Do I need a strong mathematical background for this Data Science course?",
+              "answer": "Basic high school math is sufficient. All relevant statistical concepts, linear algebra, and calculus principles are taught step-by-step with intuitive practical Python examples."
+          },
+          {
+              "question": "What tools and libraries are covered?",
+              "answer": "Python, Jupyter, NumPy, Pandas, Matplotlib, Seaborn, Scikit-Learn, XGBoost, TensorFlow, Keras, FastAPI, and Docker."
+          },
+          {
+              "question": "Is this course live or pre-recorded?",
+              "answer": "All sessions are conducted live interactively online by senior industry practitioners, with full HD class recordings provided for lifelong revision."
+          }
+      ],
+      "relatedSlugs": [
+          "data-analytics",
+          "azure-data-engineer-genai",
+          "generative-ai-engineering"
+      ]
+  },
+  {
+      "slug": "data-analytics",
+      "title": "Data Analytics & Business Intelligence",
+      "category": "AI & Analytics",
+      "isUpcoming": true,
+      "duration": "2.5 Months",
+      "weeklyHours": "8-10 Hours/Week",
+      "format": "Live Online + Recorded Sessions",
+      "level": "Beginner to Intermediate",
+      "gradientBg": "from-blue-950 via-indigo-900 to-slate-900",
+      "tags": [
+          "Data Analytics",
+          "SQL",
+          "Power BI",
+          "Tableau",
+          "Excel",
+          "Python",
+          "Business Intelligence"
+      ],
+      "summary": "Become a job-ready Data & BI Analyst. Learn advanced SQL, Power BI DAX, Tableau interactive dashboards, and Python analytics to transform complex raw data into actionable executive insights.",
+      "overview": "This program empowers you to bridge the gap between raw data and executive business decisions. You will master relational SQL database querying, advanced data cleaning, Power BI DAX modeling, Tableau storytelling, and Python exploratory data analysis to solve core business problems in e-commerce, finance, healthcare, and operations.",
+      "intendedLearners": [
+          "Aspiring Data Analysts, BI Developers, and Business Analysts",
+          "Excel users and reporting professionals upgrading to modern SQL & Power BI stack",
+          "Graduates from commerce, engineering, and arts backgrounds seeking high-growth analytics careers"
+      ],
+      "prerequisites": [
+          "Basic familiarity with Microsoft Excel or spreadsheets",
+          "No coding knowledge required \u2014 SQL, Power BI, and Python are taught from scratch",
+          "Computer with Windows/Mac for Power BI Desktop and SQL Server access"
+      ],
+      "quickFacts": {
+          "batchDetails": "Upcoming Evening & Weekend Batches",
+          "language": "English",
+          "commitment": "8 Hours/Week (4 hrs Live Class + 4 hrs Hands-on Dashboard Labs)",
+          "prerequisiteSummary": "Zero coding prerequisites; beginner friendly curriculum"
+      },
+      "whatYouWillLearn": [
+          "Master Advanced SQL: Window Functions, CTEs, Joins, Aggregations, and Query Optimization",
+          "Build dynamic Power BI & Tableau dashboards with custom KPI metrics and DAX formulas",
+          "Perform data wrangling and statistical reporting with Python (Pandas, Plotly)",
+          "Design star-schema relational data models for scalable enterprise reporting",
+          "Present actionable insights through executive business storytelling and KPI decks"
+      ],
+      "curriculum": [
+          {
+              "module": "Module 1: Advanced SQL & Relational Databases",
+              "objective": "Master enterprise data extraction, transformation, and analytical querying with SQL.",
+              "topics": [
+                  "Relational Database Design",
+                  "Complex Joins & Subqueries",
+                  "Window Functions (RANK, LEAD, LAG)",
+                  "Common Table Expressions (CTEs)",
+                  "Stored Procedures & Indexing"
+              ],
+              "exercise": "Write 25+ business queries analyzing user behavior across a multi-million-row database."
+          },
+          {
+              "module": "Module 2: Power BI & DAX Data Modeling",
+              "objective": "Transform raw datasets into automated interactive enterprise Power BI dashboards.",
+              "topics": [
+                  "Power Query ETL Transformation",
+                  "Star Schema & Data Modeling",
+                  "DAX Calculations (CALCULATE, Time Intelligence)",
+                  "Interactive Visualizations & Slicers",
+                  "Power BI Service & Scheduling"
+              ],
+              "exercise": "Build a 3-page Executive Financial & Sales Revenue Performance Dashboard."
+          },
+          {
+              "module": "Module 3: Tableau Visual Analytics & Storytelling",
+              "objective": "Create polished Tableau dashboards, calculated fields, and visual data stories.",
+              "topics": [
+                  "Tableau Architecture & Connection",
+                  "Calculated Fields & LOD Expressions",
+                  "Dual-Axis Charts & Geospatial Maps",
+                  "Dashboard Actions & Interactivity",
+                  "Publishing to Tableau Public/Server"
+              ],
+              "exercise": "Develop an interactive Global Logistics & Supply Chain Tracker."
+          },
+          {
+              "module": "Module 4: Python Analytics & Business Presentation",
+              "objective": "Use Python for exploratory data analysis, automated reporting, and executive presentations.",
+              "topics": [
+                  "Python for Analytics (Pandas, Plotly)",
+                  "A/B Testing & Statistical Analysis",
+                  "Automated Excel/PDF Report Generation",
+                  "Executive Storytelling & KPI Formulation"
+              ],
+              "exercise": "Deliver a complete marketing campaign ROI analysis presentation."
+          }
+      ],
+      "projects": [
+          {
+              "title": "Practice Project: E-Commerce Customer Cohort Analysis",
+              "type": "Practice Project",
+              "problem": "Analyze customer retention, repeat purchase rates, and lifetime value over 12 months.",
+              "whatYouBuild": "SQL cohort analysis script and interactive Power BI retention heatmaps.",
+              "tools": [
+                  "SQL Server",
+                  "Power BI",
+                  "Excel"
+              ],
+              "deliverables": [
+                  "SQL scripts",
+                  "Power BI report (.pbix)",
+                  "Insight summary document"
+              ],
+              "reviewProcess": "Code review on SQL query efficiency and visual hierarchy."
+          },
+          {
+              "title": "Simulated Business Project: Enterprise Omnichannel Operations Dashboard",
+              "type": "Simulated Business Project",
+              "problem": "Operations leadership needs a single pane of glass for real-time inventory, sales, and refund metrics.",
+              "whatYouBuild": "Production multi-page Power BI dashboard with complex DAX time intelligence and automatic refresh.",
+              "tools": [
+                  "Power BI",
+                  "PostgreSQL",
+                  "DAX Studio",
+                  "Python"
+              ],
+              "deliverables": [
+                  "Interactive Power BI dashboard",
+                  "DAX documentation",
+                  "Executive presentation deck"
+              ],
+              "reviewProcess": "1-on-1 dashboard review assessing design, speed, and business KPI clarity."
+          }
+      ],
+      "classExperience": {
+          "liveSessions": "Live interactive classes with hands-on dashboard building in real-time.",
+          "recordings": "Lifetime access to class recordings, dataset files, and DAX cheat sheets.",
+          "assignments": "Weekly business scenario case studies with personalized feedback.",
+          "doubtSupport": "Daily mentor assistance for SQL queries and Power BI DAX debugging."
+      },
+      "trainer": {
+          "name": "Principal BI Consultant",
+          "title": "Lead Business Intelligence Architect",
+          "experience": "10+ Years in Global Enterprise BI & Analytics Consulting",
+          "role": "Lead Instructor"
+      },
+      "scheduleFees": {
+          "nextBatchDate": "Upcoming Cohort \u2014 Pre-Registration Open",
+          "timings": "Evening: 8:00 PM \u2013 9:30 PM IST | Weekend Morning: 9:30 AM \u2013 11:30 AM IST",
+          "feeStructure": "Early Bird Scholarship Available",
+          "paymentTerms": "Reserve your seat with zero upfront commitment."
+      },
+      "careerSupportDetails": {
+          "resumePreparation": "Resume optimized for Data Analyst, BI Analyst, and SQL Developer roles.",
+          "mockInterviews": "2 Mock interviews focused on SQL live coding and business case study resolution.",
+          "technicalPreparation": "Top 200 SQL, DAX, and BI interview questions & scenario answers.",
+          "jobReferrals": "Direct sharing with analytics firms, MNCs, and growing startups.",
+          "supportDuration": "6 Months placement guidance.",
+          "studentResponsibilities": [
+              "Complete all weekly dashboard assignments",
+              "Present capstone project"
+          ]
+      },
+      "faqs": [
+          {
+              "question": "Can I learn Data Analytics without any coding background?",
+              "answer": "Yes! Data Analytics relies on logic, SQL, and business visual tools. We teach SQL and Python from absolute basics."
+          },
+          {
+              "question": "What is the difference between Data Science and Data Analytics?",
+              "answer": "Data Analytics focuses on analyzing historical and current business data to drive operational decisions (using SQL, Power BI, Tableau). Data Science focuses on predictive modeling, machine learning, and advanced algorithms."
+          }
+      ],
+      "relatedSlugs": [
+          "data-science",
+          "business-analytics-powerbi",
+          "azure-data-engineer"
+      ]
+  },
+  {
+      "slug": "cyber-security",
+      "title": "Cyber Security & Defensive Operations",
+      "category": "Emerging & Security",
+      "isUpcoming": true,
+      "duration": "3 Months",
+      "weeklyHours": "8-10 Hours/Week",
+      "format": "Live Online + Virtual Lab Access",
+      "level": "Beginner to Advanced",
+      "gradientBg": "from-slate-950 via-emerald-950 to-slate-900",
+      "tags": [
+          "Cyber Security",
+          "Ethical Hacking",
+          "SOC Analysis",
+          "Network Security",
+          "Cloud Security",
+          "SIEM",
+          "Splunk"
+      ],
+      "summary": "Master enterprise cybersecurity defense, penetration testing methodologies, SOC threat hunting, cloud security on Azure/AWS, and Incident Response with live virtual labs.",
+      "overview": "In an era of unprecedented cyber threats, organizations require skilled defensive and offensive security engineers. This comprehensive course takes you through computer networking, vulnerability assessment, ethical hacking methodologies, SIEM log monitoring (Splunk), threat intelligence, and cloud security architecture.",
+      "intendedLearners": [
+          "Aspiring Cybersecurity Analysts, SOC Engineers, and Network Security Specialists",
+          "System Administrators and IT Support engineers transitioning to security",
+          "Fresh engineering graduates seeking high-demand cybersecurity careers"
+      ],
+      "prerequisites": [
+          "Basic understanding of computers and operating systems (Windows/Linux)",
+          "Basic networking concepts (IP addressing, DNS, ports) is helpful but covered in Module 1",
+          "Computer with 8GB+ RAM for running virtualized security labs"
+      ],
+      "quickFacts": {
+          "batchDetails": "Upcoming Cohort \u2014 Pre-Registration Open",
+          "language": "English",
+          "commitment": "8-10 Hours/Week (4 hrs Live Class + 5 hrs Hands-on Virtual Labs)",
+          "prerequisiteSummary": "Beginner friendly; Linux & Networking fundamentals included"
+      },
+      "whatYouWillLearn": [
+          "Master Network Defense: Firewalls, VPNs, Wireshark packet analysis, and IDS/IPS",
+          "Perform Vulnerability Assessment and Penetration Testing (VAPT) with Kali Linux & Metasploit",
+          "Operate Security Operations Center (SOC) tools: SIEM (Splunk), EDR, and log analysis",
+          "Implement Cloud Security postures and IAM policies across Microsoft Azure & AWS",
+          "Execute Incident Response, Threat Hunting, and Digital Forensics workflows"
+      ],
+      "curriculum": [
+          {
+              "module": "Module 1: Networking & Linux Security Foundations",
+              "objective": "Build solid fundamentals in TCP/IP networking protocols and Linux administration for security.",
+              "topics": [
+                  "OSI & TCP/IP Stack Deep Dive",
+                  "Wireshark Packet Inspection",
+                  "Linux Shell Scripting & Hardening",
+                  "Network Scanning with Nmap",
+                  "Port Security & Firewalls"
+              ],
+              "exercise": "Capture and analyze malicious network traffic using Wireshark and Nmap."
+          },
+          {
+              "module": "Module 2: Ethical Hacking & Vulnerability Assessment",
+              "objective": "Learn ethical hacking methodologies, web app security (OWASP Top 10), and vulnerability scanning.",
+              "topics": [
+                  "VAPT Methodologies",
+                  "OWASP Top 10 Web Vulnerabilities (SQLi, XSS, CSRF)",
+                  "Metasploit & Burp Suite Testing",
+                  "Password Cracking Defense",
+                  "Remediation Reporting"
+              ],
+              "exercise": "Perform a simulated penetration test on a vulnerable web application and generate a remediation report."
+          },
+          {
+              "module": "Module 3: SOC Operations & SIEM Threat Monitoring",
+              "objective": "Work as a Tier 1/2 SOC analyst using Splunk and SIEM platforms for real-time attack detection.",
+              "topics": [
+                  "SOC Workflows & MITRE ATT&CK Framework",
+                  "Splunk Search Processing Language (SPL)",
+                  "Creating SIEM Alerts & Dashboards",
+                  "Brute Force & Ransomware Detection",
+                  "Threat Intelligence Integration"
+              ],
+              "exercise": "Configure custom Splunk detection rules to identify an active brute-force intrusion."
+          },
+          {
+              "module": "Module 4: Cloud Security & Incident Response",
+              "objective": "Secure enterprise cloud environments (Azure Sentinel, IAM) and execute incident response plans.",
+              "topics": [
+                  "Azure Security Center & Sentinel",
+                  "Cloud IAM & Zero Trust Architecture",
+                  "Incident Response Lifecycle (NIST)",
+                  "Digital Forensics Basics",
+                  "Compliance & CIS Benchmarks"
+              ],
+              "exercise": "Conduct a live Incident Response triage following a simulated cloud credential compromise."
+          }
+      ],
+      "projects": [
+          {
+              "title": "Practice Project: Enterprise Network Vulnerability Assessment",
+              "type": "Practice Project",
+              "problem": "Identify unpatched CVEs and misconfigured network ports in an enterprise test network.",
+              "whatYouBuild": "Automated scan pipeline with Nmap and OpenVAS + prioritized risk mitigation report.",
+              "tools": [
+                  "Kali Linux",
+                  "Nmap",
+                  "OpenVAS",
+                  "Wireshark"
+              ],
+              "deliverables": [
+                  "Vulnerability assessment report",
+                  "CVSS risk scoring sheet"
+              ],
+              "reviewProcess": "Review of vulnerability discovery accuracy and remediation clarity."
+          },
+          {
+              "title": "Simulated Business Project: 24/7 SOC Threat Detection Lab",
+              "type": "Simulated Business Project",
+              "problem": "A financial client requires centralized log ingestion and automated alerting for advanced persistent threats.",
+              "whatYouBuild": "Full Splunk SIEM deployment ingesting multi-server syslog data with 5 custom correlation alert rules.",
+              "tools": [
+                  "Splunk Enterprise",
+                  "Sysmon",
+                  "Ubuntu Linux",
+                  "Windows Server VM"
+              ],
+              "deliverables": [
+                  "Configured Splunk SIEM",
+                  "Incident response playbook",
+                  "Executive security briefing"
+              ],
+              "reviewProcess": "1-on-1 practical SOC scenario defense evaluation."
+          }
+      ],
+      "classExperience": {
+          "liveSessions": "Live interactive classes with hands-on demonstrations in dedicated virtual sandboxes.",
+          "recordings": "Full HD recordings and downloadable step-by-step lab walk-through guides.",
+          "assignments": "Real-world capture-the-flag (CTF) lab exercises and threat analysis reports.",
+          "doubtSupport": "Dedicated security mentor support on Discord/Slack."
+      },
+      "trainer": {
+          "name": "Lead Cyber Security Architect",
+          "title": "Certified Information Systems Security Professional (CISSP / CEH)",
+          "experience": "12+ Years in SOC Management & Enterprise Threat Defense",
+          "role": "Lead Security Instructor"
+      },
+      "scheduleFees": {
+          "nextBatchDate": "Upcoming Cohort \u2014 Pre-Registration Open",
+          "timings": "Weekend: 6:00 PM \u2013 8:30 PM IST | Weekday Evening: 8:00 PM \u2013 9:30 PM IST",
+          "feeStructure": "Early Bird Scholarship Available",
+          "paymentTerms": "Reserve your seat with zero upfront commitment."
+      },
+      "careerSupportDetails": {
+          "resumePreparation": "ATS resume tailored for SOC Analyst (L1/L2), Cybersecurity Engineer, and VAPT roles.",
+          "mockInterviews": "2 Security mock interviews covering network defense, incident scenarios, and tool triage.",
+          "technicalPreparation": "Top 250 Cybersecurity interview questions, scenario playbooks, and certifications guide.",
+          "jobReferrals": "Direct referral pipeline to cybersecurity consulting firms, banks, and MNC SOCs.",
+          "supportDuration": "6 Months placement assistance.",
+          "studentResponsibilities": [
+              "Complete all sandbox lab exercises",
+              "Submit incident triage reports"
+          ]
+      },
+      "faqs": [
+          {
+              "question": "Is cybersecurity suitable for fresh graduates?",
+              "answer": "Yes! SOC Analyst (L1), Junior Security Engineer, and Cloud Security Associate are high-demand entry-level roles requiring hands-on lab experience which this program delivers."
+          },
+          {
+              "question": "Does this course cover practical hands-on hacking and defense?",
+              "answer": "Yes. More than 70% of the course is practical hands-on labs using Kali Linux, Wireshark, Metasploit, Splunk, and Azure Sentinel in isolated virtual cloud sandboxes."
+          }
+      ],
+      "relatedSlugs": [
+          "devops-cloud-engineering",
+          "azure-data-engineer",
+          "fde-engineering"
+      ]
+  },
+  {
+      "slug": "quantum-computing",
+      "title": "Quantum Computing & Quantum Algorithms",
+      "category": "Emerging & Security",
+      "isUpcoming": true,
+      "duration": "2.5 Months",
+      "weeklyHours": "6-8 Hours/Week",
+      "format": "Live Online + IBM Quantum Lab Access",
+      "level": "Intermediate to Advanced",
+      "gradientBg": "from-purple-950 via-indigo-950 to-slate-900",
+      "tags": [
+          "Quantum Computing",
+          "Qiskit",
+          "Quantum Algorithms",
+          "Quantum Cryptography",
+          "Python",
+          "IBM Quantum"
+      ],
+      "summary": "Step into the future of computing. Master quantum mechanics principles, quantum circuits, Qiskit programming, and foundational quantum algorithms (Grover\u2019s, Shor\u2019s, VQE) on real IBM Quantum hardware.",
+      "overview": "Quantum computing represents the next massive paradigm shift in computational science, cryptography, drug discovery, and optimization. This pioneering program introduces engineers and researchers to quantum physics principles, qubits, quantum gates, superposition, entanglement, and hands-on coding using IBM Qiskit.",
+      "intendedLearners": [
+          "Software engineers, mathematicians, and data scientists looking to be first-movers in quantum tech",
+          "Researchers and physics/engineering students interested in computational quantum algorithms",
+          "Tech professionals preparing for upcoming quantum computing roles in R&D and enterprise labs"
+      ],
+      "prerequisites": [
+          "Basic understanding of Linear Algebra (vectors, matrices, matrix multiplication)",
+          "Intermediate Python programming proficiency",
+          "Curiosity for emerging computational paradigms"
+      ],
+      "quickFacts": {
+          "batchDetails": "Upcoming Emerging Tech Cohort",
+          "language": "English",
+          "commitment": "6-8 Hours/Week (3 hrs Live Class + 4 hrs Hands-on Quantum Labs)",
+          "prerequisiteSummary": "Linear Algebra & Python basics required"
+      },
+      "whatYouWillLearn": [
+          "Master Quantum Mechanics Essentials: Qubits, Superposition, Entanglement, and Bloch Sphere",
+          "Build and simulate quantum circuits using IBM Qiskit in Python",
+          "Implement core Quantum Algorithms: Deutsch-Jozsa, Quantum Fourier Transform, Grover\u2019s & Shor\u2019s",
+          "Run quantum circuits on actual real-world IBM Quantum cloud quantum hardware",
+          "Explore Quantum Cryptography (QKD - BB84) and Post-Quantum Cryptography standards"
+      ],
+      "curriculum": [
+          {
+              "module": "Module 1: Foundations of Quantum Information",
+              "objective": "Understand qubit states, quantum gates, superposition, and matrix representations.",
+              "topics": [
+                  "Classical vs Quantum Bits",
+                  "Linear Algebra & Dirac Bra-Ket Notation",
+                  "Single Qubit Gates (Pauli X, Y, Z, Hadamard, Phase)",
+                  "Bloch Sphere Visualization",
+                  "Multi-Qubit Systems & Entanglement (CNOT, Bell States)"
+              ],
+              "exercise": "Construct and simulate a Bell State entangled pair circuit in Qiskit."
+          },
+          {
+              "module": "Module 2: Quantum Circuit Programming with Qiskit",
+              "objective": "Write, optimize, and execute quantum circuits on local statevector simulators and cloud backends.",
+              "topics": [
+                  "Qiskit SDK Architecture",
+                  "QuantumCircuit Class & Measurement",
+                  "Aer Simulator & Statevector Visualization",
+                  "Noise Models & Error Mitigation",
+                  "Connecting to IBM Quantum Cloud API"
+              ],
+              "exercise": "Execute a teleportation protocol circuit on an IBM Quantum 7-qubit cloud processor."
+          },
+          {
+              "module": "Module 3: Core Quantum Algorithms",
+              "objective": "Implement foundational quantum algorithms demonstrating quantum speedup over classical systems.",
+              "topics": [
+                  "Quantum Oracle Design",
+                  "Deutsch-Jozsa & Bernstein-Vazirani Algorithms",
+                  "Grover\u2019s Search Algorithm & Amplitude Amplification",
+                  "Quantum Phase Estimation & Quantum Fourier Transform (QFT)",
+                  "Shor\u2019s Factoring Algorithm Overview"
+              ],
+              "exercise": "Implement Grover's search algorithm to find target elements in an unstructured database."
+          },
+          {
+              "module": "Module 4: Quantum Machine Learning & Cryptography",
+              "objective": "Explore Variational Quantum Eigensolvers (VQE), Quantum Key Distribution, and enterprise impact.",
+              "topics": [
+                  "Variational Quantum Algorithms (VQE & QAOA)",
+                  "Quantum Key Distribution (BB84 Protocol)",
+                  "Post-Quantum Cryptography (PQC)",
+                  "Quantum Chemistry & Optimization Use Cases",
+                  "Future Trends in Quantum Advantage"
+              ],
+              "exercise": "Simulate molecular ground state energy calculation using VQE."
+          }
+      ],
+      "projects": [
+          {
+              "title": "Practice Project: Quantum Teleportation Protocol Simulator",
+              "type": "Practice Project",
+              "problem": "Transfer quantum information between two parties using entanglement and classical communication.",
+              "whatYouBuild": "3-qubit quantum teleportation circuit in Qiskit with fidelity measurement.",
+              "tools": [
+                  "Python",
+                  "Qiskit",
+                  "Jupyter",
+                  "IBM Quantum"
+              ],
+              "deliverables": [
+                  "Qiskit circuit script",
+                  "Statevector probability distribution plots"
+              ],
+              "reviewProcess": "Code review on circuit gate depth and simulation fidelity."
+          },
+          {
+              "title": "Simulated Business Project: Grover\u2019s Quantum Search for Cryptographic Key Discovery",
+              "type": "Simulated Business Project",
+              "problem": "Demonstrate quantum speedup O(sqrt(N)) in searching unstructured cryptographic key spaces.",
+              "whatYouBuild": "Parameterized Grover search circuit with custom oracle and diffuser executed on IBM Quantum hardware.",
+              "tools": [
+                  "Qiskit",
+                  "IBM Quantum Platform",
+                  "Python",
+                  "Matplotlib"
+              ],
+              "deliverables": [
+                  "Quantum circuit code",
+                  "Execution trace on real IBM Quantum device",
+                  "Speedup analysis report"
+              ],
+              "reviewProcess": "1-on-1 technical evaluation on quantum algorithm implementation and hardware noise analysis."
+          }
+      ],
+      "classExperience": {
+          "liveSessions": "Interactive live lectures covering math derivations and live Qiskit coding.",
+          "recordings": "Full HD recordings, mathematical notes, and notebook repositories.",
+          "assignments": "Weekly quantum circuit puzzles and algorithm implementations.",
+          "doubtSupport": "Direct mentorship from quantum computing researchers and engineers."
+      },
+      "trainer": {
+          "name": "Quantum Computing Researcher",
+          "title": "PhD / Lead Quantum Systems Scientist",
+          "experience": "8+ Years in Quantum Information & Computational Physics",
+          "role": "Lead Quantum Instructor"
+      },
+      "scheduleFees": {
+          "nextBatchDate": "Upcoming Cohort \u2014 Pre-Registration Open",
+          "timings": "Weekend Evening: 7:00 PM \u2013 9:00 PM IST",
+          "feeStructure": "Early Bird Scholarship Available",
+          "paymentTerms": "Reserve your seat with zero upfront commitment."
+      },
+      "careerSupportDetails": {
+          "resumePreparation": "Research and industry-oriented resume emphasizing Qiskit, quantum algorithms, and projects.",
+          "mockInterviews": "Technical interview preparation covering quantum algorithms and linear algebra.",
+          "technicalPreparation": "Repository of quantum computing interview questions and IBM Quantum Developer certification prep.",
+          "jobReferrals": "Referral sharing with quantum tech startups, deep-tech research labs, and enterprise R&D hubs.",
+          "supportDuration": "6 Months research & career guidance.",
+          "studentResponsibilities": [
+              "Complete all weekly Qiskit notebooks",
+              "Submit capstone algorithm project"
+          ]
+      },
+      "faqs": [
+          {
+              "question": "Do I need actual quantum hardware to learn this course?",
+              "answer": "No! We use IBM Quantum cloud platforms, which allow you to write Qiskit code on your laptop and submit quantum jobs over the cloud to run on real physical quantum computers located in IBM research labs."
+          },
+          {
+              "question": "What is Qiskit?",
+              "answer": "Qiskit is the leading open-source software development kit (SDK) developed by IBM for working with quantum computers at the level of circuits, pulses, and algorithms in Python."
+          }
+      ],
+      "relatedSlugs": [
+          "data-science",
+          "generative-ai-engineering",
+          "cyber-security"
+      ]
+  },
+  {
+      "slug": "fde-engineering",
+      "title": "Forward Deployed Engineering (FDE)",
+      "category": "Software Engineering",
+      "isUpcoming": true,
+      "duration": "3 Months",
+      "weeklyHours": "8-10 Hours/Week",
+      "format": "Live Online + Real-World Client Simulation",
+      "level": "Intermediate to Advanced",
+      "gradientBg": "from-blue-950 via-slate-900 to-indigo-950",
+      "tags": [
+          "FDE",
+          "Forward Deployed",
+          "Full Stack",
+          "Cloud Architecture",
+          "Data Pipelines",
+          "Client Delivery",
+          "APIs"
+      ],
+      "summary": "Train for the premier role in modern tech (Palantir/OpenAI style). Master full-stack software architecture, data pipelines, enterprise integration, and client-facing engineering delivery.",
+      "overview": "Forward Deployed Engineers (FDEs) sit at the powerful intersection of software engineering, cloud data architecture, and high-stakes client problem solving. This elite training program equips you with full-stack skills, custom API middleware, database integration, containerized cloud deployment, and the consultative problem-solving mindset required to deploy mission-critical software at enterprise client sites.",
+      "intendedLearners": [
+          "Software Engineers, Solutions Architects, and Full Stack Developers aiming for elite FDE roles",
+          "Technical Consultants and Pre-Sales Engineers wanting deep hands-on coding & deployment capability",
+          "Engineers aspiring to work at high-growth enterprise software firms and tier-1 product companies"
+      ],
+      "prerequisites": [
+          "Prior programming experience in JavaScript/TypeScript, Python, or Java",
+          "Familiarity with web technologies, REST APIs, and relational databases",
+          "Strong analytical problem-solving and communication skills"
+      ],
+      "quickFacts": {
+          "batchDetails": "Upcoming Elite Cohort \u2014 Pre-Registration Open",
+          "language": "English",
+          "commitment": "8-10 Hours/Week (4 hrs Live Class + 5 hrs Enterprise Simulations)",
+          "prerequisiteSummary": "Prior coding experience required; intermediate to advanced level"
+      },
+      "whatYouWillLearn": [
+          "Master Full-Stack Platform Engineering: Next.js/React, TypeScript, Node.js, and Python backend services",
+          "Build High-Throughput Data Ingestion & Integration Middleware connecting enterprise ERPs and CRMs",
+          "Architect Cloud-Native Infrastructure on Azure/AWS with Docker, Kubernetes, and Terraform",
+          "Design resilient microservices, secure authentication (OAuth2/SSO), and webhook streaming pipelines",
+          "Master FDE Client Delivery: Scoping technical requirements, rapid prototyping, and executive code handovers"
+      ],
+      "curriculum": [
+          {
+              "module": "Module 1: Enterprise Full-Stack & System Integration",
+              "objective": "Build modern full-stack web applications and robust REST/GraphQL integration layers.",
+              "topics": [
+                  "TypeScript Full-Stack Architecture",
+                  "Next.js App Router & Server Components",
+                  "High-Performance Backend APIs in Node/Python",
+                  "Database Design (PostgreSQL + Redis Caching)",
+                  "Enterprise SSO & OAuth2 Security"
+              ],
+              "exercise": "Develop an authenticated client management portal with real-time WebSocket updates."
+          },
+          {
+              "module": "Module 2: Data Middleware & Ingestion Pipelines",
+              "objective": "Connect diverse client data sources, clean high-velocity streams, and sync to central warehouses.",
+              "topics": [
+                  "ETL/ELT Data Pipeline Architecture",
+                  "Kafka/RabbitMQ Event Streaming",
+                  "Handling Legacy SOAP/REST & Database Connectors",
+                  "Data Validation & Schema Migration",
+                  "PySpark Transformations"
+              ],
+              "exercise": "Build an automated bi-directional synchronization engine between CRM and SQL database."
+          },
+          {
+              "module": "Module 3: Cloud Infrastructure, Docker & Kubernetes",
+              "objective": "Deploy, scale, and monitor client applications in isolated multi-tenant cloud environments.",
+              "topics": [
+                  "Containerization with Docker & Multi-Stage Builds",
+                  "Kubernetes Deployments & Ingress Controllers",
+                  "Infrastructure as Code (Terraform Basics)",
+                  "CI/CD Automation with GitHub Actions",
+                  "Observability (Prometheus, Grafana, OpenTelemetry)"
+              ],
+              "exercise": "Deploy a containerized microservices stack to Azure Kubernetes Service (AKS) with automated CI/CD."
+          },
+          {
+              "module": "Module 4: The FDE Playbook: Client Scoping & Rapid Prototyping",
+              "objective": "Learn the consultative engineering methodologies used by top Forward Deployed teams.",
+              "topics": [
+                  "Technical Scoping & Architecture Decision Records (ADRs)",
+                  "Building 48-Hour Production MVPs",
+                  "Handling Client Objections & Code Reviews",
+                  "Performance Tuning & Load Testing",
+                  "Clean Handover & Technical Documentation"
+              ],
+              "exercise": "Execute a simulated 7-day client deployment sprint from scoping to live production rollout."
+          }
+      ],
+      "projects": [
+          {
+              "title": "Practice Project: Multi-Source Enterprise Data Connector",
+              "type": "Practice Project",
+              "problem": "Integrate disparate customer records from 3 distinct client systems into a unified GraphQL API.",
+              "whatYouBuild": "TypeScript integration middleware with Redis caching, rate limiting, and automated health checks.",
+              "tools": [
+                  "TypeScript",
+                  "Node.js",
+                  "GraphQL",
+                  "PostgreSQL",
+                  "Redis"
+              ],
+              "deliverables": [
+                  "Clean source code repo",
+                  "Architecture diagram",
+                  "Postman test suite"
+              ],
+              "reviewProcess": "Code review on API performance, error handling, and test coverage."
+          },
+          {
+              "title": "Simulated Business Project: Mission-Critical Client Deployment Simulation",
+              "type": "Simulated Business Project",
+              "problem": "Deploy an end-to-end intelligent analytics portal at a mock enterprise healthcare client within tight SLAs.",
+              "whatYouBuild": "Full-stack application with real-time data streaming, role-based access control, and Kubernetes deployment.",
+              "tools": [
+                  "Next.js",
+                  "Python FastAPI",
+                  "PostgreSQL",
+                  "Docker",
+                  "Kubernetes",
+                  "Azure"
+              ],
+              "deliverables": [
+                  "Production web application",
+                  "Kubernetes manifests",
+                  "Executive handover documentation"
+              ],
+              "reviewProcess": "1-on-1 simulated client presentation and technical architecture defense."
+          }
+      ],
+      "classExperience": {
+          "liveSessions": "Live engineering sprints and architecture deep-dives led by veteran technical architects.",
+          "recordings": "Lifetime access to all session recordings, architecture templates, and boilerplate repos.",
+          "assignments": "Real-world engineering challenge briefs simulating enterprise client requirements.",
+          "doubtSupport": "Direct daily engineering channel support and code review sessions."
+      },
+      "trainer": {
+          "name": "Principal Forward Deployed Architect",
+          "title": "Staff Solutions Engineer & Enterprise Architect",
+          "experience": "13+ Years in Enterprise Client Deployments & Cloud Architecture",
+          "role": "Lead FDE Instructor"
+      },
+      "scheduleFees": {
+          "nextBatchDate": "Upcoming Elite Cohort \u2014 Pre-Registration Open",
+          "timings": "Weekend Evening: 7:00 PM \u2013 9:30 PM IST",
+          "feeStructure": "Early Bird Scholarship Available (Pay in 2 Easy Installments)",
+          "paymentTerms": "Pre-register now to secure priority admission."
+      },
+      "careerSupportDetails": {
+          "resumePreparation": "Custom FDE and Solutions Architect resume highlighting enterprise systems and deployment deliverables.",
+          "mockInterviews": "2 Intensive mock interviews: System Design & Live Client Technical Consulting Scenarios.",
+          "technicalPreparation": "Comprehensive repository of System Design, API architecture, and behavioral FDE interview guides.",
+          "jobReferrals": "Direct referrals to top tier-1 product firms, high-growth SaaS companies, and global consultancies.",
+          "supportDuration": "6 Months executive placement & career acceleration support.",
+          "studentResponsibilities": [
+              "Complete all sprint assignments",
+              "Deliver and defend capstone client project"
+          ]
+      },
+      "faqs": [
+          {
+              "question": "What exactly is a Forward Deployed Engineer (FDE)?",
+              "answer": "A Forward Deployed Engineer is an elite hybrid between a Senior Full-Stack/Data Engineer and a Technical Solutions Architect. FDEs work directly with enterprise clients to build, customize, and deploy mission-critical software solutions on the ground."
+          },
+          {
+              "question": "How does FDE compensation compare to standard Software Engineering roles?",
+              "answer": "Because FDEs combine deep coding capability with high-value client problem-solving and system architecture, FDE roles often command significantly higher compensation and rapid executive career progression."
+          }
+      ],
+      "relatedSlugs": [
+          "python-full-stack",
+          "azure-data-engineer-genai",
+          "devops-cloud-engineering"
+      ]
   }
 ];

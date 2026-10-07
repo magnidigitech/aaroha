@@ -39,14 +39,20 @@ interface TrainingRegistrationFormProps {
 interface ProgramOption {
   id: string;
   title: string;
-  category: "Flagship" | "Cloud & Data" | "AI & GenAI" | "Database & Enterprise" | "General";
+  category: "Flagship" | "Cloud & Data" | "AI & GenAI" | "Database & Enterprise" | "Upcoming Tracks" | "General";
   icon: any;
   popular?: boolean;
+  upcoming?: boolean;
 }
 
 const PROGRAM_OPTIONS: ProgramOption[] = [
   { id: "azure-genai", title: "Azure Data Engineer with GenAI & AI Agents", category: "Flagship", icon: Zap, popular: true },
   { id: "azure-de", title: "Azure Data Engineering", category: "Cloud & Data", icon: Code2, popular: true },
+  { id: "data-science", title: "Data Science & Advanced AI", category: "Upcoming Tracks", icon: Sparkles, upcoming: true, popular: true },
+  { id: "data-analytics", title: "Data Analytics & Business Intelligence", category: "Upcoming Tracks", icon: Briefcase, upcoming: true, popular: true },
+  { id: "cyber-security", title: "Cyber Security & Defense Engineering", category: "Upcoming Tracks", icon: ShieldCheck, upcoming: true },
+  { id: "quantum-computing", title: "Quantum Computing & Algorithms", category: "Upcoming Tracks", icon: Zap, upcoming: true },
+  { id: "fde-engineering", title: "Forward Deployed Engineering (FDE)", category: "Upcoming Tracks", icon: Code2, upcoming: true },
   { id: "genai", title: "Generative AI", category: "AI & GenAI", icon: Zap, popular: true },
   { id: "ai-agents", title: "AI Agents", category: "AI & GenAI", icon: Sparkles },
   { id: "azure", title: "Microsoft Azure", category: "Cloud & Data", icon: Terminal },
@@ -63,7 +69,7 @@ const PROGRAM_OPTIONS: ProgramOption[] = [
   { id: "other", title: "Other", category: "General", icon: HelpCircle },
 ];
 
-const CATEGORY_FILTERS = ["All", "Flagship", "Cloud & Data", "AI & GenAI", "Database & Enterprise"];
+const CATEGORY_FILTERS = ["All", "Upcoming Tracks", "Flagship", "Cloud & Data", "AI & GenAI", "Database & Enterprise"];
 
 const INDIAN_STATES = [
   "Telangana",
@@ -1077,7 +1083,12 @@ export const TrainingRegistrationForm: React.FC<TrainingRegistrationFormProps> =
                             </div>
 
                             <div className="flex items-center space-x-1.5">
-                              {prog.popular && (
+                              {prog.upcoming && (
+                                <span className="text-[9px] font-extrabold text-amber-700 bg-amber-100 border border-amber-300 px-2 py-0.5 rounded-full">
+                                  UPCOMING
+                                </span>
+                              )}
+                              {prog.popular && !prog.upcoming && (
                                 <span className="text-[9px] font-extrabold text-blue-600 bg-blue-100 px-2 py-0.5 rounded-full">
                                   POPULAR
                                 </span>

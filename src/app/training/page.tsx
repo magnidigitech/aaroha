@@ -97,15 +97,21 @@ export default function TrainingPage() {
 
   const categories = [
     "All",
+    "Upcoming Programs",
     "Cloud & Data Engineering",
     "Software Engineering",
     "AI & Analytics",
+    "Emerging & Security",
     "SAP Practices",
   ];
+
+  const upcomingCoursesList = TRAINING_COURSES.filter((c) => c.isUpcoming);
 
   const filteredCourses =
     selectedCategory === "All"
       ? TRAINING_COURSES
+      : selectedCategory === "Upcoming Programs"
+      ? upcomingCoursesList
       : TRAINING_COURSES.filter((c) => c.category === selectedCategory);
 
   return (
@@ -140,15 +146,16 @@ export default function TrainingPage() {
                 href="#courses"
                 className="bg-blue-600 hover:bg-blue-500 text-white font-bold px-6 py-3.5 rounded-xl shadow-lg shadow-blue-900/40 transition-all flex items-center space-x-2 text-sm"
               >
-                <span>Explore 10 Courses</span>
+                <span>Explore All Programs ({TRAINING_COURSES.length})</span>
                 <ArrowRight className="w-4 h-4" />
               </a>
 
               <a
-                href="#enquiry-form"
-                className="bg-white/10 hover:bg-white/20 text-white font-semibold px-6 py-3.5 rounded-xl border border-white/20 transition-all text-sm"
+                href="#upcoming-spotlight"
+                className="bg-gradient-to-r from-cyan-500/20 to-blue-600/20 hover:from-cyan-500/30 hover:to-blue-600/30 text-cyan-300 font-semibold px-6 py-3.5 rounded-xl border border-cyan-400/30 transition-all text-sm flex items-center space-x-2"
               >
-                Get Course Guidance
+                <Sparkles className="w-4 h-4 text-cyan-400" />
+                <span>View 5 Upcoming Courses</span>
               </a>
             </div>
           </div>
@@ -156,6 +163,60 @@ export default function TrainingPage() {
       </section>
 
       <div className="max-w-7xl 2xl:max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12 space-y-20 pt-8">
+        {/* Spotlight Banner for Upcoming Courses */}
+        <div id="upcoming-spotlight" className="scroll-mt-28 bg-gradient-to-br from-[#050E2B] via-[#0A1F52] to-[#050E2B] rounded-3xl p-8 sm:p-10 border border-blue-500/30 shadow-2xl relative overflow-hidden text-white">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 pb-6 border-b border-white/10">
+            <div>
+              <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-cyan-500/20 border border-cyan-400/30 text-cyan-300 text-xs font-bold uppercase tracking-wider mb-2">
+                <Sparkles className="w-3.5 h-3.5 text-cyan-400" />
+                <span>Launching Next Cohort</span>
+              </div>
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-white">
+                Upcoming Elite Technology Programs
+              </h2>
+              <p className="text-slate-300 text-sm mt-1 max-w-2xl">
+                Pre-register now to reserve your seat in our next batches with early-bird scholarships and direct mentor onboarding.
+              </p>
+            </div>
+            <Link
+              href="/training/register"
+              className="inline-flex items-center justify-center space-x-2 px-6 py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-bold text-sm shadow-lg shadow-cyan-500/25 transition-all shrink-0"
+            >
+              <span>Pre-Register for Next Batch</span>
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 pt-6">
+            {upcomingCoursesList.map((course) => (
+              <Link
+                key={course.slug}
+                href={`/training/${course.slug}`}
+                className="bg-white/5 hover:bg-white/10 border border-white/10 hover:border-cyan-400/50 rounded-2xl p-4.5 transition-all group flex flex-col justify-between space-y-3"
+              >
+                <div>
+                  <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-cyan-500/20 text-cyan-300 border border-cyan-400/30 inline-block mb-2">
+                    Upcoming
+                  </span>
+                  <h3 className="font-bold text-white text-sm group-hover:text-cyan-300 transition-colors line-clamp-2">
+                    {course.title}
+                  </h3>
+                  <p className="text-slate-400 text-xs mt-1.5 line-clamp-2">
+                    {course.summary}
+                  </p>
+                </div>
+                <div className="flex items-center justify-between text-[11px] text-amber-300 font-semibold pt-2 border-t border-white/10">
+                  <span>{course.duration}</span>
+                  <span className="flex items-center space-x-1 group-hover:translate-x-1 transition-transform">
+                    <span>Curriculum Soon</span>
+                    <ArrowRight className="w-3 h-3" />
+                  </span>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+
         {/* 2. Course Filters & Catalog Directory */}
         <div id="courses" className="scroll-mt-28 space-y-8">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
@@ -164,7 +225,7 @@ export default function TrainingPage() {
                 Course Directory
               </span>
               <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
-                Explore Our 10 Training Programs
+                Explore All Training Programs
               </h2>
             </div>
             <span className="text-xs font-semibold text-slate-500 bg-white px-3 py-1.5 rounded-lg border border-slate-200">
@@ -182,10 +243,16 @@ export default function TrainingPage() {
                 className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap transition-all ${
                   selectedCategory === cat
                     ? "bg-[#050E2B] text-white shadow-md"
+                    : cat === "Upcoming Programs"
+                    ? "bg-cyan-50 text-cyan-900 border border-cyan-300 font-bold hover:bg-cyan-100"
                     : "bg-white text-slate-700 hover:bg-slate-100 border border-slate-200/80"
                 }`}
               >
-                {cat === "All" ? "All Programs (10)" : cat}
+                {cat === "All"
+                  ? `All Programs (${TRAINING_COURSES.length})`
+                  : cat === "Upcoming Programs"
+                  ? `🚀 Upcoming Programs (${upcomingCoursesList.length})`
+                  : cat}
               </button>
             ))}
           </div>
@@ -196,25 +263,65 @@ export default function TrainingPage() {
               <Link
                 key={course.slug}
                 href={`/training/${course.slug}`}
-                className="bg-white rounded-3xl border border-slate-200/90 shadow-sm hover:shadow-xl hover:border-blue-500/50 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group overflow-hidden relative cursor-pointer"
+                className={`rounded-3xl transition-all duration-300 flex flex-col justify-between group overflow-hidden relative cursor-pointer ${
+                  course.isUpcoming
+                    ? "bg-gradient-to-b from-indigo-50/50 via-white to-white border-2 border-indigo-400/90 shadow-lg shadow-indigo-500/10 ring-2 ring-indigo-200/60 hover:border-indigo-600 hover:shadow-2xl hover:-translate-y-1.5"
+                    : "bg-white border border-slate-200/90 shadow-sm hover:shadow-xl hover:border-blue-500/50 hover:-translate-y-1"
+                }`}
               >
                 {/* Top Accent Gradient */}
-                <div className={`h-2 w-full bg-gradient-to-r ${course.gradientBg}`} />
+                <div
+                  className={`w-full ${
+                    course.isUpcoming
+                      ? "h-2.5 bg-gradient-to-r from-amber-400 via-purple-500 to-indigo-600"
+                      : `h-2 bg-gradient-to-r ${course.gradientBg}`
+                  }`}
+                />
 
                 <div className="p-7 flex flex-col justify-between flex-grow space-y-5">
                   <div className="space-y-3">
                     {/* Duration & Level Badge Header */}
                     <div className="flex items-center justify-between">
-                      <span className="text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-md bg-blue-50 text-blue-700 border border-blue-100">
-                        {course.duration}
-                      </span>
-                      <span className="text-[11px] font-semibold text-slate-500 bg-slate-100 px-2.5 py-0.5 rounded-md">
+                      <div className="flex items-center space-x-2">
+                        {course.isUpcoming ? (
+                          <span className="text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded-md bg-amber-100 text-amber-950 border border-amber-300 flex items-center space-x-1.5 shadow-xs">
+                            <span className="relative flex h-2 w-2">
+                              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-500 opacity-75"></span>
+                              <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-600"></span>
+                            </span>
+                            <span>Upcoming Track</span>
+                          </span>
+                        ) : (
+                          <span className="text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-md bg-blue-50 text-blue-700 border border-blue-100">
+                            {course.duration}
+                          </span>
+                        )}
+
+                        {course.isUpcoming && (
+                          <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-md bg-indigo-50 text-indigo-700 border border-indigo-200">
+                            {course.duration}
+                          </span>
+                        )}
+                      </div>
+                      <span
+                        className={`text-[11px] font-semibold px-2.5 py-0.5 rounded-md ${
+                          course.isUpcoming
+                            ? "bg-purple-50 text-purple-700 border border-purple-200 font-bold"
+                            : "bg-slate-100 text-slate-500"
+                        }`}
+                      >
                         {course.level}
                       </span>
                     </div>
 
                     {/* Course Title */}
-                    <h3 className="text-xl font-extrabold text-[#050E2B] tracking-tight group-hover:text-blue-600 transition-colors leading-snug">
+                    <h3
+                      className={`text-xl font-extrabold tracking-tight transition-colors leading-snug ${
+                        course.isUpcoming
+                          ? "text-slate-950 group-hover:text-indigo-600"
+                          : "text-[#050E2B] group-hover:text-blue-600"
+                      }`}
+                    >
                       {course.title}
                     </h3>
 
@@ -226,12 +333,21 @@ export default function TrainingPage() {
 
                   {/* Prerequisites & Format Info */}
                   <div className="pt-4 border-t border-slate-100 space-y-2.5">
-                    <div className="flex items-start space-x-2 text-xs text-slate-700">
-                      <BookOpen className="w-4 h-4 text-blue-600 shrink-0 mt-0.5" />
-                      <span className="font-medium text-slate-800">
-                        <strong>Prerequisites:</strong> {course.quickFacts.prerequisiteSummary}
-                      </span>
-                    </div>
+                    {course.isUpcoming ? (
+                      <div className="flex items-start space-x-2 text-xs bg-amber-50/70 border border-amber-200/80 p-2.5 rounded-xl text-amber-900">
+                        <Clock className="w-4 h-4 text-amber-700 shrink-0 mt-0.5" />
+                        <span className="font-semibold text-amber-950 text-[11px]">
+                          <strong>Curriculum Status:</strong> Finalizing syllabus (updating soon)
+                        </span>
+                      </div>
+                    ) : (
+                      <div className="flex items-start space-x-2 text-xs text-slate-700">
+                        <BookOpen className="w-4 h-4 text-blue-600 shrink-0 mt-0.5" />
+                        <span className="font-medium text-slate-800">
+                          <strong>Prerequisites:</strong> {course.quickFacts.prerequisiteSummary}
+                        </span>
+                      </div>
+                    )}
 
                     <div className="flex items-start space-x-2 text-xs text-slate-600">
                       <Clock className="w-4 h-4 text-slate-400 shrink-0 mt-0.5" />
@@ -243,7 +359,11 @@ export default function TrainingPage() {
                       {course.tags.slice(0, 3).map((tag, i) => (
                         <span
                           key={i}
-                          className="text-[11px] font-semibold bg-slate-100 text-slate-700 px-2.5 py-0.5 rounded-md border border-slate-200/60"
+                          className={`text-[11px] font-semibold px-2.5 py-0.5 rounded-md border ${
+                            course.isUpcoming
+                              ? "bg-indigo-50/80 text-indigo-800 border-indigo-200/60"
+                              : "bg-slate-100 text-slate-700 border-slate-200/60"
+                          }`}
                         >
                           {tag}
                         </span>
@@ -253,14 +373,29 @@ export default function TrainingPage() {
 
                   {/* Action Buttons */}
                   <div className="pt-4 border-t border-slate-100 grid grid-cols-2 gap-3">
-                    <div className="py-2.5 rounded-xl bg-blue-600 group-hover:bg-blue-700 text-white font-bold text-xs transition-colors flex items-center justify-center space-x-1 shadow-sm shadow-blue-600/20">
-                      <span>View Curriculum</span>
-                      <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-                    </div>
+                    {course.isUpcoming ? (
+                      <>
+                        <div className="py-2.5 px-2 rounded-xl bg-gradient-to-r from-indigo-600 to-purple-600 group-hover:from-indigo-500 group-hover:to-purple-500 text-white font-bold text-[11px] transition-all flex items-center justify-center space-x-1 shadow-sm shadow-indigo-600/25">
+                          <Clock className="w-3.5 h-3.5 text-amber-300 shrink-0" />
+                          <span className="truncate">Curriculum Soon</span>
+                        </div>
 
-                    <div className="py-2.5 rounded-xl bg-slate-100 group-hover:bg-slate-200 text-slate-800 font-semibold text-xs transition-colors flex items-center justify-center">
-                      <span>Enquire</span>
-                    </div>
+                        <div className="py-2.5 rounded-xl bg-amber-100 group-hover:bg-amber-200 text-amber-950 font-bold text-xs transition-colors flex items-center justify-center border border-amber-300">
+                          <span>Pre-Register</span>
+                        </div>
+                      </>
+                    ) : (
+                      <>
+                        <div className="py-2.5 rounded-xl bg-blue-600 group-hover:bg-blue-700 text-white font-bold text-xs transition-colors flex items-center justify-center space-x-1 shadow-sm shadow-blue-600/20">
+                          <span>View Curriculum</span>
+                          <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                        </div>
+
+                        <div className="py-2.5 rounded-xl bg-slate-100 group-hover:bg-slate-200 text-slate-800 font-semibold text-xs transition-colors flex items-center justify-center">
+                          <span>Enquire</span>
+                        </div>
+                      </>
+                    )}
                   </div>
                 </div>
               </Link>

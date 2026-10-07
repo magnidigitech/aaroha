@@ -1,183 +1,178 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
+import Image from "next/image";
+
+interface Slide {
+  id: number;
+  src: string;
+  title: string;
+  category: string;
+}
+
+const HERO_SLIDES: Slide[] = [
+  {
+    id: 1,
+    src: "/assets/hero/hero-slide-1-cloud.jpg",
+    title: "Cloud & Data Infrastructure",
+    category: "Cloud Architecture",
+  },
+  {
+    id: 2,
+    src: "/assets/hero/hero-slide-2-software.jpg",
+    title: "Software Engineering Studio",
+    category: "Custom Applications",
+  },
+  {
+    id: 3,
+    src: "/assets/hero/hero-slide-3-ai.jpg",
+    title: "Big Data & AI Neural Pipelines",
+    category: "Data & GenAI",
+  },
+  {
+    id: 4,
+    src: "/assets/hero/hero-slide-4-architecture.jpg",
+    title: "Enterprise Architecture & Modernization",
+    category: "Digital Transformation",
+  },
+  {
+    id: 5,
+    src: "/assets/hero/hero-slide-5-training.jpg",
+    title: "Technology Training & Career Labs",
+    category: "AAROHA Academy",
+  },
+];
 
 export const InteractiveHeroBackground: React.FC = () => {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0, active: false });
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [mousePos, setMousePos] = useState({ x: 50, y: 35 });
+  const targetPos = useRef({ x: 50, y: 35 });
+  const currentPos = useRef({ x: 50, y: 35 });
+  const animFrameId = useRef<number | null>(null);
 
+  // Auto-advance slides every 6 seconds
   useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext("2d");
-    if (!ctx) return;
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % HERO_SLIDES.length);
+    }, 6000);
 
-    let animationFrameId: number;
-    let width = (canvas.width = canvas.parentElement?.offsetWidth || window.innerWidth);
-    let height = (canvas.height = canvas.parentElement?.offsetHeight || window.innerHeight);
+    return () => clearInterval(timer);
+  }, []);
 
-    const handleResize = () => {
-      if (!canvas || !canvas.parentElement) return;
-      width = canvas.width = canvas.parentElement.offsetWidth;
-      height = canvas.height = canvas.parentElement.offsetHeight;
-    };
-
-    window.addEventListener("resize", handleResize);
-
-    // Generate constellation nodes
-    const nodeCount = Math.floor(Math.min(width, height) / 18);
-    const nodes: Array<{
-      x: number;
-      y: number;
-      vx: number;
-      vy: number;
-      radius: number;
-      baseRadius: number;
-    }> = [];
-
-    for (let i = 0; i < nodeCount; i++) {
-      nodes.push({
-        x: Math.random() * width,
-        y: Math.random() * height,
-        vx: (Math.random() - 0.5) * 0.6,
-        vy: (Math.random() - 0.5) * 0.6,
-        radius: Math.random() * 2 + 1,
-        baseRadius: Math.random() * 2 + 1,
-      });
-    }
-
-    let currentMouseX = width / 2;
-    let currentMouseY = height / 2;
-    let targetMouseX = width / 2;
-    let targetMouseY = height / 2;
-
-    const render = () => {
-      ctx.clearRect(0, 0, width, height);
-
-      // Smooth mouse interpolation
-      currentMouseX += (targetMouseX - currentMouseX) * 0.1;
-      currentMouseY += (targetMouseY - currentMouseY) * 0.1;
-
-      // Draw nodes & connections
-      for (let i = 0; i < nodes.length; i++) {
-        const node = nodes[i];
-
-        // Move node
-        node.x += node.vx;
-        node.y += node.vy;
-
-        // Bounce on boundaries
-        if (node.x < 0 || node.x > width) node.vx *= -1;
-        if (node.y < 0 || node.y > height) node.vy *= -1;
-
-        // Mouse distance
-        const dx = currentMouseX - node.x;
-        const dy = currentMouseY - node.y;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-
-        // Highlight nodes near mouse
-        const maxDist = 180;
-        let nodeAlpha = 0.25;
-
-        if (dist < maxDist) {
-          const factor = 1 - dist / maxDist;
-          node.radius = node.baseRadius + factor * 2.5;
-          nodeAlpha = 0.25 + factor * 0.65;
-
-          // Draw connection line to mouse
-          ctx.beginPath();
-          ctx.moveTo(node.x, node.y);
-          ctx.lineTo(currentMouseX, currentMouseY);
-          ctx.strokeStyle = `rgba(59, 130, 246, ${factor * 0.4})`;
-          ctx.lineWidth = 1;
-          ctx.stroke();
-        } else {
-          node.radius = node.baseRadius;
-        }
-
-        // Connect nearby nodes
-        for (let j = i + 1; j < nodes.length; j++) {
-          const other = nodes[j];
-          const ndx = other.x - node.x;
-          const ndy = other.y - node.y;
-          const nDist = Math.sqrt(ndx * ndx + ndy * ndy);
-
-          if (nDist < 120) {
-            const lineAlpha = (1 - nDist / 120) * 0.15;
-            ctx.beginPath();
-            ctx.moveTo(node.x, node.y);
-            ctx.lineTo(other.x, other.y);
-            ctx.strokeStyle = `rgba(147, 197, 253, ${lineAlpha})`;
-            ctx.lineWidth = 0.75;
-            ctx.stroke();
-          }
-        }
-
-        // Draw node dot
-        ctx.beginPath();
-        ctx.arc(node.x, node.y, node.radius, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(147, 197, 253, ${nodeAlpha})`;
-        ctx.shadowColor = "#3b82f6";
-        ctx.shadowBlur = dist < maxDist ? 10 : 0;
-        ctx.fill();
-        ctx.shadowBlur = 0;
-      }
-
-      animationFrameId = requestAnimationFrame(render);
-    };
-
-    render();
-
+  // Smooth mouse spotlight tracking
+  useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
-      if (!containerRef.current) return;
-      const rect = containerRef.current.getBoundingClientRect();
-      targetMouseX = e.clientX - rect.left;
-      targetMouseY = e.clientY - rect.top;
-      setMousePos({ x: targetMouseX, y: targetMouseY, active: true });
+      const { innerWidth, innerHeight } = window;
+      targetPos.current = {
+        x: (e.clientX / innerWidth) * 100,
+        y: (e.clientY / innerHeight) * 100,
+      };
     };
 
-    const handleMouseLeave = () => {
-      setMousePos((prev) => ({ ...prev, active: false }));
+    window.addEventListener("mousemove", handleMouseMove);
+
+    const animate = () => {
+      currentPos.current.x += (targetPos.current.x - currentPos.current.x) * 0.05;
+      currentPos.current.y += (targetPos.current.y - currentPos.current.y) * 0.05;
+
+      setMousePos({
+        x: Math.round(currentPos.current.x * 10) / 10,
+        y: Math.round(currentPos.current.y * 10) / 10,
+      });
+
+      animFrameId.current = requestAnimationFrame(animate);
     };
 
-    const container = containerRef.current;
-    if (container) {
-      container.addEventListener("mousemove", handleMouseMove);
-      container.addEventListener("mouseleave", handleMouseLeave);
-    }
+    animFrameId.current = requestAnimationFrame(animate);
 
     return () => {
-      window.removeEventListener("resize", handleResize);
-      if (container) {
-        container.removeEventListener("mousemove", handleMouseMove);
-        container.removeEventListener("mouseleave", handleMouseLeave);
-      }
-      cancelAnimationFrame(animationFrameId);
+      window.removeEventListener("mousemove", handleMouseMove);
+      if (animFrameId.current) cancelAnimationFrame(animFrameId.current);
     };
   }, []);
 
   return (
-    <div ref={containerRef} className="absolute inset-0 overflow-hidden pointer-events-auto">
-      {/* Dynamic Mouse Spotlight Gradient */}
+    <div className="pointer-events-none absolute inset-0 overflow-hidden select-none z-0">
+      {/* 1. Base Dark Solid Background */}
+      <div className="absolute inset-0 bg-[#050E2B]" />
+
+      {/* 2. Vibrant Cinematic Crossfading Background Slides */}
+      <div className="absolute inset-0">
+        {HERO_SLIDES.map((slide, idx) => {
+          const isActive = idx === currentSlide;
+          return (
+            <div
+              key={slide.id}
+              className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+                isActive ? "opacity-75" : "opacity-0"
+              }`}
+            >
+              <div
+                className={`w-full h-full transform transition-transform duration-[6500ms] ease-out ${
+                  isActive ? "scale-105" : "scale-100"
+                }`}
+              >
+                <Image
+                  src={slide.src}
+                  alt={slide.title}
+                  fill
+                  priority={idx === 0}
+                  className="object-cover object-center filter saturate-[1.15] brightness-95"
+                  sizes="100vw"
+                />
+              </div>
+            </div>
+          );
+        })}
+      </div>
+
+      {/* 3. Balanced Left-Weighted Vignette Mask (Protects text contrast while letting center & right images shine) */}
+      <div className="absolute inset-0 bg-gradient-to-r from-[#050E2B]/95 via-[#050E2B]/65 to-[#050E2B]/40" />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#050E2B] via-transparent to-[#050E2B]/60" />
+
+      {/* 4. Interactive Cursor Spotlight Ambient Glow */}
       <div
-        className="pointer-events-none absolute inset-0 transition-opacity duration-500"
+        className="absolute inset-0 transition-opacity duration-300"
         style={{
-          opacity: mousePos.active ? 1 : 0.6,
-          background: `radial-gradient(750px circle at ${mousePos.x}px ${mousePos.y}px, rgba(59, 130, 246, 0.22), rgba(30, 58, 138, 0.08) 45%, transparent 75%)`,
+          background: `radial-gradient(700px circle at ${mousePos.x}% ${mousePos.y}%, rgba(59, 130, 246, 0.18), transparent 70%)`,
         }}
       />
 
-      {/* Secondary Ambient Accent Glow */}
+      {/* 5. Subtle Technical Grid Texture */}
       <div
-        className="pointer-events-none absolute inset-0 opacity-40 transition-opacity duration-700"
+        className="absolute inset-0 opacity-[0.05]"
         style={{
-          background: `radial-gradient(900px circle at ${mousePos.x}px ${mousePos.y}px, rgba(99, 102, 241, 0.12), transparent 70%)`,
+          backgroundImage: `
+            linear-gradient(to right, rgba(255, 255, 255, 0.4) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(255, 255, 255, 0.4) 1px, transparent 1px)
+          `,
+          backgroundSize: "48px 48px",
         }}
       />
 
-      {/* Interactive Constellation Canvas */}
-      <canvas ref={canvasRef} className="absolute inset-0 w-full h-full pointer-events-none" />
+      {/* 6. Slide Navigation & Category Badge (Bottom Right) */}
+      <div className="pointer-events-auto absolute bottom-6 right-8 hidden lg:flex items-center space-x-3 bg-[#050E2B]/90 backdrop-blur-md px-4 py-2 rounded-full border border-white/20 text-xs shadow-2xl">
+        <div className="flex items-center space-x-1.5">
+          {HERO_SLIDES.map((_, idx) => (
+            <button
+              key={idx}
+              type="button"
+              onClick={() => setCurrentSlide(idx)}
+              className={`h-2 rounded-full transition-all duration-300 ${
+                idx === currentSlide ? "w-6 bg-blue-400 shadow-sm shadow-blue-400/50" : "w-2 bg-white/30 hover:bg-white/60"
+              }`}
+              aria-label={`Slide ${idx + 1}`}
+            />
+          ))}
+        </div>
+        <span className="text-slate-200 font-semibold text-[11px] border-l border-white/15 pl-3">
+          {HERO_SLIDES[currentSlide].category}
+        </span>
+      </div>
+
+      {/* 7. Precision Top & Bottom Edge Accents */}
+      <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-cyan-400/40 to-transparent" />
+      <div className="absolute bottom-0 inset-x-0 h-20 bg-gradient-to-t from-[#050E2B] to-transparent" />
     </div>
   );
 };

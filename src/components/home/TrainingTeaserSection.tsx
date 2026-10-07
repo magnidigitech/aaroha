@@ -63,7 +63,7 @@ export const TrainingTeaserSection: React.FC = () => {
               href="/training"
               className="inline-flex items-center space-x-2 px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold text-sm transition-all shadow-lg shadow-blue-600/30 hover:shadow-blue-500/40"
             >
-              <span>Explore All 10 Programs</span>
+              <span>Explore All {TRAINING_COURSES.length} Programs</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
           </div>

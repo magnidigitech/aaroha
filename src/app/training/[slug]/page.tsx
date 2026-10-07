@@ -130,14 +130,24 @@ export default async function CourseDetailPage({ params }: PageProps) {
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-8 space-y-6">
-              <div className="flex flex-wrap gap-2.5">
-                <span className="text-xs font-bold uppercase tracking-wider text-slate-300 bg-white/10 border border-white/20 px-3 py-1 rounded-full">
-                  Duration: {course.duration}
-                </span>
+              <div className="flex flex-wrap items-center gap-2.5">
+                {course.isUpcoming ? (
+                  <span className="inline-flex items-center space-x-1.5 text-xs font-black uppercase tracking-wider text-amber-300 bg-amber-500/20 border border-amber-400/50 px-3 py-1 rounded-full shadow-sm">
+                    <span className="relative flex h-2 w-2">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
+                      <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-400"></span>
+                    </span>
+                    <span>🚀 Upcoming Program • Curriculum Updating Soon</span>
+                  </span>
+                ) : (
+                  <span className="text-xs font-bold uppercase tracking-wider text-slate-300 bg-white/10 border border-white/20 px-3 py-1 rounded-full">
+                    Duration: {course.duration}
+                  </span>
+                )}
                 <span className="text-xs font-bold uppercase tracking-wider text-slate-300 bg-white/10 border border-white/20 px-3 py-1 rounded-full">
                   Format: {course.format}
                 </span>
-                <span className="text-xs font-bold uppercase tracking-wider text-blue-400 bg-blue-500/10 border border-blue-500/20 px-3 py-1.5 rounded-full inline-block">
+                <span className="text-xs font-bold uppercase tracking-wider text-blue-400 bg-blue-500/10 border border-blue-500/20 px-3 py-1 rounded-full inline-block">
                   {course.category}
                 </span>
               </div>
@@ -150,20 +160,53 @@ export default async function CourseDetailPage({ params }: PageProps) {
                 {course.summary}
               </p>
 
+              {course.isUpcoming && (
+                <div className="bg-white/10 backdrop-blur-md border border-amber-400/30 rounded-2xl p-4 text-xs text-slate-200 space-y-1 max-w-3xl">
+                  <p className="font-bold text-amber-300 flex items-center space-x-1.5">
+                    <Clock className="w-4 h-4 text-amber-400" />
+                    <span>Curriculum Announcement & Pre-Registration Notice</span>
+                  </p>
+                  <p className="text-slate-300">
+                    This program is launching in our upcoming cohort. The comprehensive 2026 syllabus is currently being finalized by our technical steering team. Pre-register below to receive early-bird syllabus access upon release.
+                  </p>
+                </div>
+              )}
+
               <div className="flex flex-wrap items-center gap-4 pt-2">
-                <a
-                  href="#enquiry-section"
-                  className="bg-blue-600 hover:bg-blue-500 text-white font-bold px-6 py-3.5 rounded-xl shadow-lg shadow-blue-900/30 transition-all flex items-center space-x-2 text-sm"
-                >
-                  <GraduationCap className="w-5 h-5 text-white" />
-                  <span>Enquire About Course</span>
-                </a>
-                <a
-                  href="#curriculum"
-                  className="bg-white/5 hover:bg-white/10 border border-white/10 text-slate-300 hover:text-white font-semibold px-5 py-3.5 rounded-xl transition-all text-sm"
-                >
-                  View Full Syllabus
-                </a>
+                {course.isUpcoming ? (
+                  <>
+                    <a
+                      href="#enquiry-section"
+                      className="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-black px-6 py-3.5 rounded-xl shadow-lg shadow-amber-500/30 transition-all flex items-center space-x-2 text-sm"
+                    >
+                      <GraduationCap className="w-5 h-5 text-slate-950" />
+                      <span>Pre-Register for Next Batch</span>
+                    </a>
+                    <a
+                      href="#curriculum"
+                      className="bg-white/10 hover:bg-white/15 border border-white/20 text-amber-300 hover:text-white font-bold px-5 py-3.5 rounded-xl transition-all text-sm flex items-center space-x-1.5"
+                    >
+                      <Clock className="w-4 h-4 text-amber-300" />
+                      <span>Curriculum Updating Soon</span>
+                    </a>
+                  </>
+                ) : (
+                  <>
+                    <a
+                      href="#enquiry-section"
+                      className="bg-blue-600 hover:bg-blue-500 text-white font-bold px-6 py-3.5 rounded-xl shadow-lg shadow-blue-900/30 transition-all flex items-center space-x-2 text-sm"
+                    >
+                      <GraduationCap className="w-5 h-5 text-white" />
+                      <span>Enquire About Course</span>
+                    </a>
+                    <a
+                      href="#curriculum"
+                      className="bg-white/5 hover:bg-white/10 border border-white/10 text-slate-300 hover:text-white font-semibold px-5 py-3.5 rounded-xl transition-all text-sm"
+                    >
+                      View Full Syllabus
+                    </a>
+                  </>
+                )}
               </div>
             </div>
 
@@ -302,23 +345,88 @@ export default async function CourseDetailPage({ params }: PageProps) {
               {/* Curriculum Section */}
               <section id="curriculum" className="scroll-mt-36 bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-6">
                 <div className="flex justify-between items-center border-b border-slate-100 pb-3">
-                  <h2 className="text-xl font-bold text-slate-900">Curriculum Modules</h2>
-                  <span className="text-xs font-semibold text-slate-500">{course.curriculum.length} Modules</span>
+                  <h2 className="text-xl font-bold text-slate-900">
+                    {course.isUpcoming ? "Curriculum (Updating Soon)" : "Curriculum Modules"}
+                  </h2>
+                  <span className="text-xs font-semibold text-slate-500">
+                    {course.isUpcoming ? "Cohort Launching Soon" : `${course.curriculum.length} Modules`}
+                  </span>
                 </div>
-                <p className="text-xs text-slate-600">
-                  Each module combines theoretical concepts, practical coding exercises, and milestone assessments.
-                </p>
-                <Accordion items={curriculumAccordionItems} />
+
+                {course.isUpcoming ? (
+                  <div className="bg-gradient-to-br from-indigo-50/70 via-white to-amber-50/50 border-2 border-dashed border-indigo-300 rounded-2xl p-6 sm:p-8 text-center space-y-5">
+                    <div className="w-14 h-14 bg-indigo-100 text-indigo-700 rounded-2xl flex items-center justify-center mx-auto shadow-sm">
+                      <BookOpen className="w-7 h-7 text-indigo-600" />
+                    </div>
+
+                    <div className="max-w-xl mx-auto space-y-2">
+                      <span className="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-amber-100 text-amber-950 text-xs font-black uppercase tracking-wider border border-amber-300">
+                        <Clock className="w-3.5 h-3.5 text-amber-700" />
+                        <span>Curriculum Will Be Updated Soon</span>
+                      </span>
+                      <h3 className="text-2xl font-extrabold text-slate-900">
+                        Detailed Module Curriculum Under Final Review
+                      </h3>
+                      <p className="text-slate-600 text-sm leading-relaxed">
+                        Our industry architects and trainers are fine-tuning the 2026 hands-on lab exercises, practical project milestones, and tools for this track. The complete week-by-week syllabus will be updated shortly before batch launch.
+                      </p>
+                    </div>
+
+                    {/* Planned Core Competencies Preview */}
+                    <div className="bg-white rounded-xl p-5 border border-slate-200 text-left max-w-xl mx-auto space-y-3 shadow-xs">
+                      <span className="text-xs font-bold uppercase tracking-wider text-slate-800 block">
+                        Planned Core Focus Areas & Technologies:
+                      </span>
+                      <div className="flex flex-wrap gap-2">
+                        {course.tags.map((t, i) => (
+                          <span key={i} className="text-xs font-semibold bg-indigo-50 text-indigo-900 border border-indigo-200 px-3 py-1 rounded-lg">
+                            ✓ {t}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className="pt-2">
+                      <a
+                        href="#enquiry-section"
+                        className="inline-flex items-center space-x-2 px-6 py-3.5 rounded-xl bg-gradient-to-r from-indigo-600 to-blue-600 hover:from-indigo-500 hover:to-blue-500 text-white font-bold text-sm shadow-lg shadow-indigo-500/25 transition-all"
+                      >
+                        <span>Pre-Register to Receive Official Syllabus on Launch</span>
+                        <ArrowRight className="w-4 h-4" />
+                      </a>
+                    </div>
+                  </div>
+                ) : (
+                  <>
+                    <p className="text-xs text-slate-600">
+                      Each module combines theoretical concepts, practical coding exercises, and milestone assessments.
+                    </p>
+                    <Accordion items={curriculumAccordionItems} />
+                  </>
+                )}
               </section>
 
               {/* Projects Breakdown Section */}
               <section id="projects" className="scroll-mt-36 bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-6">
                 <div className="border-b border-slate-100 pb-3">
-                  <h2 className="text-xl font-bold text-slate-900">Hands-on Student Projects</h2>
+                  <h2 className="text-xl font-bold text-slate-900">
+                    {course.isUpcoming ? "Planned Hands-On Projects (Preview)" : "Hands-on Student Projects"}
+                  </h2>
                   <p className="text-xs text-slate-600 mt-1">
-                    Clearly structured practice exercises and end-to-end simulated capstone projects.
+                    {course.isUpcoming
+                      ? "High-level preview of portfolio projects being built for this cohort."
+                      : "Clearly structured practice exercises and end-to-end simulated capstone projects."}
                   </p>
                 </div>
+
+                {course.isUpcoming && (
+                  <div className="bg-amber-50/80 border border-amber-200 p-3.5 rounded-xl text-xs text-amber-950 flex items-center space-x-2">
+                    <Clock className="w-4 h-4 text-amber-700 shrink-0" />
+                    <span>
+                      <strong>Project Labs Notice:</strong> Complete architecture blueprints, dataset repositories, and starter code will be unlocked upon batch launch.
+                    </span>
+                  </div>
+                )}
 
                 <div className="space-y-6">
                   {course.projects.map((proj, idx) => (

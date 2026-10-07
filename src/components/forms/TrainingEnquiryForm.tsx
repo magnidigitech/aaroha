@@ -125,7 +125,7 @@ export const TrainingEnquiryForm: React.FC<TrainingEnquiryFormProps> = ({ initia
             >
               {TRAINING_COURSES.map((c) => (
                 <option key={c.slug} value={c.slug}>
-                  {c.title} ({c.duration})
+                  {c.title} {c.isUpcoming ? " [🚀 Upcoming Batch]" : `(${c.duration})`}
                 </option>
               ))}
             </select>
