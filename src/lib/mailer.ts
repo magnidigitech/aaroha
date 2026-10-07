@@ -341,7 +341,7 @@ function generateUserAckEmailHTML(payload: EnquiryPayload, itemTitle: string): s
                     <p style="margin: 0; color: #ffffff; font-size: 13px; line-height: 1.8;">
                       📞 <strong>Phone:</strong> ${COMPANY_INFO.phones[0].display} / ${COMPANY_INFO.phones[1].display}<br>
                       ✉️ <strong>Email:</strong> <a href="mailto:${COMPANY_INFO.email}" style="color: #60a5fa; text-decoration: none;">${COMPANY_INFO.email}</a><br>
-                      📍 <strong>Address:</strong> 3rd Floor, VIP Hills, Madhapur, Hyderabad, Telangana 500081
+                      📍 <strong>Address:</strong> ${COMPANY_INFO.address.full}
                     </p>
                   </td>
                 </tr>

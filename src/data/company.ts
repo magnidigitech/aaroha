@@ -12,16 +12,18 @@ export const COMPANY_INFO = {
   ],
   email: "training@aaroha-inc.com",
   address: {
-    street: "3rd Floor, 1-98/21/B, Jai Hind Gandhi Rd, VIP Hills, Jaihind Enclave",
-    area: "Madhapur",
+    building: "Trendz JR",
+    street: "1-89/A/8/1/24&23/2A/NR, Plot No: 23 & 24, Survey No: 31 to 36, 2nd Floor, Office 2A",
+    landmark: "Near Durgam Cheruvu",
+    area: "Vittal Rao Nagar, Gafoornagar, Madhapur",
     city: "Hyderabad",
     state: "Telangana",
     postalCode: "500081",
     country: "India",
-    full: "3rd Floor, 1-98/21/B, Jai Hind Gandhi Rd, VIP Hills, Jaihind Enclave, Madhapur, Hyderabad, Telangana 500081",
+    full: "Trendz JR, 1-89/A/8/1/24&23/2A/NR, Plot No: 23 & 24, Survey No: 31 to 36, 2nd Floor, Office 2A, Vittal Rao Nagar, Gafoornagar, Near Durgam Cheruvu, Madhapur, Hyderabad, Telangana 500081, India",
     mapsUrl:
-      "https://www.google.com/maps/place/TR+square/@17.4470924,78.3886407,17z/data=!3m1!4b1!4m6!3m5!1s0x3bcb912b4ea5210b:0xf5f90085020ae068!8m2!3d17.4470924!4d78.3886407!16s%2Fg%2F11jzyh359n!18m1!1e1?entry=ttu",
-    embedUrl: "https://www.google.com/maps?q=17.4470924,78.3886407&z=17&output=embed",
+      "https://www.google.com/maps/search/?api=1&query=Trendz+JR,+Vittal+Rao+Nagar,+Near+Durgam+Cheruvu,+Madhapur,+Hyderabad,+Telangana",
+    embedUrl: "https://www.google.com/maps?q=Trendz+JR,+Vittal+Rao+Nagar,+Gafoornagar,+Madhapur,+Hyderabad,+Telangana&z=17&output=embed",
   },
   whatsapp: {
     url: "https://wa.me/917382088370",

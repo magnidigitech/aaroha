@@ -13,10 +13,10 @@ export const Footer: React.FC = () => {
           <div className="lg:col-span-2 space-y-4">
             <Link href="/" className="inline-block">
               <Image
-                src="/assets/aaroha-j2d-logo.png"
+                src="/assets/aaroha-logo-dark.png"
                 alt="AAROHA Technologies"
-                width={220}
-                height={56}
+                width={200}
+                height={60}
                 className="h-12 w-auto object-contain"
               />
             </Link>
