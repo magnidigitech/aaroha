@@ -31,7 +31,7 @@ export const DeliveryProcessSection: React.FC = () => {
 
   return (
     <section className="py-24 bg-[#050E2B] text-white border-b border-white/10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl 2xl:max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-xs font-bold text-blue-400 uppercase tracking-widest mb-2">Delivery Approach</h2>
           <h3 className="text-3xl font-extrabold text-white tracking-tight sm:text-4xl">

@@ -47,7 +47,7 @@ export default function IndustriesPage() {
       {/* Hero Banner */}
       <section className="bg-[#050E2B] text-white py-16 sm:py-20 border-b border-white/10 relative overflow-hidden mb-12">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-blue-950/50 via-transparent to-transparent opacity-60" />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="max-w-7xl 2xl:max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12 relative z-10">
           <div className="flex items-center space-x-2 text-xs font-semibold text-slate-400 mb-4">
             <Link href="/" className="hover:text-white transition-colors">
               Home
@@ -71,7 +71,7 @@ export default function IndustriesPage() {
       </section>
 
       {/* Main Grid Section */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl 2xl:max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12">
         {/* Industries Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
           {INDUSTRIES_CATALOG.map((ind) => {

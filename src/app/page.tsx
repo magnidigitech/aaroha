@@ -19,7 +19,7 @@ export default function HomePage() {
 
       {/* Project Enquiry Section */}
       <section className="py-24 bg-slate-50 border-t border-slate-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl 2xl:max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
             <div className="lg:col-span-5 space-y-6">
               <span className="text-xs font-bold text-blue-600 uppercase tracking-widest">Get Started</span>

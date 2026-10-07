@@ -14,7 +14,7 @@ export const metadata = {
 export default function ContactPage() {
   return (
     <div className="bg-slate-50 min-h-screen py-12 lg:py-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl 2xl:max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12">
         {/* Breadcrumb & Title */}
         <div className="mb-12 max-w-3xl">
           <div className="flex items-center space-x-2 text-xs font-semibold text-slate-500 mb-3">

@@ -78,7 +78,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
       {/* 1. Hero Header */}
       <section className="bg-[#050E2B] text-white pt-14 sm:pt-20 lg:pt-24 pb-16 sm:pb-20 border-b border-white/10 relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-blue-950/50 via-transparent to-transparent opacity-60" />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="max-w-7xl 2xl:max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12 relative z-10">
           <div className="flex items-center space-x-2 text-xs font-semibold text-slate-400 mb-6">
             <Link href="/" className="hover:text-white transition-colors">
               Home
@@ -147,7 +147,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
 
       {/* Main Content & Form Layout */}
       <div className="py-16 bg-slate-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl 2xl:max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
             {/* Left Content Column */}
             <div className="lg:col-span-7 space-y-12">

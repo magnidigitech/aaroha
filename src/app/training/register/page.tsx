@@ -19,7 +19,7 @@ export default function TrainingRegisterPage({
 }) {
   return (
     <div className="bg-slate-50 min-h-screen py-8 sm:py-14">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl 2xl:max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12">
         {/* Breadcrumb Navigation */}
         <nav className="mb-6 flex items-center space-x-2 text-xs font-semibold text-slate-500">
           <Link href="/" className="hover:text-blue-600">

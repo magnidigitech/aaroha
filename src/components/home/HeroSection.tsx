@@ -11,10 +11,10 @@ export const HeroSection: React.FC = () => {
       {/* Interactive Mouse Tracking Spotlight & Constellation Mesh Background */}
       <InteractiveHeroBackground />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <div className="max-w-7xl 2xl:max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 2xl:gap-16 items-center">
           {/* Left Column: Headline & Action Items */}
-          <div className="lg:col-span-7 space-y-6">
+          <div className="lg:col-span-7 space-y-6 2xl:space-y-8">
             {/* Brand Eyebrow */}
             <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-semibold tracking-wide uppercase">
               <ShieldCheck className="w-4 h-4 text-blue-400" />
@@ -22,12 +22,12 @@ export const HeroSection: React.FC = () => {
             </div>
 
             {/* Headline */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.15]">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl 2xl:text-7xl font-extrabold text-white tracking-tight leading-[1.15]">
               Software, cloud and data engineering for growing businesses.
             </h1>
 
             {/* Supporting Copy */}
-            <p className="text-lg sm:text-xl text-slate-300 leading-relaxed font-normal max-w-2xl">
+            <p className="text-lg sm:text-xl 2xl:text-2xl text-slate-300 leading-relaxed font-normal max-w-2xl 2xl:max-w-3xl">
               We help teams build applications, connect systems, and put their data to work — from planning and development through launch and ongoing support.
             </p>
 

@@ -114,7 +114,7 @@ export default async function CourseDetailPage({ params }: PageProps) {
       <section className="bg-[#050E2B] text-white pt-14 sm:pt-20 lg:pt-24 pb-16 sm:pb-20 border-b border-white/10 relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-blue-950/50 via-transparent to-transparent opacity-60" />
         
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="max-w-7xl 2xl:max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12 relative z-10">
           {/* Breadcrumb Navigation */}
           <div className="flex items-center space-x-2 text-xs font-semibold text-slate-400 mb-6">
             <Link href="/" className="hover:text-white transition-colors">
@@ -182,7 +182,7 @@ export default async function CourseDetailPage({ params }: PageProps) {
 
       {/* 2. Compact Sticky Section Navigation - Centered tabs docking right beneath main site header */}
       <nav className="sticky top-[72px] sm:top-[80px] z-40 bg-white/95 backdrop-blur border-b border-slate-200 shadow-md hidden sm:block">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl 2xl:max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12">
           <div className="flex items-center justify-center space-x-6 sm:space-x-8 overflow-x-auto text-xs font-bold py-3.5 text-slate-700 no-scrollbar">
             <a href="#overview" className="hover:text-blue-600 whitespace-nowrap transition-colors">Overview</a>
             <a href="#quick-facts" className="hover:text-blue-600 whitespace-nowrap transition-colors">Quick Facts</a>
@@ -201,7 +201,7 @@ export default async function CourseDetailPage({ params }: PageProps) {
 
       {/* 3. Main Page Layout */}
       <div className="py-12 bg-slate-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl 2xl:max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
             
             {/* Left Content Area */}

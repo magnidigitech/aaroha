@@ -32,7 +32,7 @@ export const CapabilitiesSection: React.FC = () => {
 
   return (
     <section className="py-20 bg-slate-50 border-b border-slate-200">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl 2xl:max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12">
         <div className="max-w-3xl mb-12">
           <h2 className="text-xs font-bold text-blue-600 uppercase tracking-widest mb-2">Core Engineering Practices</h2>
           <h3 className="text-3xl font-extrabold text-slate-900 tracking-tight sm:text-4xl">

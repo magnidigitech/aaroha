@@ -40,7 +40,7 @@ export const FeaturedServicesSection: React.FC = () => {
 
   return (
     <section className="py-24 bg-white border-b border-slate-200">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl 2xl:max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-10">
           <div>
             <h2 className="text-xs font-bold text-blue-600 uppercase tracking-widest mb-2">Service Catalog</h2>

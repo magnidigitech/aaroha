@@ -8,7 +8,7 @@ export const TrainingTeaserSection: React.FC = () => {
 
   return (
     <section className="py-24 bg-white border-b border-slate-200">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl 2xl:max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12">
         <div className="bg-gradient-to-br from-[#050E2B] to-[#0A1F52] rounded-3xl p-8 sm:p-12 text-white shadow-2xl relative overflow-hidden">
           <div className="max-w-3xl space-y-4 mb-10">
             <div className="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full bg-blue-500/20 border border-blue-400/30 text-blue-300 text-xs font-semibold">
