@@ -75,8 +75,10 @@ export const Header: React.FC = () => {
     >
       <div className="max-w-7xl 2xl:max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12 relative">
         <div className="flex items-center justify-between">
-          {/* Brand Logo */}
-          <Link href="/" className="flex items-center group">
+          {/* Left Group: Logo & Primary Desktop Navigation */}
+          <div className="flex items-center space-x-8 xl:space-x-10">
+            {/* Brand Logo */}
+            <Link href="/" className="flex items-center group shrink-0">
             <Image
               src="/assets/aaroha-logo-dark.png"
               alt="AAROHA Technologies — Powered by J2D"
@@ -397,8 +399,9 @@ export const Header: React.FC = () => {
               Contact
             </Link>
           </nav>
+        </div>
 
-          {/* Header Action Buttons */}
+        {/* Header Action Buttons */}
           <div className="hidden lg:flex items-center space-x-3">
             <Link
               href="/register"
