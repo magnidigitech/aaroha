@@ -6,6 +6,7 @@ import { Footer } from "@/components/layout/Footer";
 import { FloatingWidgets } from "@/components/layout/FloatingWidgets";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { generateOrganizationJsonLd } from "@/data/seoMap";
+import { MetaPixel } from "@/components/analytics/MetaPixel";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -61,6 +62,7 @@ export default function RootLayout({
         <JsonLd data={generateOrganizationJsonLd()} />
       </head>
       <body className="font-sans antialiased bg-white text-slate-900 flex flex-col min-h-screen">
+        <MetaPixel />
         <Header />
         <main className="flex-grow">{children}</main>
         <Footer />

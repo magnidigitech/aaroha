@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useMemo, useEffect } from "react";
+import React, { useState, useMemo, useEffect, useRef } from "react";
 import {
   User,
   GraduationCap,
@@ -31,6 +31,7 @@ import {
   Search,
   X,
 } from "lucide-react";
+import { trackMetaEvent } from "@/components/analytics/MetaPixel";
 
 interface TrainingRegistrationFormProps {
   initialProgram?: string;
@@ -175,6 +176,7 @@ export const TrainingRegistrationForm: React.FC<TrainingRegistrationFormProps> =
   const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
   const [errorsFading, setErrorsFading] = useState(false);
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const hasTrackedSubmissionRef = useRef(false);
 
   // Auto-dismiss field error highlights gracefully after 5 seconds (5000ms)
   useEffect(() => {
@@ -401,6 +403,18 @@ export const TrainingRegistrationForm: React.FC<TrainingRegistrationFormProps> =
 
       if (res.ok && data.success) {
         setStatus("success");
+        if (!hasTrackedSubmissionRef.current) {
+          hasTrackedSubmissionRef.current = true;
+          trackMetaEvent("CompleteRegistration", {
+            content_name: selectedPrograms.join(", "),
+            status: "success",
+          });
+          trackMetaEvent("Lead", {
+            lead_type: "training",
+            content_name: selectedPrograms.join(", "),
+            content_category: "Training Registration",
+          });
+        }
       } else {
         throw new Error(data.error || "Failed to submit registration. Please try again.");
       }
@@ -536,6 +550,7 @@ export const TrainingRegistrationForm: React.FC<TrainingRegistrationFormProps> =
             <button
               type="button"
               onClick={() => {
+                hasTrackedSubmissionRef.current = false;
                 setStatus("idle");
                 setCurrentStep(1);
                 setFieldErrors({});

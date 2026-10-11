@@ -1,8 +1,9 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { Send, CheckCircle2, AlertCircle } from "lucide-react";
 import { SERVICES_CATALOG } from "@/data/services";
+import { trackMetaEvent } from "@/components/analytics/MetaPixel";
 
 interface BusinessEnquiryFormProps {
   initialServiceSlug?: string;
@@ -20,6 +21,7 @@ export const BusinessEnquiryForm: React.FC<BusinessEnquiryFormProps> = ({ initia
 
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
+  const hasTrackedSubmissionRef = useRef(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -40,6 +42,17 @@ export const BusinessEnquiryForm: React.FC<BusinessEnquiryFormProps> = ({ initia
 
       if (res.ok) {
         setStatus("success");
+        if (!hasTrackedSubmissionRef.current) {
+          hasTrackedSubmissionRef.current = true;
+          trackMetaEvent("Lead", {
+            lead_type: "business",
+            content_category: "Business Enquiry",
+            content_name: formData.serviceSlug || "General Services",
+          });
+          trackMetaEvent("Contact", {
+            content_category: "Business Enquiry",
+          });
+        }
         setFormData({
           name: "",
           email: "",
@@ -75,7 +88,10 @@ export const BusinessEnquiryForm: React.FC<BusinessEnquiryFormProps> = ({ initia
           </p>
           <button
             type="button"
-            onClick={() => setStatus("idle")}
+            onClick={() => {
+              hasTrackedSubmissionRef.current = false;
+              setStatus("idle");
+            }}
             className="mt-2 text-xs font-semibold text-emerald-800 underline hover:text-emerald-900"
           >
             Send Another Project Enquiry

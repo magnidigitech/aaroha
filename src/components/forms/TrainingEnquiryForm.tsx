@@ -1,8 +1,9 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { Send, CheckCircle2, AlertCircle } from "lucide-react";
 import { TRAINING_COURSES } from "@/data/training";
+import { trackMetaEvent } from "@/components/analytics/MetaPixel";
 
 interface TrainingEnquiryFormProps {
   initialCourseSlug?: string;
@@ -19,6 +20,7 @@ export const TrainingEnquiryForm: React.FC<TrainingEnquiryFormProps> = ({ initia
 
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
+  const hasTrackedSubmissionRef = useRef(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -39,6 +41,14 @@ export const TrainingEnquiryForm: React.FC<TrainingEnquiryFormProps> = ({ initia
 
       if (res.ok) {
         setStatus("success");
+        if (!hasTrackedSubmissionRef.current) {
+          hasTrackedSubmissionRef.current = true;
+          trackMetaEvent("Lead", {
+            lead_type: "training",
+            content_category: "Course Enquiry",
+            content_name: formData.courseSlug,
+          });
+        }
         setFormData({
           name: "",
           contactInfo: "",
@@ -73,7 +83,10 @@ export const TrainingEnquiryForm: React.FC<TrainingEnquiryFormProps> = ({ initia
           </p>
           <button
             type="button"
-            onClick={() => setStatus("idle")}
+            onClick={() => {
+              hasTrackedSubmissionRef.current = false;
+              setStatus("idle");
+            }}
             className="mt-1 text-xs font-semibold text-emerald-800 underline hover:text-emerald-900"
           >
             Request Details for Another Course
