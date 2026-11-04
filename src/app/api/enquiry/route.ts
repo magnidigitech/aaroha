@@ -53,6 +53,17 @@ export async function POST(req: NextRequest) {
       interestedDomain: body.interestedDomain,
     });
 
+    if (!mailResult.adminEmailSent && mailResult.errors.length > 0) {
+      console.error("[ENQUIRY MAIL ERROR] Failed to send admin notification:", mailResult.errors);
+      return NextResponse.json(
+        {
+          error: "Failed to deliver enquiry notification email. Please check SMTP settings.",
+          mailErrors: mailResult.errors,
+        },
+        { status: 500 }
+      );
+    }
+
     return NextResponse.json({
       success: true,
       message: "Enquiry received and processed successfully",

@@ -8,7 +8,13 @@ function getTransporter() {
   const host = (process.env.SMTP_HOST || "smtp.hostinger.com").trim();
   const port = Number(process.env.SMTP_PORT) || 465;
   const user = (process.env.SMTP_USER || "training@aaroha-inc.com").trim();
-  const pass = (process.env.SMTP_PASS || "Aaroha#azureai@0369").trim();
+  let pass = (process.env.SMTP_PASS || "Aaroha#azureai@0369").trim().replace(/^"(.*)"$/, "$1");
+
+  // Safeguard: If SMTP_PASS was truncated at '#' in an unquoted .env or dashboard (e.g. "Aaroha"), recover full password
+  if (pass === "Aaroha") {
+    pass = "Aaroha#azureai@0369";
+  }
+
   const secure = process.env.SMTP_SECURE ? process.env.SMTP_SECURE !== "false" : true;
 
   return nodemailer.createTransport({
