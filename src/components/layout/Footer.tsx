@@ -118,6 +118,11 @@ export const Footer: React.FC = () => {
                   AAROHA Program & Placement &rarr;
                 </Link>
               </li>
+              <li>
+                <Link href="/enquiry" className="text-emerald-400 font-semibold hover:underline pt-0.5 inline-block">
+                  Course & Candidate Enquiry &rarr;
+                </Link>
+              </li>
             </ul>
           </div>
 

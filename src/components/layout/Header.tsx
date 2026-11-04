@@ -385,10 +385,10 @@ export const Header: React.FC = () => {
                         <span>✓ Real Project Labs</span>
                       </div>
                       <Link
-                        href="/contact"
+                        href="/enquiry"
                         className="text-blue-600 font-bold hover:underline inline-flex items-center space-x-1"
                       >
-                        <span>Discuss with Course Mentor &rarr;</span>
+                        <span>Candidate Enquiry &rarr;</span>
                       </Link>
                     </div>
                   </div>
@@ -508,6 +508,12 @@ export const Header: React.FC = () => {
             className="block px-3 py-2 rounded-lg text-base font-medium text-white hover:bg-white/10"
           >
             Contact
+          </Link>
+          <Link
+            href="/enquiry"
+            className="block px-3 py-2 rounded-lg text-base font-medium text-emerald-400 hover:bg-white/10"
+          >
+            Candidate Enquiry
           </Link>
 
           <div className="pt-4 border-t border-white/10 flex flex-col space-y-2">

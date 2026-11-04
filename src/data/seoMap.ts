@@ -80,6 +80,20 @@ export const SITE_METADATA_MAP: Record<string, PageSeoMeta> = {
     h1: "Let's Talk About Your Project",
     keywords: ["Contact AAROHA Technologies", "Hyderabad Software Office", "Project Enquiry"],
   },
+  enquiry: {
+    title: "Candidate Enquiry & Course Counseling | AAROHA Technologies",
+    description:
+      "Submit your candidate enquiry to receive syllabus outlines, batch schedules, domain-switch guidance, and 1-on-1 career counseling from AAROHA Technologies.",
+    canonical: "https://www.aaroha-inc.com/enquiry",
+    h1: "Course & Candidate Enquiry",
+    keywords: [
+      "Candidate Enquiry",
+      "Course Enquiry",
+      "Tech Training Counseling",
+      "Domain Switch IT Training",
+      "Hyderabad IT Courses",
+    ],
+  },
 };
 
 export function getServiceSeo(slug: string): PageSeoMeta {
