@@ -131,7 +131,7 @@ export function generateOrganizationJsonLd() {
     name: COMPANY_INFO.name,
     alternateName: COMPANY_INFO.poweredBy,
     url: COMPANY_INFO.siteUrl,
-    logo: `${COMPANY_INFO.siteUrl}/assets/aaroha-j2d-logo.png`,
+    logo: `${COMPANY_INFO.siteUrl}/assets/aaroha-logo-transparent.png`,
     description: COMPANY_INFO.description,
     email: COMPANY_INFO.email,
     telephone: COMPANY_INFO.phones[0].display,

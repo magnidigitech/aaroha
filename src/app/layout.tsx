@@ -29,9 +29,12 @@ export const metadata: Metadata = {
     canonical: "https://www.aaroha-inc.com",
   },
   icons: {
-    icon: "/icon.png",
-    shortcut: "/icon.png",
-    apple: "/icon.png",
+    icon: [
+      { url: "/favicon.png", type: "image/png" },
+      { url: "/icon.png", type: "image/png" },
+    ],
+    shortcut: "/favicon.png",
+    apple: "/apple-touch-icon.png",
   },
   openGraph: {
     title: "AAROHA Technologies | Software, Cloud & Data Engineering",
@@ -40,14 +43,20 @@ export const metadata: Metadata = {
     siteName: "AAROHA Technologies",
     images: [
       {
-        url: "/assets/aaroha-j2d-logo.png",
-        width: 1200,
-        height: 630,
-        alt: "AAROHA Technologies — Powered by J2D",
+        url: "/assets/aaroha-logo-transparent.png",
+        width: 1024,
+        height: 232,
+        alt: "AAROHA Technologies — Elevate | Empower | Excel",
       },
     ],
     locale: "en_US",
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "AAROHA Technologies | Software, Cloud & Data Engineering",
+    description: "Custom software, cloud data pipelines, and technology training. Powered by J2D Technologies.",
+    images: ["/assets/aaroha-logo-transparent.png"],
   },
 };
 

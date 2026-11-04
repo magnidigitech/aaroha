@@ -13,8 +13,8 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Missing required email or message field" }, { status: 400 });
     }
 
-    if (body.type === "training" && !body.contactInfo) {
-      return NextResponse.json({ error: "Missing required contact info field" }, { status: 400 });
+    if (body.type === "training" && !body.email && !body.phone && !body.contactInfo) {
+      return NextResponse.json({ error: "Missing required contact field (Email or Phone)" }, { status: 400 });
     }
 
     // Server audit logging
@@ -22,6 +22,12 @@ export async function POST(req: NextRequest) {
       timestamp: new Date().toISOString(),
       name: body.name,
       email: body.email || body.contactInfo,
+      phone: body.phone || "N/A",
+      yearOfPassing: body.yearOfPassing || "N/A",
+      candidateType: body.candidateType || "N/A",
+      totalExperience: body.totalExperience || "N/A",
+      changingDomain: body.changingDomain || "N/A",
+      interestedDomain: body.interestedDomain || "N/A",
       company: body.company || "N/A",
       serviceSlug: body.serviceSlug || "N/A",
       courseSlug: body.courseSlug || "N/A",
@@ -32,14 +38,19 @@ export async function POST(req: NextRequest) {
     const mailResult = await sendEnquiryEmails({
       type: body.type || "business",
       name: body.name,
-      email: body.email,
-      contactInfo: body.contactInfo,
+      email: body.email || (body.contactInfo?.includes("@") ? body.contactInfo : undefined),
+      contactInfo: body.contactInfo || body.email || body.phone,
       company: body.company,
       phone: body.phone,
       serviceSlug: body.serviceSlug,
       courseSlug: body.courseSlug,
       experienceLevel: body.experienceLevel,
       message: body.message,
+      yearOfPassing: body.yearOfPassing,
+      candidateType: body.candidateType,
+      totalExperience: body.totalExperience,
+      changingDomain: body.changingDomain,
+      interestedDomain: body.interestedDomain,
     });
 
     return NextResponse.json({

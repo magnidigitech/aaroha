@@ -33,6 +33,12 @@ export interface EnquiryPayload {
   courseSlug?: string;
   experienceLevel?: string;
   message?: string;
+  // Candidate Enquiry Form Fields
+  yearOfPassing?: string;
+  candidateType?: "Fresher" | "Experienced" | string;
+  totalExperience?: string;
+  changingDomain?: "Yes" | "No" | string;
+  interestedDomain?: string;
 }
 
 /**
@@ -158,6 +164,56 @@ function generateAdminEmailHTML(payload: EnquiryPayload, formattedDate: string, 
                   <td style="padding: 12px 16px; font-size: 13px; font-weight: 600; color: #475569; border-bottom: 1px solid #e2e8f0;">Service / Course Requested</td>
                   <td style="padding: 12px 16px; font-size: 14px; font-weight: 700; color: #1e40af; border-bottom: 1px solid #e2e8f0;">${itemTitle}</td>
                 </tr>
+                ${
+                  payload.yearOfPassing
+                    ? `
+                <tr style="background-color: #f8fafc;">
+                  <td style="padding: 12px 16px; font-size: 13px; font-weight: 600; color: #475569; border-bottom: 1px solid #e2e8f0;">Year of Passing Out</td>
+                  <td style="padding: 12px 16px; font-size: 14px; font-weight: 700; color: #0f172a; border-bottom: 1px solid #e2e8f0;">${payload.yearOfPassing}</td>
+                </tr>
+                `
+                    : ""
+                }
+                ${
+                  payload.candidateType
+                    ? `
+                <tr>
+                  <td style="padding: 12px 16px; font-size: 13px; font-weight: 600; color: #475569; border-bottom: 1px solid #e2e8f0;">Candidate Type</td>
+                  <td style="padding: 12px 16px; font-size: 14px; font-weight: 700; color: #0f172a; border-bottom: 1px solid #e2e8f0;">${payload.candidateType}</td>
+                </tr>
+                `
+                    : ""
+                }
+                ${
+                  payload.totalExperience
+                    ? `
+                <tr style="background-color: #f8fafc;">
+                  <td style="padding: 12px 16px; font-size: 13px; font-weight: 600; color: #475569; border-bottom: 1px solid #e2e8f0;">Total Experience</td>
+                  <td style="padding: 12px 16px; font-size: 14px; color: #0f172a; border-bottom: 1px solid #e2e8f0;">${payload.totalExperience}</td>
+                </tr>
+                `
+                    : ""
+                }
+                ${
+                  payload.changingDomain
+                    ? `
+                <tr>
+                  <td style="padding: 12px 16px; font-size: 13px; font-weight: 600; color: #475569; border-bottom: 1px solid #e2e8f0;">Interested in Changing Domain?</td>
+                  <td style="padding: 12px 16px; font-size: 14px; color: #0f172a; border-bottom: 1px solid #e2e8f0;">${payload.changingDomain}</td>
+                </tr>
+                `
+                    : ""
+                }
+                ${
+                  payload.interestedDomain
+                    ? `
+                <tr style="background-color: #f8fafc;">
+                  <td style="padding: 12px 16px; font-size: 13px; font-weight: 600; color: #475569; border-bottom: 1px solid #e2e8f0;">Interested Domain</td>
+                  <td style="padding: 12px 16px; font-size: 14px; font-weight: 700; color: #2563eb; border-bottom: 1px solid #e2e8f0;">${payload.interestedDomain}</td>
+                </tr>
+                `
+                    : ""
+                }
                 ${
                   payload.experienceLevel
                     ? `
@@ -303,6 +359,36 @@ function generateUserAckEmailHTML(payload: EnquiryPayload, itemTitle: string): s
                     <td style="color: #64748b; font-weight: 600;">Primary Interest:</td>
                     <td style="color: #1e40af; font-weight: 700;">${itemTitle}</td>
                   </tr>
+                  ${
+                    payload.candidateType
+                      ? `
+                  <tr>
+                    <td style="color: #64748b; font-weight: 600;">Candidate Type:</td>
+                    <td style="color: #0f172a;">${payload.candidateType}${payload.totalExperience ? ` (${payload.totalExperience})` : ""}</td>
+                  </tr>
+                  `
+                      : ""
+                  }
+                  ${
+                    payload.yearOfPassing
+                      ? `
+                  <tr>
+                    <td style="color: #64748b; font-weight: 600;">Year of Passing:</td>
+                    <td style="color: #0f172a;">${payload.yearOfPassing}</td>
+                  </tr>
+                  `
+                      : ""
+                  }
+                  ${
+                    payload.interestedDomain
+                      ? `
+                  <tr>
+                    <td style="color: #64748b; font-weight: 600;">Target Domain:</td>
+                    <td style="color: #2563eb; font-weight: 700;">${payload.interestedDomain}</td>
+                  </tr>
+                  `
+                      : ""
+                  }
                   ${
                     payload.company
                       ? `
