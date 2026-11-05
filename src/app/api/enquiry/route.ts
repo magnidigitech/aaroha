@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { sendEnquiryEmails } from "@/lib/mailer";
+import { ingestWebsiteLead } from "@/lib/crm/db";
 
 export async function POST(req: NextRequest) {
   try {
@@ -15,6 +16,28 @@ export async function POST(req: NextRequest) {
 
     if (body.type === "training" && !body.email && !body.phone && !body.contactInfo) {
       return NextResponse.json({ error: "Missing required contact field (Email or Phone)" }, { status: 400 });
+    }
+
+    // Automatically ingest lead into Centralized CRM Database
+    let crmResult = null;
+    try {
+      crmResult = await ingestWebsiteLead({
+        full_name: body.name,
+        email: body.email || (body.contactInfo?.includes("@") ? body.contactInfo : undefined),
+        mobile_number: body.phone || body.contactInfo || "N/A",
+        year_of_passing: body.yearOfPassing,
+        candidate_type: body.candidateType,
+        total_experience: body.totalExperience,
+        domain_change: body.changingDomain,
+        interested_domain: body.interestedDomain,
+        target_program: body.courseSlug || body.serviceSlug,
+        city: body.city,
+        enquiry_source: body.type === "training" ? "Training Enquiry Form" : "Business Enquiry Form",
+        form_name: body.type === "training" ? "Candidate Enquiry" : "Business Project Enquiry",
+        notes: body.message,
+      });
+    } catch (crmErr) {
+      console.error("[CRM AUTO-INGESTION ERROR]", crmErr);
     }
 
     // Server audit logging

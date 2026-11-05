@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { sendRegistrationEmails, RegistrationPayload } from "@/lib/mailer";
+import { ingestWebsiteLead } from "@/lib/crm/db";
 
 export async function POST(req: NextRequest) {
   try {
@@ -64,6 +65,25 @@ export async function POST(req: NextRequest) {
       mode: body.preferredMode,
       city: body.city,
     });
+
+    // Ingest into Centralized CRM Database
+    try {
+      await ingestWebsiteLead({
+        full_name: body.fullName,
+        email: body.email,
+        mobile_number: body.mobileNumber,
+        year_of_passing: body.highestQualification || undefined,
+        candidate_type: body.currentStatus?.includes("Working") ? "Experienced" : "Fresher",
+        total_experience: body.totalExperience || body.currentStatus,
+        target_program: body.trainingProgram,
+        city: body.city,
+        enquiry_source: "Registration Page",
+        form_name: "Training Registration",
+        notes: `Mode: ${body.preferredMode} | Timing: ${body.preferredBatchTiming} | Objective: ${body.primaryObjective} | Referral: ${body.referralCode || "None"}`,
+      });
+    } catch (crmErr) {
+      console.error("[CRM REGISTRATION INGEST ERROR]", crmErr);
+    }
 
     // Dispatch email notifications (Admin alert + Submitter confirmation)
     const mailResult = await sendRegistrationEmails(body);
