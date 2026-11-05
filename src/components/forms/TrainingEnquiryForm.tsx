@@ -78,7 +78,7 @@ export const TrainingEnquiryForm: React.FC<TrainingEnquiryFormProps> = ({ initia
     const targetCourseTitle = targetCourse ? targetCourse.title : formData.courseSlug;
 
     const lines = [
-      "*Hello! - AAROHA Technologies*",
+      "*👋 Hello! - AAROHA Technologies*",
       "",
       `*Full Name:* ${formData.name.trim()}`,
       `*Email ID:* ${formData.email.trim()}`,

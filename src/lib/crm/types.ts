@@ -104,3 +104,4 @@ export interface TelecallerStats {
   lost_leads: number;
   conversion_rate: number;
 }
+

@@ -52,3 +52,4 @@ export async function PATCH(req: NextRequest) {
   const success = await toggleUserStatus(Number(userId), Boolean(isActive));
   return NextResponse.json({ success });
 }
+

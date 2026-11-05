@@ -44,3 +44,4 @@ export function getSessionFromRequest(req: NextRequest): SessionPayload | null {
 }
 
 export { COOKIE_NAME };
+

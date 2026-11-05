@@ -173,3 +173,4 @@ export const ScheduleFollowUpModal: React.FC<ScheduleFollowUpModalProps> = ({
     </div>
   );
 };
+

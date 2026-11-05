@@ -44,3 +44,4 @@ export async function POST(req: NextRequest, { params }: { params: Promise<{ id:
   const updatedLead = await getLeadById(leadId);
   return NextResponse.json({ success: true, callLog: log, lead: updatedLead });
 }
+

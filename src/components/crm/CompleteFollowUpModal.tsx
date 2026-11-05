@@ -183,3 +183,4 @@ export const CompleteFollowUpModal: React.FC<CompleteFollowUpModalProps> = ({
     </div>
   );
 };
+

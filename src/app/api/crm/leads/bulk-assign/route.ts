@@ -17,3 +17,4 @@ export async function POST(req: NextRequest) {
   const count = await bulkAssignLeads(lead_ids, Number(telecaller_id), session.userId);
   return NextResponse.json({ success: true, assignedCount: count });
 }
+

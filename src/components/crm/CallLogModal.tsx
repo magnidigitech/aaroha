@@ -188,3 +188,4 @@ export const CallLogModal: React.FC<CallLogModalProps> = ({ lead, isOpen, onClos
     </div>
   );
 };
+
