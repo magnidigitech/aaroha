@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getSessionFromRequest } from "@/lib/crm/auth";
-import { addCallLog, getLeadById, updateLeadStatus } from "@/lib/crm/db";
+import { addCallLog, getLeadById, updateLeadStatus, scheduleFollowUp } from "@/lib/crm/db";
 import { LeadStatus } from "@/lib/crm/types";
 
 export async function POST(req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
@@ -22,7 +22,15 @@ export async function POST(req: NextRequest, { params }: { params: Promise<{ id:
   }
 
   const body = await req.json();
-  const { call_status, remarks, duration_seconds, update_lead_status } = body;
+  const {
+    call_status,
+    remarks,
+    duration_seconds,
+    update_lead_status,
+    followup_date,
+    followup_priority,
+    followup_remarks,
+  } = body;
 
   if (!call_status || !remarks) {
     return NextResponse.json({ error: "Call status and remarks are required" }, { status: 400 });
@@ -39,6 +47,17 @@ export async function POST(req: NextRequest, { params }: { params: Promise<{ id:
   // If telecaller updated the overall lead status during the call
   if (update_lead_status) {
     await updateLeadStatus(leadId, update_lead_status as LeadStatus, session.userId, remarks);
+  }
+
+  // If a follow-up date was scheduled as part of the call or follow-up required status
+  if (followup_date) {
+    await scheduleFollowUp(
+      leadId,
+      session.userId,
+      followup_date,
+      followup_priority || "Medium",
+      followup_remarks || remarks
+    );
   }
 
   const updatedLead = await getLeadById(leadId);

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { CheckCircle2, X, AlertCircle } from "lucide-react";
+import { CheckCircle2, X, AlertCircle, Calendar } from "lucide-react";
 import { CrmFollowUp, LeadStatus } from "@/lib/crm/types";
 
 interface CompleteFollowUpModalProps {
@@ -57,8 +57,8 @@ export const CompleteFollowUpModal: React.FC<CompleteFollowUpModalProps> = ({
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           outcome_remarks: outcomeRemarks.trim(),
-          new_status: newStatus,
-          next_scheduled_at: needSubsequentFollowUp ? nextDate : undefined,
+          new_status: needSubsequentFollowUp ? "Follow-up Required" : newStatus,
+          next_scheduled_at: needSubsequentFollowUp ? new Date(nextDate).toISOString() : undefined,
         }),
       });
 
@@ -77,56 +77,62 @@ export const CompleteFollowUpModal: React.FC<CompleteFollowUpModalProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 z-50 overflow-y-auto bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4">
-      <div className="bg-white rounded-3xl max-w-md w-full p-6 shadow-2xl border border-slate-200 animate-in fade-in zoom-in-95 duration-200">
-        <div className="flex items-center justify-between border-b border-slate-100 pb-3 mb-4">
-          <div className="flex items-center space-x-2.5">
-            <div className="w-8 h-8 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center">
-              <CheckCircle2 className="w-4 h-4" />
+    <div className="fixed inset-0 z-50 overflow-y-auto bg-slate-900/40 backdrop-blur-md flex items-center justify-center p-4 sm:p-6 transition-all duration-200">
+      <div className="bg-white rounded-3xl max-w-md w-full p-6 sm:p-8 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.15)] border border-slate-200/80 animate-in fade-in zoom-in-95 duration-200">
+        <div className="flex items-center justify-between border-b border-slate-100 pb-4 mb-5">
+          <div className="flex items-center space-x-3">
+            <div className="w-10 h-10 rounded-2xl bg-emerald-50 text-emerald-600 border border-emerald-100 flex items-center justify-center">
+              <CheckCircle2 className="w-5 h-5 stroke-[1.75]" />
             </div>
             <div>
-              <h3 className="text-base font-bold text-slate-900">Record Follow-up Outcome</h3>
-              <p className="text-xs text-slate-500">{followUp.lead_name} &bull; {followUp.lead_phone}</p>
+              <h3 className="text-base font-semibold text-slate-900 tracking-tight">Record Follow-up Outcome</h3>
+              <p className="text-xs text-slate-500 font-normal">{followUp.lead_name} &bull; {followUp.lead_phone}</p>
             </div>
           </div>
           <button
             onClick={onClose}
-            className="p-1 rounded-lg text-slate-400 hover:text-slate-600 hover:bg-slate-100 transition"
+            className="w-8 h-8 rounded-full text-slate-400 hover:text-slate-700 hover:bg-slate-100 flex items-center justify-center transition-colors cursor-pointer"
           >
-            <X className="w-5 h-5" />
+            <X className="w-4 h-4 stroke-[1.75]" />
           </button>
         </div>
 
         {error && (
-          <div className="mb-4 bg-rose-50 border border-rose-200 text-rose-700 text-xs p-2.5 rounded-xl flex items-center space-x-2">
-            <AlertCircle className="w-4 h-4 shrink-0" />
+          <div className="mb-5 bg-rose-50 border border-rose-200 text-rose-700 text-xs py-2.5 px-3.5 rounded-xl flex items-center space-x-2">
+            <AlertCircle className="w-4 h-4 shrink-0 stroke-[1.75]" />
             <span>{error}</span>
           </div>
         )}
 
         <form onSubmit={handleSubmit} className="space-y-4 text-xs">
           <div>
-            <label className="block font-bold text-slate-700 mb-1 uppercase tracking-wider">
-              Outcome Remarks <span className="text-rose-500">*</span>
+            <label className="block text-xs font-medium text-slate-700 mb-1.5">
+              Call Outcome & Feedback <span className="text-rose-500">*</span>
             </label>
             <textarea
               rows={3}
               required
               value={outcomeRemarks}
               onChange={(e) => setOutcomeRemarks(e.target.value)}
-              placeholder="What was the result of the conversation? e.g., Confirmed demo attendance for Saturday, agreed on course fee..."
-              className="w-full px-3 py-2 rounded-xl border border-slate-300 focus:ring-2 focus:ring-blue-600 focus:outline-none"
+              placeholder="Detailed conversation outcome: decision status, batch fit, counselling feedback..."
+              className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-slate-50/50 text-slate-900 placeholder:text-slate-400 focus:bg-white focus:outline-none focus:ring-4 focus:ring-emerald-500/10 focus:border-emerald-600 transition-all resize-none"
             />
           </div>
 
           <div>
-            <label className="block font-bold text-slate-700 mb-1 uppercase tracking-wider">
-              Update Lead Status
+            <label className="block text-xs font-medium text-slate-700 mb-1.5">
+              Updated Lead Status
             </label>
             <select
               value={newStatus}
-              onChange={(e) => setNewStatus(e.target.value as LeadStatus)}
-              className="w-full px-3 py-2 rounded-xl border border-slate-300 focus:ring-2 focus:ring-blue-600 focus:outline-none bg-white font-semibold"
+              onChange={(e) => {
+                const val = e.target.value as LeadStatus;
+                setNewStatus(val);
+                if (val === "Follow-up Required") {
+                  setNeedSubsequentFollowUp(true);
+                }
+              }}
+              className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-slate-50/50 text-slate-900 focus:bg-white focus:outline-none focus:ring-4 focus:ring-emerald-500/10 focus:border-emerald-600 transition-all font-medium"
             >
               {OUTCOME_STATUSES.map((st) => (
                 <option key={st} value={st}>{st}</option>
@@ -135,47 +141,56 @@ export const CompleteFollowUpModal: React.FC<CompleteFollowUpModalProps> = ({
           </div>
 
           <div className="pt-2">
-            <label className="flex items-center space-x-2 cursor-pointer">
-              <input
-                type="checkbox"
-                checked={needSubsequentFollowUp}
-                onChange={(e) => setNeedSubsequentFollowUp(e.target.checked)}
-                className="w-4 h-4 rounded text-blue-600 focus:ring-blue-500"
-              />
-              <span className="font-semibold text-slate-800">Schedule another follow-up call with prospect</span>
-            </label>
+            <div className={`p-3.5 rounded-2xl border transition-all ${
+              needSubsequentFollowUp
+                ? "bg-amber-50/40 border-amber-200/80"
+                : "bg-slate-50/60 border-slate-200/60"
+            }`}>
+              <label className="flex items-center space-x-2.5 cursor-pointer">
+                <input
+                  type="checkbox"
+                  checked={needSubsequentFollowUp}
+                  onChange={(e) => setNeedSubsequentFollowUp(e.target.checked)}
+                  className="w-4 h-4 rounded text-emerald-600 focus:ring-emerald-500 border-slate-300"
+                />
+                <span className="font-medium text-slate-800 text-xs flex items-center space-x-1.5">
+                  <Calendar className="w-3.5 h-3.5 text-amber-600 stroke-[1.75]" />
+                  <span>Schedule next follow-up call with candidate</span>
+                </span>
+              </label>
+
+              {needSubsequentFollowUp && (
+                <div className="mt-3 pt-3 border-t border-amber-200/60 animate-in fade-in duration-150">
+                  <label className="block text-[11px] font-medium text-slate-700 mb-1">
+                    Next Follow-up Date & Time <span className="text-rose-500">*</span>
+                  </label>
+                  <input
+                    type="datetime-local"
+                    required={needSubsequentFollowUp}
+                    value={nextDate}
+                    onChange={(e) => setNextDate(e.target.value)}
+                    className="w-full px-3 py-2 rounded-xl border border-slate-200 bg-white text-slate-900 focus:outline-none focus:ring-2 focus:ring-amber-500/20 focus:border-amber-500 transition-all text-xs"
+                  />
+                </div>
+              )}
+            </div>
           </div>
 
-          {needSubsequentFollowUp && (
-            <div className="bg-slate-50 p-3 rounded-xl border border-slate-200">
-              <label className="block font-bold text-slate-700 mb-1 uppercase tracking-wider">
-                Next Follow-up Date & Time
-              </label>
-              <input
-                type="datetime-local"
-                required={needSubsequentFollowUp}
-                value={nextDate}
-                onChange={(e) => setNextDate(e.target.value)}
-                className="w-full px-3 py-2 rounded-xl border border-slate-300 focus:ring-2 focus:ring-blue-600 focus:outline-none bg-white"
-              />
-            </div>
-          )}
-
-          <div className="pt-3 border-t border-slate-100 flex items-center justify-end space-x-2">
+          <div className="pt-4 border-t border-slate-100 flex items-center justify-end space-x-2.5">
             <button
               type="button"
               onClick={onClose}
-              className="px-4 py-2 rounded-xl border border-slate-200 text-slate-700 font-medium hover:bg-slate-50 transition cursor-pointer"
+              className="px-4 py-2.5 rounded-xl border border-slate-200 text-slate-600 font-medium hover:bg-slate-50 active:scale-[0.98] transition-all cursor-pointer"
             >
               Cancel
             </button>
             <button
               type="submit"
               disabled={loading}
-              className="px-5 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold shadow-md shadow-emerald-600/30 flex items-center space-x-1.5 transition cursor-pointer disabled:opacity-50"
+              className="px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-black active:scale-[0.98] text-white font-medium shadow-sm flex items-center space-x-1.5 transition-all cursor-pointer disabled:opacity-50"
             >
-              <CheckCircle2 className="w-3.5 h-3.5" />
-              <span>{loading ? "Completing..." : "Complete Follow-up"}</span>
+              <CheckCircle2 className="w-3.5 h-3.5 stroke-[1.75]" />
+              <span>{loading ? "Recording..." : "Complete Follow-up"}</span>
             </button>
           </div>
         </form>
@@ -183,4 +198,3 @@ export const CompleteFollowUpModal: React.FC<CompleteFollowUpModalProps> = ({
     </div>
   );
 };
-

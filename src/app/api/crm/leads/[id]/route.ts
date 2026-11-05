@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getSessionFromRequest } from "@/lib/crm/auth";
-import { getLeadById, getTimelineByLead, getCallLogsByLead, updateLeadStatus } from "@/lib/crm/db";
+import { getLeadById, getTimelineByLead, getCallLogsByLead, updateLeadStatus, scheduleFollowUp } from "@/lib/crm/db";
 import { LeadStatus } from "@/lib/crm/types";
 
 export async function GET(req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
@@ -49,6 +49,16 @@ export async function PATCH(req: NextRequest, { params }: { params: Promise<{ id
   const body = await req.json();
   if (body.status) {
     await updateLeadStatus(leadId, body.status as LeadStatus, session.userId, body.remarks);
+  }
+
+  if (body.followup_date) {
+    await scheduleFollowUp(
+      leadId,
+      session.userId,
+      body.followup_date,
+      body.followup_priority || "Medium",
+      body.remarks
+    );
   }
 
   const updated = await getLeadById(leadId);
