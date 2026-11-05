@@ -1,10 +1,17 @@
 "use client";
 
 import React from "react";
+import { usePathname } from "next/navigation";
 import { MessageSquare, Mail } from "lucide-react";
 import { COMPANY_INFO } from "@/data/company";
 
 export const FloatingWidgets: React.FC = () => {
+  const pathname = usePathname();
+
+  if (pathname?.startsWith("/crm")) {
+    return null;
+  }
+
   return (
     <>
       {/* Floating WhatsApp Action */}

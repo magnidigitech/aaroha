@@ -66,6 +66,10 @@ export const Header: React.FC = () => {
   const softwareTrainingCourses = TRAINING_COURSES.filter((c) => !c.isUpcoming && (c.category === "Software Engineering" || c.category === "SAP Practices"));
   const upcomingTrainingCourses = TRAINING_COURSES.filter((c) => c.isUpcoming);
 
+  if (pathname?.startsWith("/crm")) {
+    return null;
+  }
+
   return (
     <header
       className={`sticky top-0 z-50 transition-all duration-300 ${
