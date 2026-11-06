@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getSessionFromRequest } from "@/lib/crm/auth";
-import { getAllTelecallers, getAllUsers, createUser, toggleUserStatus } from "@/lib/crm/db";
+import { getAllTelecallers, getAllUsers, createUser, toggleUserStatus, deleteUser } from "@/lib/crm/db";
 
 export async function GET(req: NextRequest) {
   const session = getSessionFromRequest(req);
@@ -51,6 +51,22 @@ export async function PATCH(req: NextRequest) {
   }
 
   const success = await toggleUserStatus(Number(userId), Boolean(isActive));
+  return NextResponse.json({ success });
+}
+
+export async function DELETE(req: NextRequest) {
+  const session = getSessionFromRequest(req);
+  if (!session || session.role !== "ADMIN") {
+    return NextResponse.json({ error: "Unauthorized. Admin privileges required." }, { status: 403 });
+  }
+
+  const { searchParams } = new URL(req.url);
+  const userId = searchParams.get("userId");
+  if (!userId) {
+    return NextResponse.json({ error: "userId is required" }, { status: 400 });
+  }
+
+  const success = await deleteUser(Number(userId));
   return NextResponse.json({ success });
 }
 

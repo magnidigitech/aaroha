@@ -42,7 +42,6 @@ function getFallbackStore(): FallbackStore {
   }
   if (!fs.existsSync(FALLBACK_FILE)) {
     const adminHash = bcrypt.hashSync("Admin@Aaroha2026", 10);
-    const teleHash = bcrypt.hashSync("Telecaller@123", 10);
     const initial: FallbackStore = {
       users: [
         {
@@ -51,24 +50,6 @@ function getFallbackStore(): FallbackStore {
           email: "admin@aaroha-inc.com",
           password_hash: adminHash,
           role: "ADMIN",
-          is_active: true,
-          created_at: new Date().toISOString(),
-        },
-        {
-          id: 2,
-          name: "Priya Sharma",
-          email: "priya@aaroha-inc.com",
-          password_hash: teleHash,
-          role: "TELECALLER",
-          is_active: true,
-          created_at: new Date().toISOString(),
-        },
-        {
-          id: 3,
-          name: "Rahul Verma",
-          email: "rahul@aaroha-inc.com",
-          password_hash: teleHash,
-          role: "TELECALLER",
           is_active: true,
           created_at: new Date().toISOString(),
         },
@@ -86,7 +67,14 @@ function getFallbackStore(): FallbackStore {
     return initial;
   }
   try {
-    return JSON.parse(fs.readFileSync(FALLBACK_FILE, "utf8"));
+    const raw = fs.readFileSync(FALLBACK_FILE, "utf8");
+    const store: FallbackStore = JSON.parse(raw);
+    // Remove temporary demo telecallers if present
+    if (store.users.some((u) => u.email === "priya@aaroha-inc.com" || u.email === "rahul@aaroha-inc.com")) {
+      store.users = store.users.filter((u) => u.email !== "priya@aaroha-inc.com" && u.email !== "rahul@aaroha-inc.com");
+      saveFallbackStore(store);
+    }
+    return store;
   } catch {
     return { users: [], leads: [], call_logs: [], follow_ups: [], timeline: [], settings: {} };
   }
@@ -233,18 +221,17 @@ async function initMySqlSchema(p: mysql.Pool) {
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
   `);
 
+  // Remove temporary demo telecallers if present in database
+  await p.query("DELETE FROM crm_users WHERE email IN ('priya@aaroha-inc.com', 'rahul@aaroha-inc.com')");
+
   // Seed Admin if not exists
   const [users]: any = await p.query("SELECT id FROM crm_users WHERE email = 'admin@aaroha-inc.com' LIMIT 1");
   if (users.length === 0) {
     const adminHash = bcrypt.hashSync("Admin@Aaroha2026", 10);
-    const teleHash = bcrypt.hashSync("Telecaller@123", 10);
     await p.query(`
       INSERT INTO crm_users (name, email, password_hash, role, is_active)
-      VALUES 
-        ('AAROHA Admin', 'admin@aaroha-inc.com', ?, 'ADMIN', 1),
-        ('Priya Sharma', 'priya@aaroha-inc.com', ?, 'TELECALLER', 1),
-        ('Rahul Verma', 'rahul@aaroha-inc.com', ?, 'TELECALLER', 1)
-    `, [adminHash, teleHash, teleHash]);
+      VALUES ('AAROHA Admin', 'admin@aaroha-inc.com', ?, 'ADMIN', 1)
+    `, [adminHash]);
 
     await p.query(`
       INSERT IGNORE INTO crm_settings (key_name, value)
@@ -350,6 +337,22 @@ export async function toggleUserStatus(userId: number, isActive: boolean): Promi
     return true;
   }
   return false;
+}
+
+export async function deleteUser(userId: number): Promise<boolean> {
+  const p = await getDbPool();
+  if (p) {
+    await p.query("UPDATE crm_leads SET assigned_telecaller_id = NULL WHERE assigned_telecaller_id = ?", [userId]);
+    await p.query("DELETE FROM crm_users WHERE id = ? AND role != 'ADMIN'", [userId]);
+    return true;
+  }
+  const store = getFallbackStore();
+  store.leads.forEach((l) => {
+    if (l.assigned_telecaller_id === userId) l.assigned_telecaller_id = null;
+  });
+  store.users = store.users.filter((u) => !(u.id === userId && u.role !== "ADMIN"));
+  saveFallbackStore(store);
+  return true;
 }
 
 // -------------------------------------------------------------

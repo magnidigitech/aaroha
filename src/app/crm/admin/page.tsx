@@ -27,6 +27,7 @@ import {
   ArrowRight,
   Sparkles,
   Zap,
+  Trash2,
 } from "lucide-react";
 import { CrmLead, CrmUser, TelecallerStats, CrmFollowUp, LeadStatus } from "@/lib/crm/types";
 import { LeadDetailModal } from "@/components/crm/LeadDetailModal";
@@ -233,6 +234,21 @@ export default function AdminCrmPage() {
       });
       if (res.ok) {
         await loadTelecallers();
+      }
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
+  const handleDeleteUser = async (userId: number, userName: string) => {
+    if (!window.confirm(`Are you sure you want to remove telecaller "${userName}"?`)) return;
+    try {
+      const res = await fetch(`/api/crm/telecallers?userId=${userId}`, {
+        method: "DELETE",
+      });
+      if (res.ok) {
+        await loadTelecallers();
+        await loadAnalytics();
       }
     } catch (e) {
       console.error(e);
@@ -874,16 +890,25 @@ export default function AdminCrmPage() {
                       </td>
                       <td className="p-3.5 text-right">
                         {u.role !== "ADMIN" && (
-                          <button
-                            onClick={() => handleToggleUser(u.id, u.is_active)}
-                            className={`px-3 py-1.5 rounded-xl font-medium transition text-xs cursor-pointer active:scale-[0.98] ${
-                              u.is_active
-                                ? "border border-rose-200 text-rose-700 hover:bg-rose-50/70"
-                                : "border border-emerald-200 text-emerald-700 hover:bg-emerald-50/70"
-                            }`}
-                          >
-                            {u.is_active ? "Deactivate" : "Activate"}
-                          </button>
+                          <div className="inline-flex items-center space-x-1.5">
+                            <button
+                              onClick={() => handleToggleUser(u.id, u.is_active)}
+                              className={`px-3 py-1.5 rounded-xl font-medium transition text-xs cursor-pointer active:scale-[0.98] ${
+                                u.is_active
+                                  ? "border border-slate-200 text-slate-600 hover:bg-slate-100"
+                                  : "border border-emerald-200 text-emerald-700 hover:bg-emerald-50/70"
+                              }`}
+                            >
+                              {u.is_active ? "Deactivate" : "Activate"}
+                            </button>
+                            <button
+                              onClick={() => handleDeleteUser(u.id, u.name)}
+                              className="p-1.5 rounded-xl border border-rose-200 text-rose-600 hover:bg-rose-50/70 transition cursor-pointer active:scale-[0.98]"
+                              title="Delete Telecaller"
+                            >
+                              <Trash2 className="w-3.5 h-3.5 stroke-[1.75]" />
+                            </button>
+                          </div>
                         )}
                       </td>
                     </tr>
