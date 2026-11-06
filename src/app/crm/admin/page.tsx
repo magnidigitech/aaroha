@@ -144,8 +144,9 @@ export default function AdminCrmPage() {
       const res = await fetch("/api/crm/telecallers");
       if (res.ok) {
         const data = await res.json();
-        setAllUsers(data.telecallers || []);
-        setTelecallers(data.telecallers?.filter((u: CrmUser) => u.is_active && u.role === "TELECALLER") || []);
+        const userList: CrmUser[] = data.users || data.telecallers || [];
+        setAllUsers(userList);
+        setTelecallers(userList.filter((u: CrmUser) => u.is_active && u.role === "TELECALLER"));
       }
     } catch (e) {
       console.error(e);
@@ -1058,7 +1059,10 @@ export default function AdminCrmPage() {
       <AddTelecallerModal
         isOpen={isAddTelecallerOpen}
         onClose={() => setIsAddTelecallerOpen(false)}
-        onSuccess={() => loadTelecallers()}
+        onSuccess={() => {
+          loadTelecallers();
+          loadAnalytics();
+        }}
       />
     </div>
   );

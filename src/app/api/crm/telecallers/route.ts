@@ -11,11 +11,12 @@ export async function GET(req: NextRequest) {
   // If Admin, can get all users; if Telecaller, only active telecallers list
   if (session.role === "ADMIN") {
     const users = await getAllUsers();
-    return NextResponse.json({ users });
+    const telecallers = await getAllTelecallers();
+    return NextResponse.json({ users, telecallers });
   }
 
   const telecallers = await getAllTelecallers();
-  return NextResponse.json({ telecallers });
+  return NextResponse.json({ users: telecallers, telecallers });
 }
 
 export async function POST(req: NextRequest) {
