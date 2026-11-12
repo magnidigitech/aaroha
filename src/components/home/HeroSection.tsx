@@ -7,11 +7,11 @@ import { HeroInteractiveCard } from "@/components/home/HeroInteractiveCard";
 
 export const HeroSection: React.FC = () => {
   return (
-    <section className="relative bg-gradient-to-br from-slate-50 via-blue-50/50 to-indigo-50/70 text-slate-900 pt-10 pb-14 lg:pt-14 lg:pb-16 overflow-hidden border-b border-slate-200/80">
+    <section className="relative min-h-[calc(100vh-80px)] flex items-center bg-gradient-to-br from-slate-50 via-blue-50/50 to-indigo-50/70 text-slate-900 py-10 lg:py-12 overflow-hidden border-b border-slate-200/80">
       {/* Interactive Mouse Tracking Spotlight & Constellation Mesh Background */}
       <InteractiveHeroBackground />
 
-      <div className="max-w-7xl 2xl:max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12 relative z-10">
+      <div className="w-full max-w-7xl 2xl:max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 2xl:gap-14 items-center">
           {/* Left Column: Headline & Action Items */}
           <div className="lg:col-span-7 space-y-5 2xl:space-y-6">
@@ -22,12 +22,12 @@ export const HeroSection: React.FC = () => {
             </div>
 
             {/* Headline */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl 2xl:text-7xl font-extrabold text-slate-900 tracking-tight leading-[1.15]">
+            <h1 className="text-3xl sm:text-4xl lg:text-[2.75rem] xl:text-5xl font-bold text-slate-900 tracking-tight leading-[1.18]">
               Software, cloud and data engineering for growing businesses.
             </h1>
 
             {/* Supporting Copy */}
-            <p className="text-lg sm:text-xl 2xl:text-2xl text-slate-600 leading-relaxed font-normal max-w-2xl 2xl:max-w-3xl">
+            <p className="text-base sm:text-lg 2xl:text-xl text-slate-600 leading-relaxed font-normal max-w-2xl">
               We help teams build applications, connect systems, and put their data to work — from planning and development through launch and ongoing support.
             </p>
 
