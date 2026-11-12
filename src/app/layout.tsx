@@ -30,11 +30,13 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/favicon.png", type: "image/png" },
-      { url: "/icon.png", type: "image/png" },
+      { url: "/favicon-48x48.png?v=2", sizes: "48x48", type: "image/png" },
+      { url: "/favicon-192x192.png?v=2", sizes: "192x192", type: "image/png" },
+      { url: "/favicon.png?v=2", sizes: "1024x1024", type: "image/png" },
+      { url: "/favicon.ico?v=2", sizes: "any" },
     ],
-    shortcut: "/favicon.png",
-    apple: "/apple-touch-icon.png",
+    shortcut: "/favicon.png?v=2",
+    apple: "/apple-touch-icon.png?v=2",
   },
   openGraph: {
     title: "AAROHA Technologies | Software, Cloud & Data Engineering",
