@@ -48,21 +48,21 @@ export const HeroInteractiveCard: React.FC = () => {
             : "perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)",
           transition: isHovered ? "transform 0.1s ease-out" : "transform 0.5s ease-out",
         }}
-        className="relative bg-gradient-to-br from-white/10 via-white/5 to-white/10 backdrop-blur-2xl border border-white/20 rounded-3xl px-7 pt-6 pb-4 text-white shadow-2xl overflow-hidden cursor-pointer group"
+        className="relative bg-white/85 backdrop-blur-2xl border border-slate-200/90 rounded-3xl px-7 pt-6 pb-4 text-slate-900 shadow-xl shadow-blue-900/5 overflow-hidden cursor-pointer group"
       >
         {/* Dynamic 3D Cursor Lighting Overlay */}
         <div
           className="pointer-events-none absolute inset-0 rounded-3xl transition-opacity duration-300 z-0"
           style={{
             opacity: isHovered ? 1 : 0.4,
-            background: `radial-gradient(600px circle at ${mousePos.x}% ${mousePos.y}%, rgba(59, 130, 246, 0.35), transparent 85%)`,
+            background: `radial-gradient(600px circle at ${mousePos.x}% ${mousePos.y}%, rgba(59, 130, 246, 0.12), transparent 85%)`,
           }}
         />
 
         <div className="relative z-10 space-y-4">
           {/* Card Eyebrow Header (Removed Enterprise Ready badge as requested) */}
-          <div className="flex items-center justify-between border-b border-white/10 pb-3">
-            <div className="flex items-center space-x-2 text-blue-400">
+          <div className="flex items-center justify-between border-b border-slate-200/80 pb-3">
+            <div className="flex items-center space-x-2 text-blue-700">
               <span className="text-xs font-extrabold uppercase tracking-widest">
                 AAROHA TECHNOLOGIES (ELEVATE | EMPOWER | EXCEL)
               </span>
@@ -73,39 +73,39 @@ export const HeroInteractiveCard: React.FC = () => {
           <div className="grid grid-cols-2 gap-3.5">
             <Link
               href="/services"
-              className="p-4 rounded-2xl bg-white/5 border border-white/10 hover:border-blue-400/50 hover:bg-white/10 transition-all space-y-1 block group/item"
+              className="p-4 rounded-2xl bg-slate-50/90 border border-slate-200/80 hover:border-blue-400 hover:bg-blue-50/50 transition-all space-y-1 block group/item"
             >
-              <div className="flex items-center justify-between text-blue-400">
+              <div className="flex items-center justify-between text-blue-600">
                 <Code2 className="w-5 h-5" />
                 <ArrowRight className="w-3.5 h-3.5 opacity-0 group-hover/item:opacity-100 group-hover/item:translate-x-1 transition-all" />
               </div>
-              <div className="text-2xl font-extrabold text-white">30</div>
-              <div className="text-[11px] font-semibold text-slate-300">Specialized Services</div>
+              <div className="text-2xl font-extrabold text-slate-900">30</div>
+              <div className="text-[11px] font-semibold text-slate-600">Specialized Services</div>
             </Link>
 
             <Link
               href="/training"
-              className="p-4 rounded-2xl bg-white/5 border border-white/10 hover:border-blue-400/50 hover:bg-white/10 transition-all space-y-1 block group/item"
+              className="p-4 rounded-2xl bg-slate-50/90 border border-slate-200/80 hover:border-blue-400 hover:bg-blue-50/50 transition-all space-y-1 block group/item"
             >
-              <div className="flex items-center justify-between text-blue-400">
+              <div className="flex items-center justify-between text-blue-600">
                 <GraduationCap className="w-5 h-5" />
                 <ArrowRight className="w-3.5 h-3.5 opacity-0 group-hover/item:opacity-100 group-hover/item:translate-x-1 transition-all" />
               </div>
-              <div className="text-2xl font-extrabold text-white">10</div>
-              <div className="text-[11px] font-semibold text-slate-300">Training Programs</div>
+              <div className="text-2xl font-extrabold text-slate-900">10</div>
+              <div className="text-[11px] font-semibold text-slate-600">Training Programs</div>
             </Link>
           </div>
 
           {/* Tech Stack Pills */}
           <div className="space-y-2">
-            <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider block">
+            <span className="text-[11px] font-bold text-slate-500 uppercase tracking-wider block">
               Core Tech Stack & Frameworks
             </span>
             <div className="flex flex-wrap gap-2">
               {["Azure Cloud", "Databricks", "React 19", "Next.js", "PySpark", "GenAI RAG", "SAP ABAP", "Kubernetes"].map((tech, i) => (
                 <span
                   key={i}
-                  className="text-xs bg-white/10 text-white font-mono px-3 py-1 rounded-lg border border-white/15 hover:bg-blue-600/30 hover:border-blue-400/40 transition-colors"
+                  className="text-xs bg-slate-100 text-slate-700 font-mono px-3 py-1 rounded-lg border border-slate-200 hover:bg-blue-50 hover:text-blue-700 hover:border-blue-200 transition-colors"
                 >
                   {tech}
                 </span>
@@ -114,14 +114,14 @@ export const HeroInteractiveCard: React.FC = () => {
           </div>
 
           {/* Bottom Row - With Active Link for Powered by J2D */}
-          <div className="pt-2.5 border-t border-white/10 flex items-center justify-between text-xs text-slate-300">
-            <span className="flex items-center space-x-1.5 text-emerald-400 font-semibold">
+          <div className="pt-2.5 border-t border-slate-200/80 flex items-center justify-between text-xs text-slate-600">
+            <span className="flex items-center space-x-1.5 text-emerald-600 font-semibold">
               <ShieldCheck className="w-4 h-4" />
               <span>100% IP & Code Ownership</span>
             </span>
             <Link
               href="/about"
-              className="text-blue-400 font-bold hover:text-blue-300 hover:underline transition-colors flex items-center space-x-1"
+              className="text-blue-600 font-bold hover:text-blue-700 hover:underline transition-colors flex items-center space-x-1"
             >
               <span>Powered by J2D &rarr;</span>
             </Link>

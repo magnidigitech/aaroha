@@ -171,19 +171,19 @@ export default async function EnquiryPage({
             </div>
 
             {/* Trust Banner Card */}
-            <div className="bg-gradient-to-br from-blue-900 to-[#050E2B] text-white rounded-2xl p-6 shadow-md space-y-3">
-              <div className="flex items-center space-x-2 text-blue-300 text-xs font-bold uppercase tracking-wider">
+            <div className="bg-gradient-to-br from-blue-50 via-white to-indigo-50/70 text-slate-900 border border-slate-200 rounded-2xl p-6 shadow-sm space-y-3">
+              <div className="flex items-center space-x-2 text-blue-700 text-xs font-bold uppercase tracking-wider">
                 <ShieldCheck className="w-4 h-4" />
                 <span>The AAROHA Advantage</span>
               </div>
-              <h4 className="text-base font-bold text-white">Built by Engineers, Not Just Tutors</h4>
-              <p className="text-xs text-slate-300 leading-relaxed">
+              <h4 className="text-base font-bold text-slate-900">Built by Engineers, Not Just Tutors</h4>
+              <p className="text-xs text-slate-600 leading-relaxed">
                 Our trainers are actively working engineers powered by J2D Technologies. Every student builds enterprise-grade pipelines, deployed models, and real repositories.
               </p>
               <div className="pt-2 flex flex-wrap gap-2 text-[11px]">
-                <span className="px-2.5 py-1 rounded-full bg-white/10 text-slate-200">Real Azure Labs</span>
-                <span className="px-2.5 py-1 rounded-full bg-white/10 text-slate-200">Mock Interviews</span>
-                <span className="px-2.5 py-1 rounded-full bg-white/10 text-slate-200">Resume Review</span>
+                <span className="px-2.5 py-1 rounded-full bg-blue-50 border border-blue-200 text-blue-700 font-medium">Real Azure Labs</span>
+                <span className="px-2.5 py-1 rounded-full bg-blue-50 border border-blue-200 text-blue-700 font-medium">Mock Interviews</span>
+                <span className="px-2.5 py-1 rounded-full bg-blue-50 border border-blue-200 text-blue-700 font-medium">Resume Review</span>
               </div>
             </div>
           </div>

@@ -110,63 +110,63 @@ export default async function CourseDetailPage({ params }: PageProps) {
     <>
       <JsonLd data={jsonLdData} />
 
-      {/* 1. Course Hero Section — Matching Solid Navy #050E2B Theme */}
-      <section className="bg-[#050E2B] text-white pt-14 sm:pt-20 lg:pt-24 pb-16 sm:pb-20 border-b border-white/10 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-blue-950/50 via-transparent to-transparent opacity-60" />
+      {/* 1. Course Hero Section — Subtle Light Slate-Blue Theme */}
+      <section className="bg-gradient-to-br from-slate-50 via-blue-50/60 to-indigo-50/70 text-slate-900 pt-14 sm:pt-20 lg:pt-24 pb-16 sm:pb-20 border-b border-slate-200 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-blue-200/30 via-transparent to-transparent opacity-60" />
         
         <div className="max-w-7xl 2xl:max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12 relative z-10">
           {/* Breadcrumb Navigation */}
-          <div className="flex items-center space-x-2 text-xs font-semibold text-slate-400 mb-6">
-            <Link href="/" className="hover:text-white transition-colors">
+          <div className="flex items-center space-x-2 text-xs font-semibold text-slate-500 mb-6">
+            <Link href="/" className="hover:text-slate-900 transition-colors">
               Home
             </Link>
             <span>/</span>
-            <Link href="/training" className="hover:text-white transition-colors">
+            <Link href="/training" className="hover:text-slate-900 transition-colors">
               Training
             </Link>
             <span>/</span>
-            <span className="text-blue-400 font-medium">{course.title}</span>
+            <span className="text-blue-600 font-medium">{course.title}</span>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-8 space-y-6">
               <div className="flex flex-wrap items-center gap-2.5">
                 {course.isUpcoming ? (
-                  <span className="inline-flex items-center space-x-1.5 text-xs font-black uppercase tracking-wider text-amber-300 bg-amber-500/20 border border-amber-400/50 px-3 py-1 rounded-full shadow-sm">
+                  <span className="inline-flex items-center space-x-1.5 text-xs font-black uppercase tracking-wider text-amber-800 bg-amber-50 border border-amber-300 px-3 py-1 rounded-full shadow-xs">
                     <span className="relative flex h-2 w-2">
-                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
-                      <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-400"></span>
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-500 opacity-75"></span>
+                      <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-500"></span>
                     </span>
                     <span>🚀 Upcoming Program • Curriculum Updating Soon</span>
                   </span>
                 ) : (
-                  <span className="text-xs font-bold uppercase tracking-wider text-slate-300 bg-white/10 border border-white/20 px-3 py-1 rounded-full">
+                  <span className="text-xs font-bold uppercase tracking-wider text-slate-700 bg-white border border-slate-200 px-3 py-1 rounded-full">
                     Duration: {course.duration}
                   </span>
                 )}
-                <span className="text-xs font-bold uppercase tracking-wider text-slate-300 bg-white/10 border border-white/20 px-3 py-1 rounded-full">
+                <span className="text-xs font-bold uppercase tracking-wider text-slate-700 bg-white border border-slate-200 px-3 py-1 rounded-full">
                   Format: {course.format}
                 </span>
-                <span className="text-xs font-bold uppercase tracking-wider text-blue-400 bg-blue-500/10 border border-blue-500/20 px-3 py-1 rounded-full inline-block">
+                <span className="text-xs font-bold uppercase tracking-wider text-blue-700 bg-blue-50 border border-blue-200 px-3 py-1 rounded-full inline-block">
                   {course.category}
                 </span>
               </div>
 
-              <h1 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
+              <h1 className="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
                 {course.title}
               </h1>
 
-              <p className="text-base sm:text-lg text-slate-300 leading-relaxed max-w-3xl">
+              <p className="text-base sm:text-lg text-slate-600 leading-relaxed max-w-3xl">
                 {course.summary}
               </p>
 
               {course.isUpcoming && (
-                <div className="bg-white/10 backdrop-blur-md border border-amber-400/30 rounded-2xl p-4 text-xs text-slate-200 space-y-1 max-w-3xl">
-                  <p className="font-bold text-amber-300 flex items-center space-x-1.5">
-                    <Clock className="w-4 h-4 text-amber-400" />
+                <div className="bg-white/90 backdrop-blur-md border border-amber-300 rounded-2xl p-4 text-xs text-slate-700 space-y-1 max-w-3xl shadow-xs">
+                  <p className="font-bold text-amber-700 flex items-center space-x-1.5">
+                    <Clock className="w-4 h-4 text-amber-600" />
                     <span>Curriculum Announcement & Pre-Registration Notice</span>
                   </p>
-                  <p className="text-slate-300">
+                  <p className="text-slate-600">
                     This program is launching in our upcoming cohort. The comprehensive 2026 syllabus is currently being finalized by our technical steering team. Pre-register below to receive early-bird syllabus access upon release.
                   </p>
                 </div>
@@ -184,9 +184,9 @@ export default async function CourseDetailPage({ params }: PageProps) {
                     </a>
                     <a
                       href="#curriculum"
-                      className="bg-white/10 hover:bg-white/15 border border-white/20 text-amber-300 hover:text-white font-bold px-5 py-3.5 rounded-xl transition-all text-sm flex items-center space-x-1.5"
+                      className="bg-white hover:bg-amber-50 border border-amber-300 text-amber-800 hover:text-amber-900 font-bold px-5 py-3.5 rounded-xl shadow-xs transition-all text-sm flex items-center space-x-1.5"
                     >
-                      <Clock className="w-4 h-4 text-amber-300" />
+                      <Clock className="w-4 h-4 text-amber-600" />
                       <span>Curriculum Updating Soon</span>
                     </a>
                   </>
@@ -194,14 +194,14 @@ export default async function CourseDetailPage({ params }: PageProps) {
                   <>
                     <a
                       href="#enquiry-section"
-                      className="bg-blue-600 hover:bg-blue-500 text-white font-bold px-6 py-3.5 rounded-xl shadow-lg shadow-blue-900/30 transition-all flex items-center space-x-2 text-sm"
+                      className="bg-blue-600 hover:bg-blue-700 text-white font-bold px-6 py-3.5 rounded-xl shadow-md shadow-blue-600/20 transition-all flex items-center space-x-2 text-sm"
                     >
                       <GraduationCap className="w-5 h-5 text-white" />
                       <span>Enquire About Course</span>
                     </a>
                     <a
                       href="#curriculum"
-                      className="bg-white/5 hover:bg-white/10 border border-white/10 text-slate-300 hover:text-white font-semibold px-5 py-3.5 rounded-xl transition-all text-sm"
+                      className="bg-white hover:bg-slate-50 border border-slate-300 hover:border-blue-400 text-slate-700 hover:text-blue-700 font-semibold px-5 py-3.5 rounded-xl shadow-xs transition-all text-sm"
                     >
                       View Full Syllabus
                     </a>
@@ -224,7 +224,7 @@ export default async function CourseDetailPage({ params }: PageProps) {
       </section>
 
       {/* 2. Compact Sticky Section Navigation - Centered tabs docking right beneath main site header */}
-      <nav className="sticky top-[72px] sm:top-[80px] z-40 bg-white/95 backdrop-blur border-b border-slate-200 shadow-md hidden sm:block">
+      <nav className="sticky top-[72px] z-40 bg-white/95 backdrop-blur border-b border-slate-200 shadow-md hidden sm:block">
         <div className="max-w-7xl 2xl:max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12">
           <div className="flex items-center justify-center space-x-6 sm:space-x-8 overflow-x-auto text-xs font-bold py-3.5 text-slate-700 no-scrollbar">
             <a href="#overview" className="hover:text-blue-600 whitespace-nowrap transition-colors">Overview</a>

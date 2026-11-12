@@ -113,19 +113,19 @@ export default function ServicesPage() {
                   onClick={() => setSelectedNeed(isSelected ? null : need.id)}
                   className={`p-4 rounded-2xl border text-left transition-all flex flex-col justify-between ${
                     isSelected
-                      ? "bg-[#050E2B] text-white border-[#050E2B] shadow-md"
+                      ? "bg-blue-600 text-white border-blue-600 shadow-md"
                       : "bg-slate-50/70 border-slate-200 hover:border-blue-400 text-slate-900"
                   }`}
                 >
                   <div>
                     <h3 className="text-sm font-bold mb-1">{need.title}</h3>
-                    <p className={`text-[11px] leading-snug ${isSelected ? "text-slate-300" : "text-slate-500"}`}>
+                    <p className={`text-[11px] leading-snug ${isSelected ? "text-blue-100" : "text-slate-500"}`}>
                       {need.tagline}
                     </p>
                   </div>
                   <span
                     className={`mt-4 text-[11px] font-semibold inline-flex items-center space-x-1 ${
-                      isSelected ? "text-blue-400" : "text-blue-600"
+                      isSelected ? "text-white" : "text-blue-600"
                     }`}
                   >
                     <span>{isSelected ? "Selected" : "Filter Services"} &rarr;</span>
@@ -207,7 +207,7 @@ export default function ServicesPage() {
                   onClick={() => setSelectedCategory(cat)}
                   className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap transition-all ${
                     selectedCategory === cat
-                      ? "bg-[#050E2B] text-white shadow"
+                      ? "bg-blue-600 text-white shadow"
                       : "bg-slate-100 text-slate-700 hover:bg-slate-200"
                   }`}
                 >
@@ -274,23 +274,23 @@ export default function ServicesPage() {
         </div>
 
         {/* 6. Engagement Options */}
-        <div className="bg-[#050E2B] text-white rounded-3xl p-8 sm:p-12 shadow-xl border border-white/10 space-y-8">
+        <div className="bg-gradient-to-br from-slate-50 via-blue-50/50 to-indigo-50/70 text-slate-900 rounded-3xl p-8 sm:p-12 shadow-sm border border-slate-200 space-y-8">
           <div className="max-w-2xl">
-            <span className="text-xs font-bold uppercase tracking-widest text-blue-400 block mb-1">Working Models</span>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-white">Engagement Options</h2>
-            <p className="text-slate-300 text-sm mt-2">
+            <span className="text-xs font-bold uppercase tracking-widest text-blue-600 block mb-1">Working Models</span>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">Engagement Options</h2>
+            <p className="text-slate-600 text-sm mt-2">
               Choose the working structure that matches your project scope and team capacity.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {ENGAGEMENT_OPTIONS.map((opt, idx) => (
-              <div key={idx} className="bg-white/5 border border-white/10 rounded-2xl p-6 space-y-3">
-                <h3 className="text-lg font-bold text-white">{opt.title}</h3>
-                <p className="text-xs text-slate-300 leading-relaxed">{opt.description}</p>
-                <div className="pt-3 border-t border-white/10 text-xs font-semibold text-blue-300">
+              <div key={idx} className="bg-white border border-slate-200 rounded-2xl p-6 space-y-3 shadow-xs">
+                <h3 className="text-lg font-bold text-slate-900">{opt.title}</h3>
+                <p className="text-xs text-slate-600 leading-relaxed">{opt.description}</p>
+                <div className="pt-3 border-t border-slate-100 text-xs font-semibold text-blue-700">
                   <span>Best for: </span>
-                  <span className="text-white font-normal">{opt.bestFor}</span>
+                  <span className="text-slate-700 font-normal">{opt.bestFor}</span>
                 </div>
               </div>
             ))}

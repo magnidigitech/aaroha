@@ -13,31 +13,31 @@ interface Slide {
 const HERO_SLIDES: Slide[] = [
   {
     id: 1,
-    src: "/assets/hero/hero-slide-1-cloud.jpg",
+    src: "/assets/hero/hero-light-1-cloud.jpg",
     title: "Cloud & Data Infrastructure",
     category: "Cloud Architecture",
   },
   {
     id: 2,
-    src: "/assets/hero/hero-slide-2-software.jpg",
+    src: "/assets/hero/hero-light-2-software.jpg",
     title: "Software Engineering Studio",
     category: "Custom Applications",
   },
   {
     id: 3,
-    src: "/assets/hero/hero-slide-3-ai.jpg",
+    src: "/assets/hero/hero-light-3-ai.jpg",
     title: "Big Data & AI Neural Pipelines",
     category: "Data & GenAI",
   },
   {
     id: 4,
-    src: "/assets/hero/hero-slide-4-architecture.jpg",
+    src: "/assets/hero/hero-light-4-architecture.jpg",
     title: "Enterprise Architecture & Modernization",
     category: "Digital Transformation",
   },
   {
     id: 5,
-    src: "/assets/hero/hero-slide-5-training.jpg",
+    src: "/assets/hero/hero-light-5-training.jpg",
     title: "Technology Training & Career Labs",
     category: "AAROHA Academy",
   },
@@ -93,10 +93,10 @@ export const InteractiveHeroBackground: React.FC = () => {
 
   return (
     <div className="pointer-events-none absolute inset-0 overflow-hidden select-none z-0">
-      {/* 1. Base Dark Solid Background */}
-      <div className="absolute inset-0 bg-[#050E2B]" />
+      {/* 1. Base Soft Light Slate Background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-blue-50/70 to-indigo-50/80" />
 
-      {/* 2. Vibrant Cinematic Crossfading Background Slides */}
+      {/* 2. Light-Themed Crossfading Background Slides */}
       <div className="absolute inset-0">
         {HERO_SLIDES.map((slide, idx) => {
           const isActive = idx === currentSlide;
@@ -117,7 +117,7 @@ export const InteractiveHeroBackground: React.FC = () => {
                   alt={slide.title}
                   fill
                   priority={idx === 0}
-                  className="object-cover object-center filter saturate-[1.15] brightness-95"
+                  className="object-cover object-center"
                   sizes="100vw"
                 />
               </div>
@@ -126,32 +126,32 @@ export const InteractiveHeroBackground: React.FC = () => {
         })}
       </div>
 
-      {/* 3. Balanced Left-Weighted Vignette Mask (Protects text contrast while letting center & right images shine) */}
-      <div className="absolute inset-0 bg-gradient-to-r from-[#050E2B]/95 via-[#050E2B]/65 to-[#050E2B]/40" />
-      <div className="absolute inset-0 bg-gradient-to-t from-[#050E2B] via-transparent to-[#050E2B]/60" />
+      {/* 3. Clean Left-Side Text Protection + Soft Edge Blend */}
+      <div className="absolute inset-0 bg-gradient-to-r from-white via-white/85 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-t from-slate-50/50 via-transparent to-white/30" />
 
       {/* 4. Interactive Cursor Spotlight Ambient Glow */}
       <div
         className="absolute inset-0 transition-opacity duration-300"
         style={{
-          background: `radial-gradient(700px circle at ${mousePos.x}% ${mousePos.y}%, rgba(59, 130, 246, 0.18), transparent 70%)`,
+          background: `radial-gradient(700px circle at ${mousePos.x}% ${mousePos.y}%, rgba(59, 130, 246, 0.12), transparent 70%)`,
         }}
       />
 
       {/* 5. Subtle Technical Grid Texture */}
       <div
-        className="absolute inset-0 opacity-[0.05]"
+        className="absolute inset-0 opacity-[0.06]"
         style={{
           backgroundImage: `
-            linear-gradient(to right, rgba(255, 255, 255, 0.4) 1px, transparent 1px),
-            linear-gradient(to bottom, rgba(255, 255, 255, 0.4) 1px, transparent 1px)
+            linear-gradient(to right, rgba(37, 99, 235, 0.35) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(37, 99, 235, 0.35) 1px, transparent 1px)
           `,
           backgroundSize: "48px 48px",
         }}
       />
 
       {/* 6. Slide Navigation & Category Badge (Bottom Right) */}
-      <div className="pointer-events-auto absolute bottom-6 right-8 hidden lg:flex items-center space-x-3 bg-[#050E2B]/90 backdrop-blur-md px-4 py-2 rounded-full border border-white/20 text-xs shadow-2xl">
+      <div className="pointer-events-auto absolute bottom-6 right-8 hidden lg:flex items-center space-x-3 bg-white/90 backdrop-blur-md px-4 py-2 rounded-full border border-slate-200 text-xs shadow-md">
         <div className="flex items-center space-x-1.5">
           {HERO_SLIDES.map((_, idx) => (
             <button
@@ -159,20 +159,20 @@ export const InteractiveHeroBackground: React.FC = () => {
               type="button"
               onClick={() => setCurrentSlide(idx)}
               className={`h-2 rounded-full transition-all duration-300 ${
-                idx === currentSlide ? "w-6 bg-blue-400 shadow-sm shadow-blue-400/50" : "w-2 bg-white/30 hover:bg-white/60"
+                idx === currentSlide ? "w-6 bg-blue-600 shadow-sm shadow-blue-600/30" : "w-2 bg-slate-300 hover:bg-slate-400"
               }`}
               aria-label={`Slide ${idx + 1}`}
             />
           ))}
         </div>
-        <span className="text-slate-200 font-semibold text-[11px] border-l border-white/15 pl-3">
+        <span className="text-slate-700 font-semibold text-[11px] border-l border-slate-200 pl-3">
           {HERO_SLIDES[currentSlide].category}
         </span>
       </div>
 
       {/* 7. Precision Top & Bottom Edge Accents */}
-      <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-cyan-400/40 to-transparent" />
-      <div className="absolute bottom-0 inset-x-0 h-20 bg-gradient-to-t from-[#050E2B] to-transparent" />
+      <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-blue-400/30 to-transparent" />
+      <div className="absolute bottom-0 inset-x-0 h-12 bg-gradient-to-t from-slate-50/40 to-transparent" />
     </div>
   );
 };

@@ -426,20 +426,20 @@ export const TrainingRegistrationForm: React.FC<TrainingRegistrationFormProps> =
 
   return (
     <div className="bg-white rounded-2xl sm:rounded-3xl border border-slate-200 shadow-xl overflow-hidden transition-all relative">
-      {/* Dark Navy Flow Header */}
-      <div className="bg-gradient-to-r from-[#050E2B] via-[#0A1F52] to-[#050E2B] p-4 sm:p-8 text-white relative">
-        <div className="flex items-center justify-between gap-3 border-b border-white/10 pb-4 mb-4">
+      {/* Subtle Flow Header */}
+      <div className="bg-gradient-to-r from-slate-50 via-blue-50/70 to-indigo-50/70 p-4 sm:p-8 text-slate-900 border-b border-slate-200 relative">
+        <div className="flex items-center justify-between gap-3 border-b border-slate-200 pb-4 mb-4">
           <div>
-            <h2 className="text-base sm:text-2xl font-black text-white leading-tight">
+            <h2 className="text-base sm:text-2xl font-black text-slate-900 leading-tight">
               AAROHA Technologies
             </h2>
-            <p className="text-[11px] sm:text-xs text-blue-300 font-medium">
+            <p className="text-[11px] sm:text-xs text-blue-600 font-medium">
               Training & Career Registration Form
             </p>
           </div>
-          <div className="shrink-0 bg-blue-500/20 border border-blue-400/30 px-3 py-1.5 rounded-full text-right">
-            <span className="text-xs sm:text-sm font-extrabold text-white">
-              Step {currentStep}<span className="text-blue-300 font-normal">/6</span>
+          <div className="shrink-0 bg-blue-50 border border-blue-200 px-3 py-1.5 rounded-full text-right">
+            <span className="text-xs sm:text-sm font-extrabold text-blue-900">
+              Step {currentStep}<span className="text-blue-600 font-normal">/6</span>
             </span>
           </div>
         </div>
@@ -526,20 +526,20 @@ export const TrainingRegistrationForm: React.FC<TrainingRegistrationFormProps> =
           </div>
 
           {/* Official Branding Footer */}
-          <div className="max-w-md mx-auto bg-[#050E2B] text-white p-5 rounded-2xl space-y-2 shadow-lg">
-            <h4 className="text-base sm:text-lg font-black tracking-wide text-white">
+          <div className="max-w-md mx-auto bg-slate-50 border border-slate-200 text-slate-900 p-5 rounded-2xl space-y-2 shadow-sm">
+            <h4 className="text-base sm:text-lg font-black tracking-wide text-slate-900">
               AAROHA Technologies
             </h4>
-            <p className="text-[11px] sm:text-xs font-semibold text-blue-400 uppercase tracking-widest">
+            <p className="text-[11px] sm:text-xs font-semibold text-blue-600 uppercase tracking-widest">
               Elevate | Empower | Excel
             </p>
-            <p className="text-xs text-slate-300">
+            <p className="text-xs text-slate-600">
               Website:{" "}
               <a
                 href="https://www.aaroha-inc.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-blue-300 font-bold underline hover:text-white"
+                className="text-blue-600 font-bold underline hover:text-blue-800"
               >
                 www.aaroha-inc.com
               </a>

@@ -66,7 +66,7 @@ export const FeaturedServicesSection: React.FC = () => {
               onClick={() => setActiveCategory(cat)}
               className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap transition-all ${
                 activeCategory === cat
-                  ? "bg-[#050E2B] text-white shadow-md"
+                  ? "bg-blue-600 text-white shadow-md"
                   : "bg-slate-100 text-slate-700 hover:bg-slate-200"
               }`}
             >

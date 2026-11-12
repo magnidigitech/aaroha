@@ -107,18 +107,18 @@ export default function TrainingRegisterPage({
             </div>
 
             {/* Top Programs Badge */}
-            <div className="bg-gradient-to-br from-[#050E2B] to-[#0A1F52] rounded-3xl p-6 text-white space-y-4 shadow-xl">
-              <h4 className="text-base font-bold text-white flex items-center space-x-2">
-                <BookOpen className="w-5 h-5 text-blue-400" />
+            <div className="bg-gradient-to-br from-blue-50 via-white to-indigo-50/70 border border-slate-200 rounded-3xl p-6 text-slate-900 space-y-4 shadow-sm">
+              <h4 className="text-base font-bold text-slate-900 flex items-center space-x-2">
+                <BookOpen className="w-5 h-5 text-blue-600" />
                 <span>Featured Tech Track</span>
               </h4>
-              <p className="text-xs text-slate-300 leading-relaxed">
+              <p className="text-xs text-slate-600 leading-relaxed">
                 Join our flagship program: <strong>Azure Data Engineer with GenAI & AI Agents</strong>. Learn ADF, Databricks, PySpark, Microsoft Fabric, Vector Databases & OpenAI RAG workflows.
               </p>
               <div className="pt-2 flex flex-wrap gap-2 text-[11px] font-semibold">
-                <span className="bg-blue-500/20 border border-blue-400/30 text-blue-300 px-2.5 py-1 rounded-full">Real-Time Projects</span>
-                <span className="bg-blue-500/20 border border-blue-400/30 text-blue-300 px-2.5 py-1 rounded-full">Interview Prep</span>
-                <span className="bg-blue-500/20 border border-blue-400/30 text-blue-300 px-2.5 py-1 rounded-full">1-on-1 Mentorship</span>
+                <span className="bg-blue-50 border border-blue-200 text-blue-700 px-2.5 py-1 rounded-full">Real-Time Projects</span>
+                <span className="bg-blue-50 border border-blue-200 text-blue-700 px-2.5 py-1 rounded-full">Interview Prep</span>
+                <span className="bg-blue-50 border border-blue-200 text-blue-700 px-2.5 py-1 rounded-full">1-on-1 Mentorship</span>
               </div>
             </div>
 

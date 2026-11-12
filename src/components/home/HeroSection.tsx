@@ -7,7 +7,7 @@ import { HeroInteractiveCard } from "@/components/home/HeroInteractiveCard";
 
 export const HeroSection: React.FC = () => {
   return (
-    <section className="relative bg-[#050E2B] text-white pt-10 pb-14 lg:pt-14 lg:pb-16 overflow-hidden border-b border-white/10">
+    <section className="relative bg-gradient-to-br from-slate-50 via-blue-50/50 to-indigo-50/70 text-slate-900 pt-10 pb-14 lg:pt-14 lg:pb-16 overflow-hidden border-b border-slate-200/80">
       {/* Interactive Mouse Tracking Spotlight & Constellation Mesh Background */}
       <InteractiveHeroBackground />
 
@@ -16,18 +16,18 @@ export const HeroSection: React.FC = () => {
           {/* Left Column: Headline & Action Items */}
           <div className="lg:col-span-7 space-y-5 2xl:space-y-6">
             {/* Brand Eyebrow */}
-            <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-semibold tracking-wide uppercase">
-              <ShieldCheck className="w-4 h-4 text-blue-400" />
+            <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200/80 text-blue-700 text-xs font-semibold tracking-wide uppercase shadow-sm">
+              <ShieldCheck className="w-4 h-4 text-blue-600" />
               <span>{COMPANY_INFO.poweredBy}</span>
             </div>
 
             {/* Headline */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl 2xl:text-7xl font-extrabold text-white tracking-tight leading-[1.15] drop-shadow-md">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl 2xl:text-7xl font-extrabold text-slate-900 tracking-tight leading-[1.15]">
               Software, cloud and data engineering for growing businesses.
             </h1>
 
             {/* Supporting Copy */}
-            <p className="text-lg sm:text-xl 2xl:text-2xl text-slate-200 leading-relaxed font-normal max-w-2xl 2xl:max-w-3xl drop-shadow-sm">
+            <p className="text-lg sm:text-xl 2xl:text-2xl text-slate-600 leading-relaxed font-normal max-w-2xl 2xl:max-w-3xl">
               We help teams build applications, connect systems, and put their data to work — from planning and development through launch and ongoing support.
             </p>
 
@@ -35,7 +35,7 @@ export const HeroSection: React.FC = () => {
             <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center space-x-2 px-7 py-3.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold text-base transition-all duration-200 shadow-xl shadow-blue-600/30 hover:-translate-y-0.5"
+                className="inline-flex items-center justify-center space-x-2 px-7 py-3.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-semibold text-base transition-all duration-200 shadow-lg shadow-blue-600/20 hover:-translate-y-0.5"
               >
                 <span>Discuss a Project</span>
                 <ArrowRight className="w-5 h-5" />
@@ -43,36 +43,36 @@ export const HeroSection: React.FC = () => {
 
               <Link
                 href="/services"
-                className="inline-flex items-center justify-center space-x-2 px-7 py-3.5 rounded-xl border border-white/20 hover:border-white text-white font-medium text-base transition-all duration-200 hover:bg-white/5"
+                className="inline-flex items-center justify-center space-x-2 px-7 py-3.5 rounded-xl bg-white/80 backdrop-blur-sm border border-slate-300 hover:border-blue-400 text-slate-800 font-medium text-base transition-all duration-200 hover:bg-white shadow-sm"
               >
-                <Code2 className="w-5 h-5 text-blue-400" />
+                <Code2 className="w-5 h-5 text-blue-600" />
                 <span>Explore Services</span>
               </Link>
             </div>
 
             {/* Separate Training Journey Link */}
-            <div className="pt-4 border-t border-white/10 flex items-center space-x-3 text-slate-400 text-sm">
-              <GraduationCap className="w-5 h-5 text-blue-400 shrink-0" />
+            <div className="pt-4 border-t border-slate-200/80 flex items-center space-x-3 text-slate-600 text-sm">
+              <GraduationCap className="w-5 h-5 text-blue-600 shrink-0" />
               <span>
                 Looking for technology courses?{" "}
-                <Link href="/training" className="text-blue-400 hover:text-blue-300 font-semibold underline underline-offset-4">
+                <Link href="/training" className="text-blue-600 hover:text-blue-700 font-semibold underline underline-offset-4">
                   Explore our training & placement programs &rarr;
                 </Link>
               </span>
             </div>
 
             {/* Trust Highlights */}
-            <div className="pt-4 grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs font-medium text-slate-300">
+            <div className="pt-4 grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs font-medium text-slate-700">
               <div className="flex items-center space-x-2">
-                <CheckCircle2 className="w-4 h-4 text-blue-400 shrink-0" />
+                <CheckCircle2 className="w-4 h-4 text-blue-600 shrink-0" />
                 <span>Full 100% IP Ownership</span>
               </div>
               <div className="flex items-center space-x-2">
-                <CheckCircle2 className="w-4 h-4 text-blue-400 shrink-0" />
+                <CheckCircle2 className="w-4 h-4 text-blue-600 shrink-0" />
                 <span>Dedicated Engineering Sprints</span>
               </div>
               <div className="flex items-center space-x-2">
-                <CheckCircle2 className="w-4 h-4 text-blue-400 shrink-0" />
+                <CheckCircle2 className="w-4 h-4 text-blue-600 shrink-0" />
                 <span>Transparent Delivery Tracking</span>
               </div>
             </div>

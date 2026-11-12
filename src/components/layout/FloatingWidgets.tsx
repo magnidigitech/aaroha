@@ -29,23 +29,23 @@ export const FloatingWidgets: React.FC = () => {
       </a>
 
       {/* Left Side Quick Access & Social Bar */}
-      <div className="fixed left-0 top-1/2 -translate-y-1/2 z-40 hidden lg:flex flex-col bg-[#0A1F52]/95 backdrop-blur-md border border-l-0 border-white/15 rounded-r-xl shadow-xl p-1.5 space-y-1.5">
+      <div className="fixed left-0 top-1/2 -translate-y-1/2 z-40 hidden lg:flex flex-col bg-white/95 backdrop-blur-md border border-l-0 border-slate-200 rounded-r-xl shadow-lg p-1.5 space-y-1.5">
         <a
           href={`mailto:${COMPANY_INFO.email}`}
-          className="p-2 text-slate-300 hover:text-white hover:bg-white/10 rounded-lg transition-colors"
+          className="p-2 text-slate-600 hover:text-blue-700 hover:bg-slate-100 rounded-lg transition-colors"
           title="Send Email"
           aria-label="Send Email"
         >
           <Mail className="w-5 h-5" />
         </a>
 
-        <div className="h-px bg-white/10 mx-1.5" />
+        <div className="h-px bg-slate-200 mx-1.5" />
 
         <a
           href={COMPANY_INFO.socials.linkedin}
           target="_blank"
           rel="noopener noreferrer"
-          className="p-2 text-slate-300 hover:text-[#38bdf8] hover:bg-white/10 rounded-lg transition-colors"
+          className="p-2 text-slate-600 hover:text-[#0A66C2] hover:bg-blue-50 rounded-lg transition-colors"
           title="LinkedIn"
           aria-label="AAROHA Technologies on LinkedIn"
         >
@@ -58,7 +58,7 @@ export const FloatingWidgets: React.FC = () => {
           href={COMPANY_INFO.socials.youtube}
           target="_blank"
           rel="noopener noreferrer"
-          className="p-2 text-slate-300 hover:text-[#f87171] hover:bg-white/10 rounded-lg transition-colors"
+          className="p-2 text-slate-600 hover:text-[#FF0000] hover:bg-red-50 rounded-lg transition-colors"
           title="YouTube"
           aria-label="AAROHA Technologies on YouTube"
         >
@@ -71,7 +71,7 @@ export const FloatingWidgets: React.FC = () => {
           href={COMPANY_INFO.socials.instagram}
           target="_blank"
           rel="noopener noreferrer"
-          className="p-2 text-slate-300 hover:text-[#f472b6] hover:bg-white/10 rounded-lg transition-colors"
+          className="p-2 text-slate-600 hover:text-[#E4405F] hover:bg-pink-50 rounded-lg transition-colors"
           title="Instagram"
           aria-label="AAROHA Technologies on Instagram"
         >
@@ -84,7 +84,7 @@ export const FloatingWidgets: React.FC = () => {
           href={COMPANY_INFO.socials.facebook}
           target="_blank"
           rel="noopener noreferrer"
-          className="p-2 text-slate-300 hover:text-[#60a5fa] hover:bg-white/10 rounded-lg transition-colors"
+          className="p-2 text-slate-600 hover:text-[#1877F2] hover:bg-blue-50 rounded-lg transition-colors"
           title="Facebook"
           aria-label="AAROHA Technologies on Facebook"
         >

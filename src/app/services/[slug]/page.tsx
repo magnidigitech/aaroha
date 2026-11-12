@@ -76,44 +76,44 @@ export default async function ServiceDetailPage({ params }: PageProps) {
       <JsonLd data={jsonLdData} />
 
       {/* 1. Hero Header */}
-      <section className="bg-[#050E2B] text-white pt-14 sm:pt-20 lg:pt-24 pb-16 sm:pb-20 border-b border-white/10 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-blue-950/50 via-transparent to-transparent opacity-60" />
+      <section className="bg-gradient-to-br from-slate-50 via-blue-50/60 to-indigo-50/70 text-slate-900 pt-14 sm:pt-20 lg:pt-24 pb-16 sm:pb-20 border-b border-slate-200 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-blue-200/30 via-transparent to-transparent opacity-60" />
         <div className="max-w-7xl 2xl:max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12 relative z-10">
-          <div className="flex items-center space-x-2 text-xs font-semibold text-slate-400 mb-6">
-            <Link href="/" className="hover:text-white transition-colors">
+          <div className="flex items-center space-x-2 text-xs font-semibold text-slate-500 mb-6">
+            <Link href="/" className="hover:text-slate-900 transition-colors">
               Home
             </Link>
             <span>/</span>
-            <Link href="/services" className="hover:text-white transition-colors">
+            <Link href="/services" className="hover:text-slate-900 transition-colors">
               Services
             </Link>
             <span>/</span>
-            <span className="text-blue-400 font-medium">{service.title}</span>
+            <span className="text-blue-600 font-medium">{service.title}</span>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-8 space-y-6">
-              <span className="text-xs font-bold uppercase tracking-wider text-blue-400 bg-blue-500/10 border border-blue-500/20 px-3.5 py-1.5 rounded-full inline-block">
+              <span className="text-xs font-bold uppercase tracking-wider text-blue-700 bg-blue-50 border border-blue-200 px-3.5 py-1.5 rounded-full inline-block">
                 {service.category} Practice
               </span>
-              <h1 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
+              <h1 className="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
                 {service.title}
               </h1>
-              <p className="text-base sm:text-xl text-slate-300 leading-relaxed font-normal max-w-3xl">
+              <p className="text-base sm:text-xl text-slate-600 leading-relaxed font-normal max-w-3xl">
                 {service.summary}
               </p>
 
               <div className="flex flex-wrap items-center gap-4 pt-4">
                 <a
                   href="#enquiry-form"
-                  className="bg-blue-600 hover:bg-blue-500 text-white font-bold px-6 py-3.5 rounded-xl shadow-lg shadow-blue-900/30 transition-all flex items-center space-x-2 text-sm"
+                  className="bg-blue-600 hover:bg-blue-700 text-white font-bold px-6 py-3.5 rounded-xl shadow-md shadow-blue-600/20 transition-all flex items-center space-x-2 text-sm"
                 >
                   <span>Discuss Your Project</span>
                   <ArrowRight className="w-4 h-4" />
                 </a>
                 <a
                   href="#scope-deliverables"
-                  className="bg-white/5 hover:bg-white/10 border border-white/10 text-slate-300 hover:text-white font-semibold px-5 py-3.5 rounded-xl transition-all text-sm"
+                  className="bg-white hover:bg-slate-50 border border-slate-300 text-slate-700 hover:text-slate-900 font-semibold px-5 py-3.5 rounded-xl transition-all text-sm shadow-sm"
                 >
                   View Deliverables & Scope
                 </a>
@@ -121,22 +121,22 @@ export default async function ServiceDetailPage({ params }: PageProps) {
             </div>
 
             {/* Quick Summary Badge Card */}
-            <div className="lg:col-span-4 hidden lg:block bg-white/5 backdrop-blur-md rounded-2xl p-6 border border-white/10 space-y-4">
-              <div className="flex items-center space-x-3 text-blue-400 font-bold text-sm">
+            <div className="lg:col-span-4 hidden lg:block bg-white/85 backdrop-blur-md rounded-2xl p-6 border border-slate-200 shadow-sm space-y-4">
+              <div className="flex items-center space-x-3 text-blue-700 font-bold text-sm">
                 <ShieldCheck className="w-5 h-5" />
                 <span>Enterprise Quality Guarantee</span>
               </div>
-              <ul className="space-y-3 text-xs text-slate-300">
+              <ul className="space-y-3 text-xs text-slate-600">
                 <li className="flex items-start space-x-2">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
                   <span>100% Intellectual Property & Source Code Ownership</span>
                 </li>
                 <li className="flex items-start space-x-2">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
                   <span>Production-Grade Architecture & Rigorous QA Testing</span>
                 </li>
                 <li className="flex items-start space-x-2">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
                   <span>Transparent Milestone-Based Delivery Plan</span>
                 </li>
               </ul>

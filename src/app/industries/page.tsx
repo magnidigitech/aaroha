@@ -45,25 +45,25 @@ export default function IndustriesPage() {
   return (
     <div className="bg-slate-50 min-h-screen pb-16">
       {/* Hero Banner */}
-      <section className="bg-[#050E2B] text-white py-16 sm:py-20 border-b border-white/10 relative overflow-hidden mb-12">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-blue-950/50 via-transparent to-transparent opacity-60" />
+      <section className="bg-gradient-to-br from-slate-50 via-blue-50/60 to-indigo-50/70 text-slate-900 py-16 sm:py-20 border-b border-slate-200 relative overflow-hidden mb-12">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-blue-200/30 via-transparent to-transparent opacity-60" />
         <div className="max-w-7xl 2xl:max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12 relative z-10">
-          <div className="flex items-center space-x-2 text-xs font-semibold text-slate-400 mb-4">
-            <Link href="/" className="hover:text-white transition-colors">
+          <div className="flex items-center space-x-2 text-xs font-semibold text-slate-500 mb-4">
+            <Link href="/" className="hover:text-slate-900 transition-colors">
               Home
             </Link>
             <span>/</span>
-            <span className="text-blue-400 font-medium">Industries</span>
+            <span className="text-blue-600 font-medium">Industries</span>
           </div>
 
           <div className="max-w-3xl space-y-4">
-            <span className="text-xs font-bold uppercase tracking-wider text-blue-400 bg-blue-500/10 border border-blue-500/20 px-3.5 py-1.5 rounded-full inline-block">
+            <span className="text-xs font-bold uppercase tracking-wider text-blue-700 bg-blue-50 border border-blue-200 px-3.5 py-1.5 rounded-full inline-block">
               Domain Expertise
             </span>
-            <h1 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
+            <h1 className="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
               Domain-Specific Software & Data Engineering
             </h1>
-            <p className="text-base sm:text-lg text-slate-300 leading-relaxed font-normal">
+            <p className="text-base sm:text-lg text-slate-600 leading-relaxed font-normal">
               Our engineering, cloud data, and application practices apply across core commercial sectors. Explore how we solve unique operational challenges for every industry.
             </p>
           </div>
@@ -161,20 +161,20 @@ export default function IndustriesPage() {
         </div>
 
         {/* CTA Banner */}
-        <div className="bg-[#050E2B] rounded-3xl p-8 sm:p-12 text-white text-center max-w-4xl mx-auto shadow-2xl relative overflow-hidden border border-white/10">
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-900/40 via-transparent to-transparent opacity-60" />
+        <div className="bg-gradient-to-br from-blue-50 via-white to-indigo-50/70 rounded-3xl p-8 sm:p-12 text-slate-900 text-center max-w-4xl mx-auto shadow-sm relative overflow-hidden border border-slate-200">
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-100/40 via-transparent to-transparent opacity-60" />
           <div className="relative z-10 space-y-4">
-            <span className="text-xs font-bold uppercase tracking-widest text-blue-400 bg-blue-500/10 border border-blue-500/20 px-3.5 py-1 rounded-full inline-block">
+            <span className="text-xs font-bold uppercase tracking-widest text-blue-700 bg-blue-50 border border-blue-200 px-3.5 py-1 rounded-full inline-block">
               Custom Engineering Scopes
             </span>
-            <h3 className="text-2xl sm:text-3xl font-extrabold text-white">Don't see your industry listed?</h3>
-            <p className="text-slate-300 text-sm max-w-xl mx-auto leading-relaxed">
+            <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900">Don't see your industry listed?</h3>
+            <p className="text-slate-600 text-sm max-w-xl mx-auto leading-relaxed">
               We work across diverse sectors beyond these — tell us about your technical goals and our engineering leads will design a custom solution.
             </p>
             <div className="pt-2">
               <Link
                 href="/contact"
-                className="inline-flex items-center space-x-2 px-6 py-3.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-sm shadow-lg shadow-blue-900/40 transition-all"
+                className="inline-flex items-center space-x-2 px-6 py-3.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm shadow-md shadow-blue-600/20 transition-all"
               >
                 <span>Discuss Your Project With Our Leads</span>
                 <ArrowRight className="w-4 h-4" />

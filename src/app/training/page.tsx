@@ -116,35 +116,35 @@ export default function TrainingPage() {
 
   return (
     <div className="bg-slate-50 min-h-screen pb-20 font-sans">
-      {/* 1. Hero Section - Matching Header Dark Navy Palette */}
-      <section className="bg-[#050E2B] text-white pt-14 sm:pt-20 lg:pt-24 pb-16 sm:pb-20 border-b border-white/10 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-blue-950/50 via-transparent to-transparent opacity-60" />
+      {/* 1. Hero Section - Subtle Light Slate-Blue Palette */}
+      <section className="bg-gradient-to-br from-slate-50 via-blue-50/60 to-indigo-50/70 text-slate-900 pt-14 sm:pt-20 lg:pt-24 pb-16 sm:pb-20 border-b border-slate-200 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-blue-200/30 via-transparent to-transparent opacity-60" />
         <div className="max-w-7xl 2xl:max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12 relative z-10">
-          <div className="flex items-center space-x-2 text-xs font-semibold text-slate-400 mb-6">
-            <Link href="/" className="hover:text-white transition-colors">
+          <div className="flex items-center space-x-2 text-xs font-semibold text-slate-500 mb-6">
+            <Link href="/" className="hover:text-slate-900 transition-colors">
               Home
             </Link>
             <span>/</span>
-            <span className="text-blue-400 font-medium">Training Programs</span>
+            <span className="text-blue-600 font-medium">Training Programs</span>
           </div>
 
           <div className="max-w-3xl space-y-6">
-            <span className="text-xs font-bold uppercase tracking-wider text-blue-400 bg-blue-500/10 border border-blue-500/20 px-3.5 py-1.5 rounded-full inline-block">
+            <span className="text-xs font-bold uppercase tracking-wider text-blue-700 bg-blue-50 border border-blue-200 px-3.5 py-1.5 rounded-full inline-block">
               AAROHA Engineering Academy
             </span>
 
-            <h1 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
+            <h1 className="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
               Build practical technology skills through guided projects.
             </h1>
 
-            <p className="text-base sm:text-lg text-slate-300 leading-relaxed">
+            <p className="text-base sm:text-lg text-slate-600 leading-relaxed">
               Master high-demand Cloud Data, Software Engineering, AI & SAP skills. Taught by senior engineering mentors with module exercises, simulated business projects, and transparent placement guidance.
             </p>
 
             <div className="flex flex-wrap items-center gap-4 pt-2">
               <a
                 href="#courses"
-                className="bg-blue-600 hover:bg-blue-500 text-white font-bold px-6 py-3.5 rounded-xl shadow-lg shadow-blue-900/40 transition-all flex items-center space-x-2 text-sm"
+                className="bg-blue-600 hover:bg-blue-700 text-white font-bold px-6 py-3.5 rounded-xl shadow-md shadow-blue-600/20 transition-all flex items-center space-x-2 text-sm"
               >
                 <span>Explore All Programs ({TRAINING_COURSES.length})</span>
                 <ArrowRight className="w-4 h-4" />
@@ -152,9 +152,9 @@ export default function TrainingPage() {
 
               <a
                 href="#upcoming-spotlight"
-                className="bg-gradient-to-r from-cyan-500/20 to-blue-600/20 hover:from-cyan-500/30 hover:to-blue-600/30 text-cyan-300 font-semibold px-6 py-3.5 rounded-xl border border-cyan-400/30 transition-all text-sm flex items-center space-x-2"
+                className="bg-white hover:bg-cyan-50 text-cyan-700 font-semibold px-6 py-3.5 rounded-xl border border-cyan-300 shadow-sm transition-all text-sm flex items-center space-x-2"
               >
-                <Sparkles className="w-4 h-4 text-cyan-400" />
+                <Sparkles className="w-4 h-4 text-cyan-600" />
                 <span>View 5 Upcoming Courses</span>
               </a>
             </div>
@@ -164,23 +164,23 @@ export default function TrainingPage() {
 
       <div className="max-w-7xl 2xl:max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12 space-y-20 pt-8">
         {/* Spotlight Banner for Upcoming Courses */}
-        <div id="upcoming-spotlight" className="scroll-mt-28 bg-gradient-to-br from-[#050E2B] via-[#0A1F52] to-[#050E2B] rounded-3xl p-8 sm:p-10 border border-blue-500/30 shadow-2xl relative overflow-hidden text-white">
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 pb-6 border-b border-white/10">
+        <div id="upcoming-spotlight" className="scroll-mt-28 bg-gradient-to-br from-blue-50 via-white to-cyan-50/70 rounded-3xl p-8 sm:p-10 border border-blue-200/80 shadow-sm relative overflow-hidden text-slate-900">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 pb-6 border-b border-slate-200">
             <div>
-              <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-cyan-500/20 border border-cyan-400/30 text-cyan-300 text-xs font-bold uppercase tracking-wider mb-2">
-                <Sparkles className="w-3.5 h-3.5 text-cyan-400" />
+              <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-cyan-50 border border-cyan-200 text-cyan-700 text-xs font-bold uppercase tracking-wider mb-2">
+                <Sparkles className="w-3.5 h-3.5 text-cyan-600" />
                 <span>Launching Next Cohort</span>
               </div>
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-white">
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
                 Upcoming Elite Technology Programs
               </h2>
-              <p className="text-slate-300 text-sm mt-1 max-w-2xl">
+              <p className="text-slate-600 text-sm mt-1 max-w-2xl">
                 Pre-register now to reserve your seat in our next batches with early-bird scholarships and direct mentor onboarding.
               </p>
             </div>
             <Link
               href="/training/register"
-              className="inline-flex items-center justify-center space-x-2 px-6 py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-bold text-sm shadow-lg shadow-cyan-500/25 transition-all shrink-0"
+              className="inline-flex items-center justify-center space-x-2 px-6 py-3 rounded-xl bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 text-white font-bold text-sm shadow-md shadow-blue-600/20 transition-all shrink-0"
             >
               <span>Pre-Register for Next Batch</span>
               <ArrowRight className="w-4 h-4" />
@@ -192,20 +192,20 @@ export default function TrainingPage() {
               <Link
                 key={course.slug}
                 href={`/training/${course.slug}`}
-                className="bg-white/5 hover:bg-white/10 border border-white/10 hover:border-cyan-400/50 rounded-2xl p-4.5 transition-all group flex flex-col justify-between space-y-3"
+                className="bg-white hover:bg-blue-50/40 border border-slate-200 hover:border-blue-400 rounded-2xl p-4.5 transition-all group flex flex-col justify-between space-y-3 shadow-xs"
               >
                 <div>
-                  <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-cyan-500/20 text-cyan-300 border border-cyan-400/30 inline-block mb-2">
+                  <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-cyan-50 text-cyan-700 border border-cyan-200 inline-block mb-2">
                     Upcoming
                   </span>
-                  <h3 className="font-bold text-white text-sm group-hover:text-cyan-300 transition-colors line-clamp-2">
+                  <h3 className="font-bold text-slate-900 text-sm group-hover:text-blue-700 transition-colors line-clamp-2">
                     {course.title}
                   </h3>
-                  <p className="text-slate-400 text-xs mt-1.5 line-clamp-2">
+                  <p className="text-slate-600 text-xs mt-1.5 line-clamp-2">
                     {course.summary}
                   </p>
                 </div>
-                <div className="flex items-center justify-between text-[11px] text-amber-300 font-semibold pt-2 border-t border-white/10">
+                <div className="flex items-center justify-between text-[11px] text-amber-700 font-semibold pt-2 border-t border-slate-100">
                   <span>{course.duration}</span>
                   <span className="flex items-center space-x-1 group-hover:translate-x-1 transition-transform">
                     <span>Curriculum Soon</span>
@@ -450,15 +450,15 @@ export default function TrainingPage() {
         </div>
 
         {/* 5. How Learning Works — 5-Step Methodology */}
-        <div className="bg-[#050E2B] text-white rounded-3xl p-8 sm:p-12 shadow-2xl relative overflow-hidden space-y-8">
+        <div className="bg-gradient-to-br from-slate-50 via-blue-50/50 to-indigo-50/70 text-slate-900 border border-slate-200 rounded-3xl p-8 sm:p-12 shadow-sm relative overflow-hidden space-y-8">
           <div>
-            <span className="text-xs font-bold uppercase tracking-widest text-blue-400 bg-blue-500/10 border border-blue-500/20 px-3.5 py-1 rounded-full inline-block mb-3">
+            <span className="text-xs font-bold uppercase tracking-widest text-blue-700 bg-blue-50 border border-blue-200 px-3.5 py-1 rounded-full inline-block mb-3">
               The AAROHA Learning Methodology
             </span>
-            <h2 className="text-2xl sm:text-4xl font-extrabold tracking-tight">
+            <h2 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-slate-900">
               How Learning & Practice Work
             </h2>
-            <p className="text-slate-300 text-sm mt-2 max-w-2xl leading-relaxed">
+            <p className="text-slate-600 text-sm mt-2 max-w-2xl leading-relaxed">
               Every course combines interactive live instruction, hands-on lab exercises, simulated enterprise capstones, and line-by-line mentor reviews.
             </p>
           </div>
@@ -467,13 +467,13 @@ export default function TrainingPage() {
             {AAROHA_PROGRAM_STEPS.map((step) => (
               <div
                 key={step.step}
-                className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-5 space-y-3"
+                className="bg-white border border-slate-200 rounded-2xl p-5 space-y-3 shadow-xs"
               >
-                <div className="w-9 h-9 rounded-full bg-blue-600 text-white font-extrabold text-sm flex items-center justify-center shadow-md">
+                <div className="w-9 h-9 rounded-full bg-blue-600 text-white font-extrabold text-sm flex items-center justify-center shadow-sm">
                   0{step.step}
                 </div>
-                <h3 className="text-sm font-bold text-white">{step.title}</h3>
-                <p className="text-xs text-slate-300 leading-relaxed">{step.description}</p>
+                <h3 className="text-sm font-bold text-slate-900">{step.title}</h3>
+                <p className="text-xs text-slate-600 leading-relaxed">{step.description}</p>
               </div>
             ))}
           </div>

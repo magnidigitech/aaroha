@@ -74,8 +74,8 @@ export const Header: React.FC = () => {
     <header
       className={`sticky top-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-[#050E2B]/95 backdrop-blur-md shadow-lg border-b border-white/10 py-3"
-          : "bg-[#050E2B] border-b border-white/10 py-4"
+          ? "bg-white/95 backdrop-blur-md shadow-sm border-b border-slate-200/80 py-3"
+          : "bg-white border-b border-slate-200/80 py-4"
       }`}
     >
       <div className="max-w-7xl 2xl:max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12 relative">
@@ -85,7 +85,7 @@ export const Header: React.FC = () => {
             {/* Brand Logo */}
             <Link href="/" className="flex items-center group shrink-0">
             <Image
-              src="/assets/aaroha-logo-dark.png"
+              src="/assets/aaroha-logo-transparent.png"
               alt="AAROHA Technologies — Powered by J2D"
               width={240}
               height={55}
@@ -99,7 +99,7 @@ export const Header: React.FC = () => {
             <Link
               href="/"
               className={`px-3.5 py-2 rounded-lg text-sm font-medium transition-colors ${
-                pathname === "/" ? "text-white bg-white/10" : "text-slate-300 hover:text-white hover:bg-white/5"
+                pathname === "/" ? "text-blue-700 bg-blue-50" : "text-slate-600 hover:text-slate-900 hover:bg-slate-100"
               }`}
             >
               Home
@@ -115,8 +115,8 @@ export const Header: React.FC = () => {
                 type="button"
                 className={`flex items-center space-x-1 px-3.5 py-2 rounded-lg text-sm font-medium transition-colors ${
                   pathname.startsWith("/services") || servicesOpen
-                    ? "text-white bg-white/10"
-                    : "text-slate-300 hover:text-white hover:bg-white/5"
+                    ? "text-blue-700 bg-blue-50"
+                    : "text-slate-600 hover:text-slate-900 hover:bg-slate-100"
                 }`}
                 onClick={() => setServicesOpen(!servicesOpen)}
               >
@@ -259,8 +259,8 @@ export const Header: React.FC = () => {
                 type="button"
                 className={`flex items-center space-x-1 px-3.5 py-2 rounded-lg text-sm font-medium transition-colors ${
                   pathname.startsWith("/training") || trainingOpen
-                    ? "text-white bg-white/10"
-                    : "text-slate-300 hover:text-white hover:bg-white/5"
+                    ? "text-blue-700 bg-blue-50"
+                    : "text-slate-600 hover:text-slate-900 hover:bg-slate-100"
                 }`}
                 onClick={() => setTrainingOpen(!trainingOpen)}
               >
@@ -403,7 +403,7 @@ export const Header: React.FC = () => {
             <Link
               href="/industries"
               className={`px-3.5 py-2 rounded-lg text-sm font-medium transition-colors ${
-                pathname === "/industries" ? "text-white bg-white/10" : "text-slate-300 hover:text-white hover:bg-white/5"
+                pathname === "/industries" ? "text-blue-700 bg-blue-50" : "text-slate-600 hover:text-slate-900 hover:bg-slate-100"
               }`}
             >
               Industries
@@ -412,7 +412,7 @@ export const Header: React.FC = () => {
             <Link
               href="/about"
               className={`px-3.5 py-2 rounded-lg text-sm font-medium transition-colors ${
-                pathname === "/about" ? "text-white bg-white/10" : "text-slate-300 hover:text-white hover:bg-white/5"
+                pathname === "/about" ? "text-blue-700 bg-blue-50" : "text-slate-600 hover:text-slate-900 hover:bg-slate-100"
               }`}
             >
               About
@@ -421,7 +421,7 @@ export const Header: React.FC = () => {
             <Link
               href="/careers"
               className={`px-3.5 py-2 rounded-lg text-sm font-medium transition-colors ${
-                pathname === "/careers" ? "text-white bg-white/10" : "text-slate-300 hover:text-white hover:bg-white/5"
+                pathname === "/careers" ? "text-blue-700 bg-blue-50" : "text-slate-600 hover:text-slate-900 hover:bg-slate-100"
               }`}
             >
               Careers
@@ -430,7 +430,7 @@ export const Header: React.FC = () => {
             <Link
               href="/contact"
               className={`px-3.5 py-2 rounded-lg text-sm font-medium transition-colors ${
-                pathname === "/contact" ? "text-white bg-white/10" : "text-slate-300 hover:text-white hover:bg-white/5"
+                pathname === "/contact" ? "text-blue-700 bg-blue-50" : "text-slate-600 hover:text-slate-900 hover:bg-slate-100"
               }`}
             >
               Contact
@@ -459,7 +459,7 @@ export const Header: React.FC = () => {
           {/* Mobile Menu Button */}
           <button
             type="button"
-            className="lg:hidden p-2 rounded-lg text-slate-300 hover:text-white hover:bg-white/10"
+            className="lg:hidden p-2 rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-100"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle Navigation Menu"
           >
@@ -470,57 +470,57 @@ export const Header: React.FC = () => {
 
       {/* Mobile Drawer */}
       {isMobileMenuOpen && (
-        <div className="lg:hidden bg-[#0A1F52] border-b border-white/10 px-4 pt-4 pb-6 space-y-3 animate-in fade-in duration-200">
+        <div className="lg:hidden bg-white border-b border-slate-200 px-4 pt-4 pb-6 space-y-3 animate-in fade-in duration-200 shadow-lg">
           <Link
             href="/"
-            className="block px-3 py-2 rounded-lg text-base font-medium text-white hover:bg-white/10"
+            className="block px-3 py-2 rounded-lg text-base font-medium text-slate-700 hover:text-slate-900 hover:bg-slate-100"
           >
             Home
           </Link>
           <Link
             href="/services"
-            className="block px-3 py-2 rounded-lg text-base font-medium text-white hover:bg-white/10"
+            className="block px-3 py-2 rounded-lg text-base font-medium text-slate-700 hover:text-slate-900 hover:bg-slate-100"
           >
             All Services (30)
           </Link>
           <Link
             href="/training"
-            className="block px-3 py-2 rounded-lg text-base font-medium text-white hover:bg-white/10"
+            className="block px-3 py-2 rounded-lg text-base font-medium text-slate-700 hover:text-slate-900 hover:bg-slate-100"
           >
             Training & Courses
           </Link>
           <Link
             href="/industries"
-            className="block px-3 py-2 rounded-lg text-base font-medium text-white hover:bg-white/10"
+            className="block px-3 py-2 rounded-lg text-base font-medium text-slate-700 hover:text-slate-900 hover:bg-slate-100"
           >
             Industries
           </Link>
           <Link
             href="/about"
-            className="block px-3 py-2 rounded-lg text-base font-medium text-white hover:bg-white/10"
+            className="block px-3 py-2 rounded-lg text-base font-medium text-slate-700 hover:text-slate-900 hover:bg-slate-100"
           >
             About Us
           </Link>
           <Link
             href="/careers"
-            className="block px-3 py-2 rounded-lg text-base font-medium text-white hover:bg-white/10"
+            className="block px-3 py-2 rounded-lg text-base font-medium text-slate-700 hover:text-slate-900 hover:bg-slate-100"
           >
             Careers
           </Link>
           <Link
             href="/contact"
-            className="block px-3 py-2 rounded-lg text-base font-medium text-white hover:bg-white/10"
+            className="block px-3 py-2 rounded-lg text-base font-medium text-slate-700 hover:text-slate-900 hover:bg-slate-100"
           >
             Contact
           </Link>
           <Link
             href="/enquiry"
-            className="block px-3 py-2 rounded-lg text-base font-medium text-emerald-400 hover:bg-white/10"
+            className="block px-3 py-2 rounded-lg text-base font-medium text-emerald-600 hover:bg-slate-100"
           >
             Candidate Enquiry
           </Link>
 
-          <div className="pt-4 border-t border-white/10 flex flex-col space-y-2">
+          <div className="pt-4 border-t border-slate-200 flex flex-col space-y-2">
             <Link
               href="/register"
               className="w-full text-center py-2.5 rounded-lg bg-teal-500 text-white font-bold text-sm"
@@ -535,7 +535,7 @@ export const Header: React.FC = () => {
             </Link>
             <a
               href={`tel:${COMPANY_INFO.phones[0].raw}`}
-              className="w-full text-center py-2.5 rounded-lg border border-white/20 text-white font-medium text-sm"
+              className="w-full text-center py-2.5 rounded-lg border border-slate-300 text-slate-700 font-medium text-sm"
             >
               Call Us: {COMPANY_INFO.phones[0].display}
             </a>

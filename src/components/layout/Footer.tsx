@@ -15,43 +15,43 @@ export const Footer: React.FC = () => {
   }
 
   return (
-    <footer className="bg-[#050E2B] text-slate-300 pt-16 pb-12 border-t border-white/10">
+    <footer className="bg-slate-50 text-slate-600 pt-16 pb-12 border-t border-slate-200">
       <div className="max-w-7xl 2xl:max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-white/10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-slate-200">
           {/* Brand Info */}
           <div className="lg:col-span-2 space-y-4">
             <Link href="/" className="inline-block">
               <Image
-                src="/assets/aaroha-logo-dark.png"
+                src="/assets/aaroha-logo-transparent.png"
                 alt="AAROHA Technologies"
                 width={240}
                 height={55}
                 className="h-10 sm:h-12 w-auto object-contain"
               />
             </Link>
-            <p className="text-slate-400 text-sm max-w-sm leading-relaxed">
+            <p className="text-slate-600 text-sm max-w-sm leading-relaxed">
               Software, cloud, and data engineering solutions built for growing businesses — powered by J2D Technologies.
             </p>
             <div className="space-y-2 pt-2 text-sm">
               <div className="flex items-start space-x-2.5">
-                <MapPin className="w-4 h-4 text-blue-400 mt-1 shrink-0" />
-                <span className="text-slate-400">{COMPANY_INFO.address.full}</span>
+                <MapPin className="w-4 h-4 text-blue-600 mt-1 shrink-0" />
+                <span className="text-slate-600">{COMPANY_INFO.address.full}</span>
               </div>
               <div className="flex items-center space-x-2.5">
-                <Mail className="w-4 h-4 text-blue-400 shrink-0" />
-                <a href={`mailto:${COMPANY_INFO.email}`} className="text-slate-300 hover:text-white transition-colors">
+                <Mail className="w-4 h-4 text-blue-600 shrink-0" />
+                <a href={`mailto:${COMPANY_INFO.email}`} className="text-slate-700 hover:text-blue-700 transition-colors">
                   {COMPANY_INFO.email}
                 </a>
               </div>
               <div className="flex items-center space-x-2.5">
-                <Phone className="w-4 h-4 text-blue-400 shrink-0" />
+                <Phone className="w-4 h-4 text-blue-600 shrink-0" />
                 <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
                   {COMPANY_INFO.phones.map((p, idx) => (
                     <span key={idx} className="inline-flex items-center">
-                      <a href={`tel:${p.raw}`} className="text-slate-300 hover:text-white transition-colors">
+                      <a href={`tel:${p.raw}`} className="text-slate-700 hover:text-blue-700 transition-colors">
                         {p.display}
                       </a>
-                      {idx < COMPANY_INFO.phones.length - 1 && <span className="ml-2 text-slate-600">&middot;</span>}
+                      {idx < COMPANY_INFO.phones.length - 1 && <span className="ml-2 text-slate-400">&middot;</span>}
                     </span>
                   ))}
                 </div>
@@ -63,7 +63,7 @@ export const Footer: React.FC = () => {
                   href={COMPANY_INFO.socials.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2 rounded-lg bg-white/5 border border-white/10 text-slate-300 hover:text-[#38bdf8] hover:bg-white/10 transition-colors"
+                  className="p-2 rounded-lg bg-white border border-slate-200 text-slate-600 shadow-xs hover:text-[#38bdf8] hover:bg-slate-100 transition-colors"
                   title="LinkedIn"
                   aria-label="AAROHA Technologies on LinkedIn"
                 >
@@ -75,7 +75,7 @@ export const Footer: React.FC = () => {
                   href={COMPANY_INFO.socials.youtube}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2 rounded-lg bg-white/5 border border-white/10 text-slate-300 hover:text-[#f87171] hover:bg-white/10 transition-colors"
+                  className="p-2 rounded-lg bg-white border border-slate-200 text-slate-600 shadow-xs hover:text-[#f87171] hover:bg-slate-100 transition-colors"
                   title="YouTube"
                   aria-label="AAROHA Technologies on YouTube"
                 >
@@ -87,7 +87,7 @@ export const Footer: React.FC = () => {
                   href={COMPANY_INFO.socials.instagram}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2 rounded-lg bg-white/5 border border-white/10 text-slate-300 hover:text-[#f472b6] hover:bg-white/10 transition-colors"
+                  className="p-2 rounded-lg bg-white border border-slate-200 text-slate-600 shadow-xs hover:text-[#f472b6] hover:bg-slate-100 transition-colors"
                   title="Instagram"
                   aria-label="AAROHA Technologies on Instagram"
                 >
@@ -99,7 +99,7 @@ export const Footer: React.FC = () => {
                   href={COMPANY_INFO.socials.facebook}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2 rounded-lg bg-white/5 border border-white/10 text-slate-300 hover:text-[#60a5fa] hover:bg-white/10 transition-colors"
+                  className="p-2 rounded-lg bg-white border border-slate-200 text-slate-600 shadow-xs hover:text-[#60a5fa] hover:bg-slate-100 transition-colors"
                   title="Facebook"
                   aria-label="AAROHA Technologies on Facebook"
                 >
@@ -113,30 +113,30 @@ export const Footer: React.FC = () => {
 
           {/* Quick Links: Services */}
           <div>
-            <h4 className="text-white font-semibold text-base mb-4 tracking-wide">Core Services</h4>
-            <ul className="space-y-2 text-sm text-slate-400">
+            <h4 className="text-slate-900 font-semibold text-base mb-4 tracking-wide">Core Services</h4>
+            <ul className="space-y-2 text-sm text-slate-600">
               <li>
-                <Link href="/services/custom-software-development" className="hover:text-white transition-colors">
+                <Link href="/services/custom-software-development" className="hover:text-blue-700 transition-colors">
                   Custom Software Development
                 </Link>
               </li>
               <li>
-                <Link href="/services/saas-development" className="hover:text-white transition-colors">
+                <Link href="/services/saas-development" className="hover:text-blue-700 transition-colors">
                   SaaS Development
                 </Link>
               </li>
               <li>
-                <Link href="/services/cloud-data-engineering" className="hover:text-white transition-colors">
+                <Link href="/services/cloud-data-engineering" className="hover:text-blue-700 transition-colors">
                   Cloud & Data Engineering
                 </Link>
               </li>
               <li>
-                <Link href="/services/dedicated-development-team" className="hover:text-white transition-colors">
+                <Link href="/services/dedicated-development-team" className="hover:text-blue-700 transition-colors">
                   Staff Augmentation
                 </Link>
               </li>
               <li>
-                <Link href="/services/digital-transformation" className="hover:text-white transition-colors">
+                <Link href="/services/digital-transformation" className="hover:text-blue-700 transition-colors">
                   Digital Transformation
                 </Link>
               </li>
@@ -150,30 +150,30 @@ export const Footer: React.FC = () => {
 
           {/* Quick Links: Training */}
           <div>
-            <h4 className="text-white font-semibold text-base mb-4 tracking-wide">Training & Placement</h4>
-            <ul className="space-y-2 text-sm text-slate-400">
+            <h4 className="text-slate-900 font-semibold text-base mb-4 tracking-wide">Training & Placement</h4>
+            <ul className="space-y-2 text-sm text-slate-600">
               <li>
-                <Link href="/training/azure-data-engineer-genai" className="hover:text-white transition-colors">
+                <Link href="/training/azure-data-engineer-genai" className="hover:text-blue-700 transition-colors">
                   Azure Data Eng with GenAI
                 </Link>
               </li>
               <li>
-                <Link href="/training/azure-data-engineer" className="hover:text-white transition-colors">
+                <Link href="/training/azure-data-engineer" className="hover:text-blue-700 transition-colors">
                   Azure Data Engineer
                 </Link>
               </li>
               <li>
-                <Link href="/training/data-science-ml" className="hover:text-white transition-colors">
+                <Link href="/training/data-science-ml" className="hover:text-blue-700 transition-colors">
                   Data Science & Machine Learning
                 </Link>
               </li>
               <li>
-                <Link href="/training/python-full-stack" className="hover:text-white transition-colors">
+                <Link href="/training/python-full-stack" className="hover:text-blue-700 transition-colors">
                   Python Full Stack
                 </Link>
               </li>
               <li>
-                <Link href="/training/sap-abap" className="hover:text-white transition-colors">
+                <Link href="/training/sap-abap" className="hover:text-blue-700 transition-colors">
                   SAP ABAP Programming
                 </Link>
               </li>
@@ -192,25 +192,25 @@ export const Footer: React.FC = () => {
 
           {/* Quick Links: Company */}
           <div>
-            <h4 className="text-white font-semibold text-base mb-4 tracking-wide">Company</h4>
-            <ul className="space-y-2 text-sm text-slate-400">
+            <h4 className="text-slate-900 font-semibold text-base mb-4 tracking-wide">Company</h4>
+            <ul className="space-y-2 text-sm text-slate-600">
               <li>
-                <Link href="/about" className="hover:text-white transition-colors">
+                <Link href="/about" className="hover:text-blue-700 transition-colors">
                   About Us
                 </Link>
               </li>
               <li>
-                <Link href="/industries" className="hover:text-white transition-colors">
+                <Link href="/industries" className="hover:text-blue-700 transition-colors">
                   Industries We Serve
                 </Link>
               </li>
               <li>
-                <Link href="/careers" className="hover:text-white transition-colors">
+                <Link href="/careers" className="hover:text-blue-700 transition-colors">
                   Careers & Openings
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="hover:text-white transition-colors">
+                <Link href="/contact" className="hover:text-blue-700 transition-colors">
                   Contact Us
                 </Link>
               </li>
@@ -229,20 +229,20 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* Footer Bottom */}
-        <div className="pt-8 flex flex-col md:flex-row items-center justify-between text-xs text-slate-400 space-y-4 md:space-y-0">
+        <div className="pt-8 flex flex-col md:flex-row items-center justify-between text-xs text-slate-500 space-y-4 md:space-y-0">
           <div>
             © {new Date().getFullYear()} {COMPANY_INFO.name}. {COMPANY_INFO.poweredBy}. All rights reserved.
           </div>
           <div className="flex items-center space-x-4">
-            <Link href="/privacy" className="hover:text-slate-300">
+            <Link href="/privacy" className="hover:text-slate-800">
               Privacy Policy
             </Link>
             <span>·</span>
-            <Link href="/terms" className="hover:text-slate-300">
+            <Link href="/terms" className="hover:text-slate-800">
               Terms of Service
             </Link>
             <span>·</span>
-            <Link href="/sitemap.xml" className="hover:text-slate-300">
+            <Link href="/sitemap.xml" className="hover:text-slate-800">
               Sitemap
             </Link>
           </div>

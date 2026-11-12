@@ -63,21 +63,21 @@ export default function AboutPage() {
             </div>
           </div>
 
-          <div className="lg:col-span-5 bg-[#050E2B] text-white rounded-3xl p-8 sm:p-10 shadow-xl space-y-6">
-            <h3 className="text-xl font-bold">Location & Office</h3>
-            <p className="text-slate-300 text-sm leading-relaxed">
+          <div className="lg:col-span-5 bg-gradient-to-br from-blue-50 via-white to-indigo-50/70 text-slate-900 border border-slate-200 rounded-3xl p-8 sm:p-10 shadow-sm space-y-6">
+            <h3 className="text-xl font-bold text-slate-900">Location & Office</h3>
+            <p className="text-slate-600 text-sm leading-relaxed">
               Our engineering office and training center is located in the tech hub of Madhapur, Hyderabad.
             </p>
-            <div className="space-y-3 pt-2 text-xs text-slate-300">
+            <div className="space-y-3 pt-2 text-xs text-slate-700">
               <div className="flex items-start space-x-2.5">
-                <MapPin className="w-4 h-4 text-blue-400 shrink-0 mt-0.5" />
+                <MapPin className="w-4 h-4 text-blue-600 shrink-0 mt-0.5" />
                 <span>{COMPANY_INFO.address.full}</span>
               </div>
             </div>
             <div className="pt-4">
               <Link
                 href="/contact"
-                className="w-full py-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold text-sm transition-all flex items-center justify-center space-x-2"
+                className="w-full py-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-semibold text-sm transition-all flex items-center justify-center space-x-2 shadow-sm"
               >
                 <span>Contact Our Office</span>
                 <ArrowRight className="w-4 h-4" />
